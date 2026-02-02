@@ -605,6 +605,23 @@ body {
     display: flex;
   }
 }
+/* =========================
+   HEADER FIJO EN MÓVIL
+   ========================= */
+@media (max-width: 768px) {
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  body {
+    padding-top: 90px; /* espacio para el header */
+  }
+}
+
 
 
 
