@@ -543,5 +543,68 @@ body {
     align-items: center;
   }
 }
+/* =========================
+   MENÚ HAMBURGUESA – MÓVIL (FIX DEFINITIVO)
+   ========================= */
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 2.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-contenido {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    width: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 15px 0;
+    margin-top: 10px;
+    border-top: 1px solid #eaeaea;
+  }
+
+  .menu a {
+    font-size: 1.05rem;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu .btn-menu {
+    margin-top: 10px;
+  }
+
+  .menu.activo {
+    display: flex;
+  }
+}
+
 
 
