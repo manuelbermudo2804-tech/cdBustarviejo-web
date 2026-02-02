@@ -501,4 +501,47 @@ body {
     font-size: 1rem;
   }
 }
+/* =========================
+   MENÚ HAMBURGUESA – MÓVIL
+   ========================= */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px 0;
+    border-top: 1px solid #eaeaea;
+  }
+
+  .menu a {
+    padding: 12px 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .menu.activo {
+    display: flex;
+  }
+
+  .header-contenido {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
