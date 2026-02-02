@@ -376,3 +376,47 @@ body {
   }
 
 }
+
+/* =========================
+   MÓVIL VERTICAL – PRIORIDAD LECTURA
+   ========================= */
+@media (max-width: 480px) and (orientation: portrait) {
+
+  body {
+    font-size: 22px;
+    line-height: 1.85;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .subtitulo {
+    font-size: 1.35rem;
+  }
+
+  .menu a {
+    font-size: 1rem;
+  }
+
+  .bloque-texto {
+    padding: 28px;
+  }
+
+  .bloque-texto h2 {
+    font-size: 2.1rem;
+  }
+
+  .bloque-texto p {
+    font-size: 1.15rem;
+  }
+
+  .acceso span {
+    font-size: 1.1rem;
+  }
+
+  .lista-documentos a {
+    font-size: 1.1rem;
+  }
+
+}
