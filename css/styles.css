@@ -402,4 +402,28 @@ body {
   width: 26px;
   height: 26px;
 }
+/* =========================
+   REDES HERO – MUY VISIBLES
+   ========================= */
+
+.redes-hero {
+  margin-top: 15px;
+}
+
+.redes-hero a {
+  width: 60px;
+  height: 60px;
+  background: #f57c00;
+}
+
+.redes-hero svg {
+  width: 28px;
+  height: 28px;
+  fill: #000;
+}
+
+.redes-hero a:hover {
+  transform: scale(1.15);
+}
+
 
