@@ -8,6 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('activo');
+  });
+</script>
 
 <body>
 
@@ -143,6 +151,7 @@
 
 </body>
 </html>
+
 
 
 
