@@ -380,3 +380,26 @@ body {
   font-size: 0.8rem;
   color: #aaa;
 }
+/* =========================
+   REDES HERO – MÁS VISIBLES
+   ========================= */
+
+.redes-hero {
+  margin-top: 35px;
+}
+
+.redes-hero a {
+  width: 54px;
+  height: 54px;
+  background: rgba(255,255,255,0.25);
+}
+
+.redes-hero a:hover {
+  background: rgba(255,255,255,0.45);
+}
+
+.redes-hero svg {
+  width: 26px;
+  height: 26px;
+}
+
