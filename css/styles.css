@@ -7,11 +7,13 @@
 
 body {
   margin: 0;
-  padding-top: 70px; /* espacio para header fijo */
+  padding-top: 70px;
   font-family: 'Montserrat', Arial, sans-serif;
   color: #222;
   background: #fff;
+  font-size: 16px; /* BASE LEGIBLE */
 }
+
 
 /* =========================
    HEADER FIJO
@@ -424,6 +426,67 @@ body {
 
 .redes-hero a:hover {
   transform: scale(1.15);
+}
+
+/* =========================
+   AJUSTES MÓVIL
+   ========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 17px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .subtitulo {
+    font-size: 1.1rem;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+  }
+
+  .bloque-texto {
+    padding: 24px;
+  }
+
+  .bloque-texto h2 {
+    font-size: 1.6rem;
+  }
+
+  .bloque-texto p {
+    font-size: 1rem;
+  }
+
+  .acceso span {
+    font-size: 1rem;
+  }
+
+}
+/* =========================
+   PATROCINADORES – MÓVIL
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .pagina-patrocinadores .patrocinador {
+    width: 220px;
+    height: 140px;
+  }
+
+  .pagina-patrocinadores .logo-patrocinador {
+    max-width: 180px;
+    max-height: 110px;
+  }
+
 }
 
 
