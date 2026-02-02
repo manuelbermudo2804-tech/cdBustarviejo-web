@@ -9,6 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+      });
+    }
+  });
+</script>
+
 <body class="pagina-patrocinadores">
 
 
@@ -220,4 +233,5 @@
 </footer>
 </body>
 </html>
+
 
