@@ -420,3 +420,48 @@ body {
   }
 
 }
+
+/* =========================
+   AJUSTES SOLO PARA MÓVIL
+   ========================= */
+@media (max-width: 768px) {
+
+  /* HERO más bajo */
+  .hero {
+    min-height: 65vh;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .subtitulo {
+    font-size: 1rem;
+  }
+
+  /* Botones más grandes */
+  .botones-hero .btn {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  /* Redes más visibles */
+  .redes-hero a {
+    width: 52px;
+    height: 52px;
+  }
+
+  .redes-hero svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Accesos rápidos en columna */
+  .accesos-rapidos {
+    grid-template-columns: 1fr;
+  }
+
+  .acceso {
+    font-size: 1.05rem;
+  }
+}
