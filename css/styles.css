@@ -465,3 +465,40 @@ body {
     font-size: 1.05rem;
   }
 }
+/* =========================
+   MEJORA TIPOGRAFÍA EN MÓVIL
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p,
+  li,
+  a {
+    font-size: 1.05rem;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
+}
+
