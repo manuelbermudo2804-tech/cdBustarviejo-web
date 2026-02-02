@@ -1,5 +1,5 @@
 /* =========================
-   RESET BÁSICO
+   RESET
    ========================= */
 * {
   box-sizing: border-box;
@@ -7,13 +7,15 @@
 
 body {
   margin: 0;
-  padding-top: 70px;
+  padding-top: 80px;
   font-family: 'Montserrat', Arial, sans-serif;
   color: #222;
   background: #fff;
-  font-size: 16px; /* BASE LEGIBLE */
-}
 
+  /* 👇 BASE GRANDE Y CÓMODA */
+  font-size: 19px;
+  line-height: 1.8;
+}
 
 /* =========================
    HEADER FIJO
@@ -26,13 +28,13 @@ body {
   z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #eaeaea;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .header-contenido {
   max-width: 1200px;
   margin: auto;
-  padding: 12px 20px;
+  padding: 14px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,25 +43,26 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .logo img {
-  width: 40px;
+  width: 44px;
 }
 
 .menu {
   display: flex;
-  gap: 18px;
+  gap: 22px;
   align-items: center;
 }
 
 .menu a {
   text-decoration: none;
   color: #222;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   text-transform: uppercase;
 }
 
@@ -70,10 +73,10 @@ body {
 .btn-menu {
   background: #f57c00;
   color: #000;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 30px;
-  font-weight: 700;
-  font-size: 0.75rem;
+  font-weight: 800;
+  font-size: 0.85rem;
   text-decoration: none;
 }
 
@@ -87,7 +90,7 @@ body {
    ========================= */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 85vh;
   background-image: url("../img/fondo.jpg");
   background-size: cover;
   background-position: center;
@@ -100,7 +103,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.5);
 }
 
 .hero .contenido {
@@ -108,39 +111,41 @@ body {
   text-align: center;
   color: #fff;
   padding: 20px;
+  max-width: 800px;
 }
 
 .escudo-grande {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 180px;
+  margin-bottom: 25px;
 }
 
 .hero h1 {
-  font-size: 2.6rem;
-  margin-bottom: 10px;
+  font-size: 3.2rem;
+  margin-bottom: 15px;
 }
 
 .subtitulo {
-  font-size: 1.1rem;
-  opacity: 0.9;
+  font-size: 1.35rem;
+  opacity: 0.95;
 }
 
 /* =========================
    BOTONES HERO
    ========================= */
 .botones-hero {
-  margin-top: 30px;
+  margin-top: 35px;
   display: flex;
-  gap: 15px;
+  gap: 18px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 14px 26px;
-  border-radius: 6px;
+  padding: 16px 30px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1rem;
 }
 
 .btn.principal {
@@ -155,182 +160,152 @@ body {
 }
 
 /* =========================
-   REDES HERO
+   REDES HERO – VISIBLES
    ========================= */
 .redes-hero {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
 }
 
 .redes-hero a {
-  width: 46px;
-  height: 46px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+  background: #f57c00;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .2s ease;
+  transition: transform .2s ease;
 }
 
 .redes-hero a:hover {
-  background: rgba(255,255,255,0.35);
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .redes-hero svg {
-  width: 22px;
-  height: 22px;
-  fill: white;
+  width: 30px;
+  height: 30px;
+  fill: #000;
 }
 
 /* =========================
-   CABECERA DE PÁGINAS
+   CABECERA PÁGINAS
    ========================= */
 .cabecera-pagina {
   background: #f5f5f5;
-  padding: 50px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
 .cabecera-pagina h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
 }
 
 .cabecera-pagina p {
-  opacity: 0.8;
+  font-size: 1.15rem;
+  opacity: 0.9;
 }
 
 /* =========================
    CONTENIDO GENERAL
    ========================= */
 .contenido-mejorado {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 950px;
+  margin: 60px auto;
+  padding: 0 22px;
 }
 
 .bloque-texto {
   background: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  margin-bottom: 25px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07);
 }
 
 .bloque-texto h2 {
-  font-size: 1.9rem;
-  margin-bottom: 15px;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
 }
 
 .bloque-texto p {
-  line-height: 1.7;
-  margin-bottom: 12px;
+  font-size: 1.15rem;
+  margin-bottom: 18px;
 }
 
 /* =========================
-   ACCESOS RÁPIDOS INDEX
+   ACCESOS RÁPIDOS
    ========================= */
 .accesos-rapidos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
 }
 
 .acceso {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 28px 20px;
+  padding: 34px 24px;
   background: #f5f5f5;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   color: #222;
-  font-weight: 700;
+  font-weight: 800;
+  text-align: center;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .acceso span {
-  margin-top: 10px;
-  font-size: 0.95rem;
+  display: block;
+  margin-top: 14px;
+  font-size: 1.05rem;
 }
 
 .acceso:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 /* =========================
-   PATROCINADORES
+   PATROCINADORES – MUY VISIBLES
    ========================= */
 .pagina-patrocinadores .patrocinadores-grid {
-  max-width: 1100px;
-  margin: 60px auto;
+  max-width: 1200px;
+  margin: 80px auto;
   padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 36px;
+  gap: 40px;
 }
 
 .pagina-patrocinadores .patrocinador {
-  width: 190px;
-  height: 120px;
+  width: 260px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .pagina-patrocinadores .logo-patrocinador {
-  max-width: 150px;
-  max-height: 90px;
+  max-width: 220px;
+  max-height: 130px;
   object-fit: contain;
 }
 
 /* =========================
-   CTA PATROCINIO
+   DOCUMENTOS
    ========================= */
-.cta-patrocinio {
-  max-width: 1100px;
-  margin: 80px auto 60px;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.cta-patrocinio p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-/* =========================
-   DOCUMENTOS DESCARGABLES
-   ========================= */
-.lista-documentos {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.lista-documentos li {
-  margin-bottom: 12px;
-}
-
 .lista-documentos a {
-  display: inline-block;
-  padding: 12px 16px;
+  display: block;
+  padding: 16px 20px;
   background: #f5f5f5;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: 700;
   text-decoration: none;
   color: #222;
-  font-weight: 600;
-  transition: background .2s ease;
-}
-
-.lista-documentos a:hover {
-  background: #eaeaea;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
 }
 
 /* =========================
@@ -338,155 +313,66 @@ body {
    ========================= */
 .footer {
   background: #111;
-  color: #fff;
-  padding: 40px 20px 20px;
+  color: #eee;
+  padding: 50px 20px 25px;
 }
 
 .footer-contenido {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
 }
 
 .footer-logo {
-  width: 60px;
-  margin-bottom: 10px;
+  width: 70px;
 }
 
 .footer-titulo {
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
 .footer-texto,
 .footer a {
   color: #ccc;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 8px;
 }
 
 .footer-copy {
   text-align: center;
-  margin-top: 30px;
-  font-size: 0.8rem;
-  color: #aaa;
-}
-/* =========================
-   REDES HERO – MÁS VISIBLES
-   ========================= */
-
-.redes-hero {
   margin-top: 35px;
-}
-
-.redes-hero a {
-  width: 54px;
-  height: 54px;
-  background: rgba(255,255,255,0.25);
-}
-
-.redes-hero a:hover {
-  background: rgba(255,255,255,0.45);
-}
-
-.redes-hero svg {
-  width: 26px;
-  height: 26px;
-}
-/* =========================
-   REDES HERO – MUY VISIBLES
-   ========================= */
-
-.redes-hero {
-  margin-top: 15px;
-}
-
-.redes-hero a {
-  width: 60px;
-  height: 60px;
-  background: #f57c00;
-}
-
-.redes-hero svg {
-  width: 28px;
-  height: 28px;
-  fill: #000;
-}
-
-.redes-hero a:hover {
-  transform: scale(1.15);
+  font-size: 0.9rem;
+  color: #aaa;
 }
 
 /* =========================
    AJUSTES MÓVIL
    ========================= */
-
 @media (max-width: 768px) {
 
   body {
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .hero h1 {
-    font-size: 2.1rem;
+    font-size: 2.4rem;
   }
 
-  .subtitulo {
-    font-size: 1.1rem;
+  .escudo-grande {
+    width: 150px;
   }
-
-  .menu {
-    gap: 12px;
-  }
-
-  .menu a {
-    font-size: 0.85rem;
-  }
-
-  .bloque-texto {
-    padding: 24px;
-  }
-
-  .bloque-texto h2 {
-    font-size: 1.6rem;
-  }
-
-  .bloque-texto p {
-    font-size: 1rem;
-  }
-
-  .acceso span {
-    font-size: 1rem;
-  }
-
-}
-/* =========================
-   PATROCINADORES – MÓVIL
-   ========================= */
-
-@media (max-width: 768px) {
 
   .pagina-patrocinadores .patrocinador {
-    width: 220px;
-    height: 140px;
+    width: 300px;
+    height: 180px;
   }
 
   .pagina-patrocinadores .logo-patrocinador {
-    max-width: 180px;
-    max-height: 110px;
+    max-width: 250px;
+    max-height: 150px;
   }
 
 }
-
-
