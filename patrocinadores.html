@@ -53,66 +53,7 @@
 </section>
 
 <main class="patrocinadores-grid">
-  <!-- AQUÍ VAN TODOS LOS LOGOS, NO LOS TOCO -->
- <div class="patrocinador">
-    <a href="https://www.alfergestion.com/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/alfergestion.png" alt="Alfer Gestión">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://allforpets.es/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/allforpets.png" alt="All For Pets">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/animaraida-pq_orig.png" alt="Animaraida">
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://www.facebook.com/elcajondelena/?locale=es_LA" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/cajon-pq_orig.png" alt="El Cajón de Elena">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://www.facebook.com/p/La-casona-100063762693953/?locale=es_ES" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/casona.jpg" alt="La Casona">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/coli_orig.jpg" alt="Coli">
-  </div>
-
-  <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/dia-copia_orig.jpg" alt="Supermercados DIA">
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://es.restaurantguru.com/La-Estrella-Bustarviejo" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/estrella.png" alt="Bar La Estrella">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://www.farmacias.es/madrid/bustarviejo/maria-sagrario-vinuales-garcia-12195" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/farmacia-pq_orig.png" alt="Farmacia María Sagrario Viñuales García">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://www.cadena88.com/es/ferrebustar" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/ferreteria-pq_orig.png" alt="Ferretería Bustarviejo">
-    </a>
-  </div>
-
-  <div class="patrocinador">
-    <a href="https://www.facebook.com/people/El-Garaje-Bar/100057036416347/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/garaje_orig.jpg" alt="El Garaje Bar">
-    </a>
-  </div>
+</div>
 
   <div class="patrocinador">
     <a href="https://www.gestionnavacerrada.es/" target="_blank">
@@ -179,7 +120,7 @@
   <div class="patrocinador">
     <img class="logo-patrocinador" src="img/logos/unide_orig.jpg" alt="Unide">
   </div>
-  
+
 </main>
 
 <!-- CTA SOLO DESKTOP (ABAJO) -->
@@ -189,14 +130,12 @@
     Contacta con nosotros
   </a>
 </section>
-  </section>
-
 
 <footer class="footer">
   <div class="footer-contenido">
 
     <div class="footer-col">
-      <img src="img/escudo.png" class="footer-logo">
+      <img src="img/escudo.png" class="footer-logo" alt="Escudo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
@@ -210,7 +149,6 @@
         <li><a href="patrocinadores.html">Patrocinadores</a></li>
         <li><a href="aviso-legal.html">Aviso Legal</a></li>
         <li><a href="privacidad.html">Política de Privacidad</a></li>
-
       </ul>
     </div>
 
@@ -228,6 +166,20 @@
     © 1989–2026 · C.D. Bustarviejo · Todos los derechos reservados
   </div>
 </footer>
+
+<!-- SCRIPT MENÚ HAMBURGUESA -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
