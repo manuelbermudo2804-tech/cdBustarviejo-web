@@ -9,18 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('activo');
-      });
-    }
-  });
-</script>
 
 <body>
 
@@ -41,9 +29,9 @@
       <a href="patrocinadores.html">Patrocinadores</a>
       <a href="tienda.html">Tienda</a>
       <a href="comunicados.html">Comunicados</a>
+      <a href="area-interna.html">Área interna</a>
+
       <a class="btn-menu" target="_blank"
-       <a href="area-interna.html">Área interna</a>
- 
          href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
         Hazte socio
       </a>
@@ -51,7 +39,6 @@
 
   </div>
 </header>
-
 
 <section class="cabecera-pagina">
   <h1>El Club</h1>
@@ -90,9 +77,7 @@
       Uno de los pilares fundamentales del C.D. Bustarviejo es el
       <strong>ejemplo entre generaciones</strong>. Las y los más pequeños aprenden no solo
       de entrenadores y entrenadoras, sino también del comportamiento, el respeto y el
-      compromiso que ven en quienes llevan más años en el club. Por eso, al final de cada
-      temporada, lo verdaderamente importante es que madres, padres, familiares y miembros
-      del club puedan sentirse orgullosos de cada participante, dentro y fuera del campo.
+      compromiso que ven en quienes llevan más años en el club.
     </p>
 
     <p>
@@ -104,38 +89,28 @@
     <p>
       El Club Deportivo Bustarviejo es, además, <strong>parte activa del pueblo</strong>.
       Un punto de encuentro, de participación y de vida social. Un club no se construye
-      solo con equipos y entrenamientos, sino con la implicación de las familias, de las
-      personas voluntarias y de todas aquellas que, de una u otra forma, aportan su granito
-      de arena. Porque un club sin familias, sencillamente, no es un club.
-    </p>
-
-    <p>
-      Por todo ello, os animamos a conocernos, a probar en cualquiera de las categorías del
-      club, a participar en las actividades que organizamos y, sobre todo, a sentiros parte
-      de este proyecto común.
+      solo con equipos y entrenamientos, sino con la implicación de las familias.
     </p>
 
     <p>
       Desde aquí, y en nombre de toda la <strong>Junta Directiva</strong>, queremos agradecer
-      sinceramente cada gesto, cada ayuda y cada muestra de apoyo. Porque el Club Deportivo
-      Bustarviejo no sería lo mismo sin ti.
+      sinceramente cada gesto, cada ayuda y cada muestra de apoyo.
     </p>
 
     <p><strong>Un fuerte abrazo.</strong></p>
   </section>
 
 </main>
+
 <footer class="footer">
   <div class="footer-contenido">
 
-    <!-- Identidad -->
     <div class="footer-col">
       <img src="img/escudo.png" alt="Escudo C.D. Bustarviejo" class="footer-logo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
 
-    <!-- Enlaces -->
     <div class="footer-col">
       <p class="footer-titulo">Enlaces</p>
       <ul class="footer-links">
@@ -143,24 +118,17 @@
         <li><a href="el-club.html">El Club</a></li>
         <li><a href="equipos.html">Equipos</a></li>
         <li><a href="patrocinadores.html">Patrocinadores</a></li>
-         <li><a href="aviso-legal.html">Aviso Legal</a></li>
-  <li><a href="privacidad.html">Política de Privacidad</a></li>
-        <li><a href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE" target="_blank">Hazte socio</a></li>
+        <li><a href="aviso-legal.html">Aviso Legal</a></li>
+        <li><a href="privacidad.html">Política de Privacidad</a></li>
       </ul>
     </div>
 
-    <!-- Contacto y redes -->
     <div class="footer-col">
       <p class="footer-titulo">Contacto</p>
       <p class="footer-texto">
         📧 <a href="mailto:cdbustarviejo@outlook.es">cdbustarviejo@outlook.es</a><br>
         📍 Bustarviejo (Madrid)
       </p>
-
-      <div class="footer-redes">
-        <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-        <a href="#" title="Facebook" aria-label="Facebook">📘</a>
-      </div>
     </div>
 
   </div>
@@ -169,10 +137,20 @@
     © 1989–2026 · C.D. Bustarviejo · Todos los derechos reservados
   </div>
 </footer>
+
+<!-- SCRIPT MENÚ HAMBURGUESA -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
