@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal · C.D. Bustarviejo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<section class="cabecera-pagina">
+  <h1>Aviso Legal</h1>
+</section>
+
+<section class="contenido-mejorado">
+  <section class="bloque-texto">
+
+    <h2>1. Titularidad del sitio web</h2>
+    <p>
+      En cumplimiento de lo dispuesto en la normativa vigente, se informa que el presente sitio web es titularidad de:
+    </p>
+    <ul>
+      <li><strong>Entidad:</strong> Club Deportivo Bustarviejo</li>
+      <li><strong>Año de fundación:</strong> 1989</li>
+      <li><strong>Domicilio:</strong> Bustarviejo (Madrid)</li>
+      <li><strong>Email de contacto:</strong> cdbustarviejo@outlook.es</li>
+    </ul>
+
+    <h2>2. Objeto del sitio web</h2>
+    <p>
+      El sitio web del C.D. Bustarviejo tiene como finalidad ofrecer información
+      institucional, deportiva y organizativa del club, así como facilitar el
+      acceso a servicios internos destinados exclusivamente a familias, jugadores,
+      entrenadores y personal autorizado.
+    </p>
+
+    <h2>3. Área interna y acceso restringido</h2>
+    <p>
+      El acceso al <strong>Área Interna / App privada</strong> del club está
+      estrictamente reservado a personas autorizadas por el C.D. Bustarviejo.
+    </p>
+    <p>
+      El intento de acceso por parte de personas ajenas al club, así como el uso
+      indebido de credenciales, suplantación de identidad o difusión de contenidos
+      internos, podrá dar lugar a responsabilidades legales.
+    </p>
+
+    <h2>4. Protección de menores</h2>
+    <p>
+      El C.D. Bustarviejo desarrolla gran parte de su actividad con menores de edad.
+      Cualquier uso indebido de información, imágenes, datos personales o contenidos
+      relacionados con menores será perseguido conforme a la legislación vigente.
+    </p>
+
+    <h2>5. Responsabilidad del usuario</h2>
+    <p>
+      El usuario se compromete a realizar un uso adecuado del sitio web y de sus
+      contenidos. Queda prohibido:
+    </p>
+    <ul>
+      <li>Acceder sin autorización a áreas privadas</li>
+      <li>Difundir información interna del club</li>
+      <li>Capturar, compartir o manipular contenidos relacionados con menores</li>
+      <li>Utilizar la web con fines ilícitos o dañinos</li>
+    </ul>
+
+    <h2>6. Legislación aplicable</h2>
+    <p>
+      El presente Aviso Legal se rige por la legislación española. Para cualquier
+      controversia, las partes se someterán a los juzgados y tribunales competentes.
+    </p>
+
+  </section>
+</section>
+
+</body>
+</html>
