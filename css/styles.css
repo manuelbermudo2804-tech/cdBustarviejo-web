@@ -683,6 +683,17 @@ body {
   }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;        /* más aire entre escudo y texto */
+  margin-right: 30px; /* separa el logo del menú */
+}
+
+.menu {
+  gap: 26px;        /* más espacio entre enlaces */
+}
+
 
 
 
