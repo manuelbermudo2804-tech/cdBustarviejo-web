@@ -3,24 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Patrocinadores · C.D. Bustarviejo</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('activo');
-      });
-    }
-  });
-</script>
 
 <body class="pagina-patrocinadores">
 
@@ -50,12 +37,12 @@
   </div>
 </header>
 
-
-
 <section class="cabecera-pagina">
   <h1>Patrocinadores</h1>
   <p>Agradecemos el apoyo de todas las entidades que hacen posible nuestro club.</p>
 </section>
+
+<!-- CTA SOLO MÓVIL (ARRIBA) -->
 <section class="cta-patrocinio cta-movil">
   <p>¿Quieres colaborar con el club?</p>
   <a href="mailto:cdbustarviejo@outlook.es" class="btn principal">
@@ -64,11 +51,8 @@
 </section>
 
 <main class="patrocinadores-grid">
-
-  <!-- TODOS LOS LOGOS USAN logo-patrocinador -->
-  <!-- LUEGO AÑADIMOS logo-grande o logo-cuadrado SOLO A LOS QUE FALLEN -->
-
-  <div class="patrocinador">
+  <!-- AQUÍ VAN TODOS LOS LOGOS, NO LOS TOCO -->
+ <div class="patrocinador">
     <a href="https://www.alfergestion.com/" target="_blank">
       <img class="logo-patrocinador" src="img/logos/alfergestion.png" alt="Alfer Gestión">
     </a>
@@ -193,16 +177,11 @@
   <div class="patrocinador">
     <img class="logo-patrocinador" src="img/logos/unide_orig.jpg" alt="Unide">
   </div>
-
+  
 </main>
 
-<section class="cta-patrocinio">
-  <p>¿Quieres colaborar con el club?</p>
-  <a href="mailto:cdbustarviejo@outlook.es" class="btn principal">
-    Contacta con nosotros
-  </a>
-</section>
-  <section class="cta-patrocinio cta-desktop">
+<!-- CTA SOLO DESKTOP (ABAJO) -->
+<section class="cta-patrocinio cta-desktop">
   <p>¿Quieres colaborar con el club?</p>
   <a href="mailto:cdbustarviejo@outlook.es" class="btn principal">
     Contacta con nosotros
@@ -211,50 +190,30 @@
 
 <footer class="footer">
   <div class="footer-contenido">
-
-    <!-- Identidad -->
     <div class="footer-col">
-      <img src="img/escudo.png" alt="Escudo C.D. Bustarviejo" class="footer-logo">
+      <img src="img/escudo.png" class="footer-logo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
-
-    <!-- Enlaces -->
-    <div class="footer-col">
-      <p class="footer-titulo">Enlaces</p>
-      <ul class="footer-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="el-club.html">El Club</a></li>
-        <li><a href="equipos.html">Equipos</a></li>
-        <li><a href="patrocinadores.html">Patrocinadores</a></li>
-        <li><a href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE" target="_blank">Hazte socio</a></li>
-      </ul>
-    </div>
-
-    <!-- Contacto y redes -->
-    <div class="footer-col">
-      <p class="footer-titulo">Contacto</p>
-      <p class="footer-texto">
-        📧 <a href="mailto:cdbustarviejo@outlook.es">cdbustarviejo@outlook.es</a><br>
-        📍 Bustarviejo (Madrid)
-      </p>
-
-      <div class="footer-redes">
-        <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-        <a href="#" title="Facebook" aria-label="Facebook">📘</a>
-      </div>
-    </div>
-
   </div>
 
   <div class="footer-copy">
     © 1989–2026 · C.D. Bustarviejo · Todos los derechos reservados
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
