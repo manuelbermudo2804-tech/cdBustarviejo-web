@@ -5,22 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>C.D. Bustarviejo</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('activo');
-      });
-    }
-  });
-</script>
-
 
 <body>
 
@@ -41,8 +29,7 @@
       <a href="patrocinadores.html">Patrocinadores</a>
       <a href="tienda.html">Tienda</a>
       <a href="comunicados.html">Comunicados</a>
-       <!-- 🔒 ZONA PRIVADA -->
-  <a href="area-interna.html">Área interna</a>
+      <a href="area-interna.html">Área interna</a>
       <a class="btn-menu" target="_blank"
          href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
         Hazte socio
@@ -51,7 +38,6 @@
 
   </div>
 </header>
-
 
 <!-- HERO -->
 <section class="hero">
@@ -70,9 +56,10 @@
         Nuevos jugadores
       </a>
     </div>
-<p style="margin-top:30px; font-weight:600; opacity:0.9;">
-  Síguenos en redes sociales
-</p>
+
+    <p style="margin-top:30px; font-weight:600; opacity:0.9;">
+      Síguenos en redes sociales
+    </p>
 
     <div class="redes-hero">
       <a href="https://www.facebook.com/cdbustarviejo/" target="_blank">
@@ -127,7 +114,7 @@
   <div class="footer-contenido">
 
     <div class="footer-col">
-      <img src="img/escudo.png" class="footer-logo">
+      <img src="img/escudo.png" class="footer-logo" alt="Escudo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
@@ -141,7 +128,6 @@
         <li><a href="patrocinadores.html">Patrocinadores</a></li>
         <li><a href="aviso-legal.html">Aviso Legal</a></li>
         <li><a href="privacidad.html">Política de Privacidad</a></li>
-
       </ul>
     </div>
 
@@ -160,13 +146,19 @@
   </div>
 </footer>
 
+<!-- SCRIPT MENÚ HAMBURGUESA -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
