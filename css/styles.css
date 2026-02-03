@@ -283,16 +283,16 @@ body {
    ========================= */
 
 .pagina-patrocinadores .patrocinador {
-  width: 360px;
-  height: 220px;
+  width: 400px;
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .pagina-patrocinadores .logo-patrocinador {
-  max-width: 320px;
-  max-height: 180px;
+  max-width: 360px;
+  max-height: 220px;
   object-fit: contain;
 }
 
@@ -682,6 +682,7 @@ body {
     display: none;
   }
 }
+
 
 
 
