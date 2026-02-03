@@ -5,21 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Tienda · C.D. Bustarviejo</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('activo');
-      });
-    }
-  });
-</script>
 
 <body>
 
@@ -40,9 +29,9 @@
       <a href="patrocinadores.html">Patrocinadores</a>
       <a href="tienda.html">Tienda</a>
       <a href="comunicados.html">Comunicados</a>
-      <a class="btn-menu" target="_blank"
       <a href="area-interna.html">Área interna</a>
-  
+
+      <a class="btn-menu" target="_blank"
          href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
         Hazte socio
       </a>
@@ -51,7 +40,6 @@
   </div>
 </header>
 
-
 <section class="cabecera-pagina">
   <h1>Tienda oficial</h1>
   <p>Ropa deportiva y merchandising del C.D. Bustarviejo</p>
@@ -59,13 +47,15 @@
 
 <main class="contenido-mejorado">
 
-  <!-- BLOQUE ROPA DEPORTIVA -->
+  <!-- ROPA DEPORTIVA -->
   <section class="bloque-texto">
     <h2>Ropa deportiva oficial</h2>
+
     <p>
       El Club Deportivo Bustarviejo cuenta con una marca deportiva colaboradora
       encargada de la equipación oficial de nuestros equipos.
     </p>
+
     <p>
       A través de su tienda online se podrá adquirir ropa deportiva del club,
       tanto para jugadores como para familias y aficionados.
@@ -73,35 +63,35 @@
 
     <p><strong>Estado:</strong> Próximamente disponible.</p>
 
-    <!-- BOTÓN PREPARADO (sin enlace aún) -->
     <a href="#" class="btn principal desactivado">
       🛒 Tienda deportiva oficial
     </a>
   </section>
 
-  <!-- BLOQUE MERCHANDISING -->
+  <!-- MERCHANDISING -->
   <section class="bloque-texto">
     <h2>Merchandising del club</h2>
+
     <p>
       El club está trabajando en una línea de merchandising propio con productos
       pensados para el día a día: camisetas, sudaderas, bufandas y otros artículos
       con identidad del C.D. Bustarviejo.
     </p>
+
     <p>
-      Esta línea busca reforzar el sentimiento de pertenencia al club y a nuestro
-      pueblo, dentro y fuera de las instalaciones deportivas.
+      Esta línea busca reforzar el sentimiento de pertenencia al club y al pueblo,
+      dentro y fuera de las instalaciones deportivas.
     </p>
 
     <p><strong>Estado:</strong> En preparación.</p>
 
-    <!-- BOTÓN PREPARADO (sin enlace aún) -->
     <a href="#" class="btn secundario desactivado">
       🧢 Tienda de merchandising
     </a>
 
     <p style="margin-top:20px;">
-      Si eres una empresa o proveedor interesado en colaborar con el club en este
-      proyecto, puedes contactar con nosotros en
+      Si eres una empresa o proveedor interesado en colaborar con el club,
+      puedes contactar con nosotros en
       <a href="mailto:cdbustarviejo@outlook.es">cdbustarviejo@outlook.es</a>.
     </p>
   </section>
@@ -126,8 +116,7 @@
         <li><a href="patrocinadores.html">Patrocinadores</a></li>
         <li><a href="tienda.html">Tienda</a></li>
         <li><a href="aviso-legal.html">Aviso Legal</a></li>
-<li><a href="privacidad.html">Política de Privacidad</a></li>
-
+        <li><a href="privacidad.html">Política de Privacidad</a></li>
       </ul>
     </div>
 
@@ -146,10 +135,19 @@
   </div>
 </footer>
 
+<!-- SCRIPT MENÚ HAMBURGUESA -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
