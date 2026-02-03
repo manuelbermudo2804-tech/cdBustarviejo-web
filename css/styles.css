@@ -693,6 +693,15 @@ body {
 .menu {
   gap: 26px;        /* más espacio entre enlaces */
 }
+.advertencia-legal {
+  border: 2px solid #c62828;
+  background: #fff5f5;
+}
+
+.advertencia-legal h2 {
+  color: #c62828;
+}
+
 
 
 
