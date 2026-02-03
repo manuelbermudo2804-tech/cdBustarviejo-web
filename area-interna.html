@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Área interna del club · C.D. Bustarviejo</title>
+  <title>Área interna · C.D. Bustarviejo</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
@@ -40,33 +40,95 @@
 
 <section class="cabecera-pagina">
   <h1>Área interna del club</h1>
-  <p>Acceso exclusivo para miembros autorizados del club</p>
+  <p>Plataforma privada · Acceso restringido · Uso exclusivo autorizado</p>
 </section>
 
 <section class="contenido-mejorado">
+
   <section class="bloque-texto">
+    <h2>Uso exclusivo para miembros del club</h2>
 
     <p>
-      Esta área está destinada exclusivamente a <strong>familias, jugadores/as,
-      entrenadores y personal autorizado</strong> del Club Deportivo Bustarviejo.
+      El Área Interna del Club Deportivo Bustarviejo es una
+      <strong>aplicación web privada</strong>, diseñada principalmente para su
+      <strong>uso en dispositivos móviles</strong>.
     </p>
 
     <p>
-      El acceso se realiza mediante <strong>usuario y contraseña</strong> y requiere
-      <strong>autorización previa por parte del club</strong>.
+      Esta plataforma está destinada exclusivamente a:
+    </p>
+
+    <ul>
+      <li>Familias de jugadores y jugadoras del club</li>
+      <li>Jugadores y jugadoras inscritos</li>
+      <li>Entrenadores, coordinadores y personal técnico</li>
+      <li>Personal expresamente autorizado por la Junta Directiva</li>
+    </ul>
+
+    <p>
+      El acceso requiere <strong>registro previo</strong> y
+      <strong>validación manual por parte del club</strong>.
+      El simple acceso a esta página no concede ningún derecho de uso.
+    </p>
+  </section>
+
+  <section class="bloque-texto">
+    <h2>Información sensible y protección de menores</h2>
+
+    <p>
+      Esta plataforma puede contener:
+    </p>
+
+    <ul>
+      <li>Información personal y deportiva</li>
+      <li>Datos organizativos internos</li>
+      <li>Información relacionada con <strong>menores de edad</strong></li>
+    </ul>
+
+    <p>
+      Todo el contenido está protegido por la normativa vigente en materia de
+      <strong>protección de datos</strong>, privacidad y derechos de imagen.
+    </p>
+  </section>
+
+  <section class="bloque-texto">
+    <h2>Advertencia legal</h2>
+
+    <p>
+      El acceso no autorizado, la difusión, copia, captura de pantalla,
+      grabación o uso indebido de cualquier contenido de esta plataforma
+      está <strong>estrictamente prohibido</strong>.
     </p>
 
     <p>
-      La aplicación interna del club está pensada principalmente para su uso en
-      <strong>dispositivos móviles</strong>, donde ofrece la mejor experiencia.
-      Aunque puede utilizarse también desde ordenador, se recomienda
-      <strong>seguir las instrucciones facilitadas por el club</strong> para un
-      correcto acceso y funcionamiento.
+      Cualquier uso indebido podrá conllevar, entre otras medidas:
+    </p>
+
+    <ul>
+      <li>Bloqueo inmediato del acceso a la plataforma</li>
+      <li>Retirada de permisos y credenciales</li>
+      <li>Medidas disciplinarias internas</li>
+      <li>Acciones legales conforme a la legislación vigente</li>
+    </ul>
+
+    <p>
+      El Club Deportivo Bustarviejo se reserva el derecho de
+      <strong>auditar accesos</strong> y
+      <strong>revocar permisos sin previo aviso</strong>.
+    </p>
+  </section>
+
+  <section class="bloque-texto">
+    <h2>Acceso a la aplicación</h2>
+
+    <p>
+      Si formas parte del club y dispones de autorización,
+      puedes acceder a la aplicación desde el siguiente enlace.
     </p>
 
     <p>
-      En esta área se gestiona información interna del club y
-      <strong>datos de menores</strong>, por lo que no es un espacio de acceso público.
+      Si no perteneces al Club Deportivo Bustarviejo,
+      <strong>no debes acceder a la plataforma</strong>.
     </p>
 
     <div style="text-align:center; margin-top:40px;">
@@ -76,17 +138,27 @@
         Acceder al área interna
       </a>
     </div>
-
   </section>
+
 </section>
 
 <footer class="footer">
   <div class="footer-contenido">
+
     <div class="footer-col">
-      <img src="img/escudo.png" class="footer-logo">
+      <img src="img/escudo.png" alt="Escudo C.D. Bustarviejo" class="footer-logo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
+
+    <div class="footer-col">
+      <p class="footer-titulo">Contacto</p>
+      <p class="footer-texto">
+        📧 <a href="mailto:cdbustarviejo@outlook.es">cdbustarviejo@outlook.es</a><br>
+        📍 Bustarviejo (Madrid)
+      </p>
+    </div>
+
   </div>
 
   <div class="footer-copy">
@@ -95,16 +167,16 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
 
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('activo');
-      });
-    }
-  });
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('activo');
+    });
+  }
+});
 </script>
 
 </body>
