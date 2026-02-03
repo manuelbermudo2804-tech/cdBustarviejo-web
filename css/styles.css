@@ -651,6 +651,33 @@ body {
   margin: 0 auto;          /* 🔑 centro absoluto */
 }
 
+/* =========================
+   CTA PATROCINIO – MÓVIL / DESKTOP
+   ========================= */
+
+/* Por defecto: desktop */
+.cta-movil {
+  display: none;
+}
+
+/* Desktop */
+.cta-desktop {
+  display: flex;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+
+  .cta-movil {
+    display: flex;
+    margin: 40px auto;
+  }
+
+  .cta-desktop {
+    display: none;
+  }
+}
+
 
 
 
