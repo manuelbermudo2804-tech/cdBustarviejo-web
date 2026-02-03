@@ -278,20 +278,25 @@ body {
   justify-content: center;
   gap: 40px;
 }
+/* =========================
+   PATROCINADORES – DESKTOP MÁS GRANDES
+   ========================= */
 
 .pagina-patrocinadores .patrocinador {
-  width: 260px;
-  height: 160px;
+  width: 300px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .pagina-patrocinadores .logo-patrocinador {
-  max-width: 220px;
-  max-height: 130px;
+  max-width: 260px;
+  max-height: 150px;
   object-fit: contain;
 }
+
+
 
 /* =========================
    DOCUMENTOS
@@ -677,6 +682,7 @@ body {
     display: none;
   }
 }
+
 
 
 
