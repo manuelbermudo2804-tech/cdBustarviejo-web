@@ -702,6 +702,40 @@ body {
   color: #c62828;
 }
 
+/* =========================
+   BOTÓN TIENDA EXTERNA – PRO
+   ========================= */
+
+.tienda-externa {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-tienda {
+  display: inline-block;
+  padding: 16px 34px;
+  border-radius: 50px;
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+.btn-tienda:hover {
+  background: #f57c00;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.nota-tienda {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
 
 
 
