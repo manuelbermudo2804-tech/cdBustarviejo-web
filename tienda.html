@@ -30,7 +30,6 @@
       <a href="tienda.html">Tienda</a>
       <a href="comunicados.html">Comunicados</a>
       <a href="area-interna.html">Área interna</a>
-
       <a class="btn-menu" target="_blank"
          href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
         Hazte socio
@@ -40,55 +39,64 @@
   </div>
 </header>
 
+<!-- CABECERA -->
 <section class="cabecera-pagina">
-  <h1>Tienda oficial</h1>
-  <p>Ropa deportiva y merchandising del C.D. Bustarviejo</p>
+  <h1>Tienda oficial del club</h1>
+  <p>Ropa · Merchandising · Orgullo de pueblo</p>
 </section>
 
 <main class="contenido-mejorado">
 
-  <!-- ROPA DEPORTIVA -->
-  <section class="bloque-texto">
-    <h2>Ropa deportiva oficial</h2>
-
-    <p>
-      El Club Deportivo Bustarviejo cuenta con una marca deportiva colaboradora
-      encargada de la equipación oficial de nuestros equipos.
+  <!-- BLOQUE INTRO -->
+  <section class="bloque-texto" style="text-align:center;">
+    <p style="font-size:1.2rem;">
+      Lleva los colores del <strong>C.D. Bustarviejo</strong> dentro y fuera del campo.  
+      Ropa deportiva para entrenar, merchandising para animar y productos pensados
+      para familias, jugadores y aficionados.
     </p>
-
-    <p>
-      A través de su tienda online se podrá adquirir ropa deportiva del club,
-      tanto para jugadores como para familias y aficionados.
-    </p>
-
-    <p><strong>Estado:</strong> Próximamente disponible.</p>
-
-    <a href="#" class="btn principal desactivado">
-      🛒 Tienda deportiva oficial
-    </a>
   </section>
 
-  <!-- MERCHANDISING -->
-  <section class="bloque-texto">
-  <h2>Merchandising del club</h2>
-  <p>
-    Productos oficiales del C.D. Bustarviejo para familias,
-    jugadores y aficionados.
-  </p>
+  <!-- TARJETAS DE TIENDA -->
+  <section class="tienda-grid">
 
-<div class="tienda-externa">
-  <a href="https://club-deportivo-bustarviejo.myspreadshop.es/"
-     target="_blank"
-     class="btn-tienda">
-    Acceder a la tienda oficial de merchandising
-  </a>
-  <p class="nota-tienda">
-    Tienda gestionada por plataforma externa.  
-    El club no gestiona pedidos ni envíos.
-  </p>
-</div>
+    <!-- MERCH -->
+    <div class="tienda-card">
+      <h2>Merchandising oficial</h2>
+      <p>
+        Camisetas, sudaderas, accesorios y productos del club para el día a día.
+        Diseños pensados para sentirte parte del C.D. Bustarviejo estés donde estés.
+      </p>
 
+      <a href="https://club-deportivo-bustarviejo.myspreadshop.es/"
+         target="_blank"
+         class="btn-tienda naranja">
+        Acceder a la tienda de merchandising
+      </a>
 
+      <p class="nota-tienda">
+        Tienda gestionada por plataforma externa.  
+        El club no gestiona pedidos ni envíos.
+      </p>
+    </div>
+
+    <!-- ROPA DEPORTIVA -->
+    <div class="tienda-card desactivada">
+      <h2>Ropa deportiva oficial</h2>
+      <p>
+        Equipaciones y ropa de entrenamiento para jugadores y jugadoras del club.
+        Compra directa desde casa, sin gestiones para el club.
+      </p>
+
+      <a href="#" class="btn-tienda gris">
+        Próximamente disponible
+      </a>
+
+      <p class="nota-tienda">
+        La tienda de ropa deportiva se activará en cuanto esté cerrada la colaboración.
+      </p>
+    </div>
+
+  </section>
 
 </main>
 
@@ -96,7 +104,7 @@
   <div class="footer-contenido">
 
     <div class="footer-col">
-      <img src="img/escudo.png" alt="Escudo C.D. Bustarviejo" class="footer-logo">
+      <img src="img/escudo.png" class="footer-logo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
@@ -108,7 +116,6 @@
         <li><a href="el-club.html">El Club</a></li>
         <li><a href="equipos.html">Equipos</a></li>
         <li><a href="patrocinadores.html">Patrocinadores</a></li>
-        <li><a href="tienda.html">Tienda</a></li>
         <li><a href="aviso-legal.html">Aviso Legal</a></li>
         <li><a href="privacidad.html">Política de Privacidad</a></li>
       </ul>
@@ -129,23 +136,18 @@
   </div>
 </footer>
 
-<!-- SCRIPT MENÚ HAMBURGUESA -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
 
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('activo');
-      });
-    }
-  });
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('activo');
+    });
+  }
+});
 </script>
 
 </body>
 </html>
-
-
-
-
