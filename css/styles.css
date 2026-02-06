@@ -736,6 +736,75 @@ body {
   opacity: 0.7;
 }
 
+/* =========================
+   TIENDA – MÁS VIDA
+   ========================= */
+
+.tienda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.tienda-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.tienda-card h2 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.tienda-card p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+/* BOTONES TIENDA */
+.btn-tienda {
+  display: inline-block;
+  padding: 16px 34px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all .25s ease;
+}
+
+.btn-tienda.naranja {
+  background: #f57c00;
+  color: #000;
+}
+
+.btn-tienda.naranja:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-tienda.gris {
+  background: #ccc;
+  color: #555;
+  cursor: not-allowed;
+}
+
+/* NOTA */
+.nota-tienda {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* DESACTIVADA */
+.tienda-card.desactivada {
+  opacity: 0.8;
+}
+
 
 
 
