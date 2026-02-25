@@ -31,11 +31,6 @@
   padding-left: 12px;
 }
 
-.partido {
-  padding: 14px 0;
-  border-bottom: 1px solid #eee;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -65,15 +60,7 @@ tr:hover {
   font-weight: 600;
 }
 
-ul {
-  padding-left: 20px;
-}
-
-@media (max-width: 768px) {
-  table {
-    font-size: 12px;
-  }
-}
+ul { padding-left:20px; }
 </style>
 </head>
 
@@ -102,12 +89,6 @@ ul {
 </header>
 
 <section class="contenedor-competicion">
-
-  <div class="bloque" id="proximos">
-    <h2>Próximos Partidos</h2>
-    <p>Cargando...</p>
-  </div>
-
   <div class="bloque" id="clasificacion">
     <h2>Clasificación</h2>
   </div>
@@ -115,7 +96,6 @@ ul {
   <div class="bloque" id="goleadores">
     <h2>Goleadores C.D. Bustarviejo</h2>
   </div>
-
 </section>
 
 <script>
@@ -125,38 +105,10 @@ document.querySelector('.menu-toggle').addEventListener('click', function() {
 
 async function cargarDatos() {
   const url = "https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData";
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    pintarPartidos(data.proximos_partidos);
-    pintarClasificacion(data.clasificaciones);
-    pintarGoleadores(data.goleadores);
-
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function pintarPartidos(lista) {
-  const cont = document.getElementById("proximos");
-  cont.innerHTML = "<h2>Próximos Partidos</h2>";
-
-  if (!lista || lista.length === 0) {
-    cont.innerHTML += "<p>No hay partidos programados.</p>";
-    return;
-  }
-
-  lista.forEach(p => {
-    cont.innerHTML += `
-      <div class="partido">
-        📅 <strong>${p.fecha} ${p.hora}</strong><br>
-        ⚽ ${p.local} vs ${p.visitante}<br>
-        📍 ${p.campo || ""}
-      </div>
-    `;
-  });
+  const response = await fetch(url);
+  const data = await response.json();
+  pintarClasificacion(data.clasificaciones);
+  pintarGoleadores(data.goleadores);
 }
 
 function pintarClasificacion(obj) {
@@ -185,52 +137,39 @@ function pintarClasificacion(obj) {
         </tr>
     `;
 
-    obj[categoria].forEach(e => {
+    obj[categoria].forEach(bloque => {
 
-      // Si viene como objeto estructurado
-      if (typeof e === "object") {
+      if (typeof bloque === "string") {
 
-        const esNuestro = e.equipo?.toLowerCase().includes("bustarviejo");
+        // Divide por posiciones (1, 2, 3...)
+        const equipos = bloque.split(/(?=\d+\s)/);
 
-        cont.innerHTML += `
-          <tr class="${esNuestro ? 'club-propio' : ''}">
-            <td>${e.posicion || ''}</td>
-            <td>${e.equipo || ''}</td>
-            <td>${e.pj || '-'}</td>
-            <td>${e.g || '-'}</td>
-            <td>${e.e || '-'}</td>
-            <td>${e.p || '-'}</td>
-            <td>${e.gf || '-'}</td>
-            <td>${e.gc || '-'}</td>
-            <td>${e.dg || '-'}</td>
-            <td>${e.puntos || ''}</td>
-          </tr>
-        `;
-      }
+        equipos.forEach(linea => {
 
-      // Si viene como texto plano
-      if (typeof e === "string") {
+          const partes = linea.trim().split(/\s+/);
+          if (partes.length < 10) return;
 
-        const partes = e.trim().split(/\s+/);
-        const posicion = partes[0];
-        const numeros = partes.slice(-8);
-        const nombreEquipo = partes.slice(1, partes.length - 8).join(" ");
-        const esNuestro = nombreEquipo.toLowerCase().includes("bustarviejo");
+          const posicion = partes[0];
+          const numeros = partes.slice(-8);
+          const nombreEquipo = partes.slice(1, partes.length - 8).join(" ");
 
-        cont.innerHTML += `
-          <tr class="${esNuestro ? 'club-propio' : ''}">
-            <td>${posicion}</td>
-            <td>${nombreEquipo}</td>
-            <td>${numeros[0]}</td>
-            <td>${numeros[1]}</td>
-            <td>${numeros[2]}</td>
-            <td>${numeros[3]}</td>
-            <td>${numeros[4]}</td>
-            <td>${numeros[5]}</td>
-            <td>${numeros[6]}</td>
-            <td>${numeros[7]}</td>
-          </tr>
-        `;
+          const esNuestro = nombreEquipo.toLowerCase().includes("bustarviejo");
+
+          cont.innerHTML += `
+            <tr class="${esNuestro ? 'club-propio' : ''}">
+              <td>${posicion}</td>
+              <td>${nombreEquipo}</td>
+              <td>${numeros[0]}</td>
+              <td>${numeros[1]}</td>
+              <td>${numeros[2]}</td>
+              <td>${numeros[3]}</td>
+              <td>${numeros[4]}</td>
+              <td>${numeros[5]}</td>
+              <td>${numeros[6]}</td>
+              <td>${numeros[7]}</td>
+            </tr>
+          `;
+        });
       }
 
     });
@@ -240,6 +179,7 @@ function pintarClasificacion(obj) {
 }
 
 function pintarGoleadores(obj) {
+
   const cont = document.getElementById("goleadores");
   cont.innerHTML = "<h2>Goleadores C.D. Bustarviejo</h2>";
 
