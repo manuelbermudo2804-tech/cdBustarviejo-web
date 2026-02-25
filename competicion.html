@@ -124,7 +124,6 @@ document.querySelector('.menu-toggle').addEventListener('click', function() {
 });
 
 async function cargarDatos() {
-
   const url = "https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData";
 
   try {
@@ -141,7 +140,6 @@ async function cargarDatos() {
 }
 
 function pintarPartidos(lista) {
-
   const cont = document.getElementById("proximos");
   cont.innerHTML = "<h2>Próximos Partidos</h2>";
 
@@ -187,16 +185,36 @@ function pintarClasificacion(obj) {
         </tr>
     `;
 
-    obj[categoria].forEach(linea => {
+    obj[categoria].forEach(e => {
 
-      if (typeof linea === "string") {
+      // Si viene como objeto estructurado
+      if (typeof e === "object") {
 
-        const partes = linea.trim().split(/\s+/);
+        const esNuestro = e.equipo?.toLowerCase().includes("bustarviejo");
+
+        cont.innerHTML += `
+          <tr class="${esNuestro ? 'club-propio' : ''}">
+            <td>${e.posicion || ''}</td>
+            <td>${e.equipo || ''}</td>
+            <td>${e.pj || '-'}</td>
+            <td>${e.g || '-'}</td>
+            <td>${e.e || '-'}</td>
+            <td>${e.p || '-'}</td>
+            <td>${e.gf || '-'}</td>
+            <td>${e.gc || '-'}</td>
+            <td>${e.dg || '-'}</td>
+            <td>${e.puntos || ''}</td>
+          </tr>
+        `;
+      }
+
+      // Si viene como texto plano
+      if (typeof e === "string") {
+
+        const partes = e.trim().split(/\s+/);
         const posicion = partes[0];
-
         const numeros = partes.slice(-8);
         const nombreEquipo = partes.slice(1, partes.length - 8).join(" ");
-
         const esNuestro = nombreEquipo.toLowerCase().includes("bustarviejo");
 
         cont.innerHTML += `
@@ -222,7 +240,6 @@ function pintarClasificacion(obj) {
 }
 
 function pintarGoleadores(obj) {
-
   const cont = document.getElementById("goleadores");
   cont.innerHTML = "<h2>Goleadores C.D. Bustarviejo</h2>";
 
