@@ -34,7 +34,6 @@
 .partido {
   padding: 14px 0;
   border-bottom: 1px solid #eee;
-  font-size: 15px;
 }
 
 table {
@@ -83,7 +82,7 @@ ul {
 <header class="header">
   <div class="header-contenido">
     <div class="logo">
-      <img src="img/escudo.png" alt="Escudo C.D. Bustarviejo">
+      <img src="img/escudo.png" alt="Escudo">
       <span>C.D. Bustarviejo</span>
     </div>
 
@@ -188,24 +187,34 @@ function pintarClasificacion(obj) {
         </tr>
     `;
 
-    obj[categoria].forEach(e => {
+    obj[categoria].forEach(linea => {
 
-      const esNuestro = e.equipo.toLowerCase().includes("bustarviejo");
+      if (typeof linea === "string") {
 
-      cont.innerHTML += `
-        <tr class="${esNuestro ? 'club-propio' : ''}">
-          <td>${e.posicion}</td>
-          <td>${e.equipo}</td>
-          <td>${e.pj || '-'}</td>
-          <td>${e.g || '-'}</td>
-          <td>${e.e || '-'}</td>
-          <td>${e.p || '-'}</td>
-          <td>${e.gf || '-'}</td>
-          <td>${e.gc || '-'}</td>
-          <td>${e.dg || '-'}</td>
-          <td>${e.puntos}</td>
-        </tr>
-      `;
+        const partes = linea.trim().split(/\s+/);
+        const posicion = partes[0];
+
+        const numeros = partes.slice(-8);
+        const nombreEquipo = partes.slice(1, partes.length - 8).join(" ");
+
+        const esNuestro = nombreEquipo.toLowerCase().includes("bustarviejo");
+
+        cont.innerHTML += `
+          <tr class="${esNuestro ? 'club-propio' : ''}">
+            <td>${posicion}</td>
+            <td>${nombreEquipo}</td>
+            <td>${numeros[0]}</td>
+            <td>${numeros[1]}</td>
+            <td>${numeros[2]}</td>
+            <td>${numeros[3]}</td>
+            <td>${numeros[4]}</td>
+            <td>${numeros[5]}</td>
+            <td>${numeros[6]}</td>
+            <td>${numeros[7]}</td>
+          </tr>
+        `;
+      }
+
     });
 
     cont.innerHTML += "</table>";
