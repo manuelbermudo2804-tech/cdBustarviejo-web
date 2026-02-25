@@ -112,14 +112,12 @@ async function cargarDatos() {
 }
 
 function pintarClasificacion(obj) {
-
   const cont = document.getElementById("clasificacion");
   cont.innerHTML = "<h2>Clasificación</h2>";
 
   if (!obj) return;
 
   for (let categoria in obj) {
-
     cont.innerHTML += `
       <h3>${categoria}</h3>
       <table>
@@ -137,47 +135,28 @@ function pintarClasificacion(obj) {
         </tr>
     `;
 
-    obj[categoria].forEach(bloque => {
-
-      if (typeof bloque === "string") {
-
-        // Divide por posiciones (1, 2, 3...)
-        const equipos = bloque.split(/(?=\d+\s)/);
-
-        equipos.forEach(linea => {
-
-          const partes = linea.trim().split(/\s+/);
-          if (partes.length < 10) return;
-
-          const posicion = partes[0];
-          const numeros = partes.slice(-8);
-          const nombreEquipo = partes.slice(1, partes.length - 8).join(" ");
-
-          const esNuestro = nombreEquipo.toLowerCase().includes("bustarviejo");
-
-          cont.innerHTML += `
-            <tr class="${esNuestro ? 'club-propio' : ''}">
-              <td>${posicion}</td>
-              <td>${nombreEquipo}</td>
-              <td>${numeros[0]}</td>
-              <td>${numeros[1]}</td>
-              <td>${numeros[2]}</td>
-              <td>${numeros[3]}</td>
-              <td>${numeros[4]}</td>
-              <td>${numeros[5]}</td>
-              <td>${numeros[6]}</td>
-              <td>${numeros[7]}</td>
-            </tr>
-          `;
-        });
-      }
-
+    obj[categoria].forEach(eq => {
+      const esNuestro = eq.equipo.toLowerCase().includes("bustarviejo");
+      const dg = eq.gf - eq.gc;
+      cont.innerHTML += `
+        <tr class="${esNuestro ? 'club-propio' : ''}">
+          <td>${eq.posicion}</td>
+          <td>${eq.equipo}</td>
+          <td>${eq.pj}</td>
+          <td>${eq.pg}</td>
+          <td>${eq.pe}</td>
+          <td>${eq.pp}</td>
+          <td>${eq.gf}</td>
+          <td>${eq.gc}</td>
+          <td>${dg >= 0 ? '+' : ''}${dg}</td>
+          <td><strong>${eq.puntos}</strong></td>
+        </tr>
+      `;
     });
 
     cont.innerHTML += "</table>";
   }
 }
-
 function pintarGoleadores(obj) {
 
   const cont = document.getElementById("goleadores");
