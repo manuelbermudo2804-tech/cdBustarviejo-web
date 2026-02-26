@@ -805,6 +805,21 @@ body {
   opacity: 0.8;
 }
 
+/* =========================
+   BOTÓN COMPETICIÓN HERO
+   ========================= */
+
+.btn.competicion {
+  background: #ffffff;
+  color: #1e3a8a;
+  border: 2px solid #ffffff;
+}
+
+.btn.competicion:hover {
+  background: #f57c00;
+  color: #000;
+  border-color: #f57c00;
+}
 
 
 
