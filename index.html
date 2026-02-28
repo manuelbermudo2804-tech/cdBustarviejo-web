@@ -1,152 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hazte socio · CD Bustarviejo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C.D. Bustarviejo</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background-image: url("fondo.jpg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="min-h-screen flex items-center justify-center p-4">
+<body>
 
-  <div class="w-full max-w-md rounded-3xl shadow-2xl backdrop-blur-md bg-white/60 overflow-hidden">
+<header class="header">
+  <div class="header-contenido">
 
-    <!-- CABECERA -->
-    <div class="text-center p-6">
-      <img src="escudo.png" alt="Escudo CD Bustarviejo" class="w-24 mx-auto mb-3" />
-      <h1 class="text-3xl font-extrabold text-gray-800">HAZTE SOCIO</h1>
-      <p class="text-gray-600 text-sm mt-1">Club Deportivo Bustarviejo</p>
-
-      <div class="mt-4 inline-block bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-        Cuota anual: 25 €
-      </div>
+    <div class="logo">
+      <img src="img/escudo.png" alt="Escudo C.D. Bustarviejo">
+      <span>C.D. Bustarviejo</span>
     </div>
 
-    <!-- TEXTO -->
-    <div class="px-6 text-sm text-gray-800 space-y-4">
-      <p><strong>Ser socio del CD Bustarviejo es apostar por el deporte de nuestro pueblo.</strong></p>
-      <p>
-        Aquí entrenan y compiten personas de todas las edades en un entorno de respeto,
-        igualdad y compromiso.
-      </p>
-      <p>
-        Tu apoyo nos permite seguir creciendo y construir un club abierto, integrador y con futuro.
-      </p>
-      <p class="font-semibold">Gracias por confiar en el CD Bustarviejo.</p>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="el-club.html">El Club</a>
+      <a href="equipos.html">Equipos</a>
+      <a href="patrocinadores.html">Patrocinadores</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="comunicados.html">Comunicados</a>
+      <a href="competicion.html">Competición</a>
+      <a href="area-interna.html">Área interna</a>
+      <a class="btn-menu" target="_blank"
+         href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
+        Hazte socio
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="contenido">
+    <img class="escudo-grande" src="img/escudo.png" alt="Escudo">
+    <h1>Club Deportivo Bustarviejo</h1>
+    <p class="subtitulo">Deporte, valores y comunidad</p>
+
+  <div class="botones-hero">
+  <a class="btn principal"
+     target="_blank"
+     href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
+    Hazte socio
+  </a>
+
+  <a class="btn secundario"
+     target="_blank"
+     href="https://alta-socio.vercel.app/jugadores.html">
+    Nuevos jugadores
+  </a>
+
+<a class="btn secundario"
+   target="_blank"
+   href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData">
+   Competición
+</a>
+</div>
+
+    <p style="margin-top:30px; font-weight:600; opacity:0.9;">
+      Síguenos en redes sociales
+    </p>
+<div class="redes-hero">
+  <a href="https://www.facebook.com/cdbustarviejo/" target="_blank" aria-label="Facebook">
+    <svg viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7
+           1 0 2 .1 2 .1v2.3h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7H16l-.4
+           2.9h-2.3v7A10 10 0 0 0 22 12z"/>
+    </svg>
+  </a>
+
+  <a href="https://www.instagram.com/cdbustarviejo/" target="_blank" aria-label="Instagram">
+    <svg viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2
+           5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3
+           3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7
+           1.3-3 3-3h10zM12 7.5A4.5 4.5 0 1 0 16.5 12
+           4.5 4.5 0 0 0 12 7.5z"/>
+    </svg>
+  </a>
+</div>
+
+</section>
+
+<!-- CONTENIDO -->
+<section class="contenido-mejorado">
+  <section class="bloque-texto" style="text-align:center;">
+    <h2>Un club del pueblo, para todo el mundo</h2>
+    <p>
+      El Club Deportivo Bustarviejo es una entidad deportiva con más de tres décadas
+      de historia, comprometida con la formación, el deporte femenino, la inclusión
+      y la vida social de nuestro municipio.
+    </p>
+  </section>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-contenido">
+
+    <div class="footer-col">
+      <img src="img/escudo.png" class="footer-logo" alt="Escudo">
+      <p class="footer-titulo">C.D. Bustarviejo</p>
+      <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
 
-    <!-- FORMULARIO -->
-    <div class="px-6 pb-6 pt-4">
-      <form id="form" class="space-y-4">
+    <div class="footer-col">
+      <p class="footer-titulo">Enlaces</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="el-club.html">El Club</a></li>
+        <li><a href="equipos.html">Equipos</a></li>
+<li>
+  <a href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData"
+     target="_blank"
+     rel="noopener">
+     Competición
+  </a>
+</li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
+        <li><a href="aviso-legal.html">Aviso Legal</a></li>
+        <li><a href="privacidad.html">Política de Privacidad</a></li>
+      </ul>
+    </div>
 
-        <input name="nombre_completo" required placeholder="Nombre completo"
-          class="w-full bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-
-        <div class="grid grid-cols-2 gap-3">
-          <input name="dni" required placeholder="DNI"
-            class="bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-          <input name="telefono" required placeholder="Teléfono"
-            class="bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-        </div>
-
-        <input name="email" type="email" required placeholder="Email"
-          class="w-full bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-
-        <input name="direccion" placeholder="Dirección"
-          class="w-full bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-
-        <div class="grid grid-cols-2 gap-3">
-          <input name="municipio" placeholder="Municipio"
-            class="bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-          <input name="fecha_nacimiento" type="date"
-            class="bg-white rounded-xl p-3 border border-gray-300 outline-none" />
-        </div>
-
-        <!-- TIPO DE PAGO -->
-        <div class="bg-white rounded-xl p-4 border border-gray-300 text-sm space-y-2">
-          <p class="font-semibold text-gray-800">¿Cómo quieres pagar la cuota?</p>
-
-          <label class="flex items-center gap-2">
-            <input type="radio" name="tipo_pago" value="unico" checked>
-            Pago solo este año (25 €)
-          </label>
-
-          <label class="flex items-center gap-2">
-            <input type="radio" name="tipo_pago" value="suscripcion">
-            Renovación automática anual (recomendado)
-          </label>
-        </div>
-
-        <!-- RGPD -->
-        <div class="flex items-start gap-2 text-sm text-gray-700">
-          <input type="checkbox" required class="mt-1">
-          <label>
-            He leído y acepto la política de protección de datos.
-            Autorizo la gestión del cobro según la opción elegida.
-          </label>
-        </div>
-
-        <button
-          type="submit"
-          class="w-full bg-black text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition">
-          CONTINUAR AL PAGO
-        </button>
-
-      </form>
-
-      <p class="text-xs text-center text-gray-600 mt-4">
-        ¿Tienes alguna duda? Escríbenos a
-        <strong>cdbustarviejo@outlook.es</strong>
+    <div class="footer-col">
+      <p class="footer-titulo">Contacto</p>
+      <p class="footer-texto">
+        📧 <a href="mailto:cdbustarviejo@outlook.es">cdbustarviejo@outlook.es</a><br>
+        📍 Bustarviejo (Madrid)
       </p>
     </div>
+
   </div>
 
-  <!-- JS -->
-  <script>
-    // 🔗 LINKS DE STRIPE
-    const STRIPE_PAGO_UNICO = "https://buy.stripe.com/28E6oH3Ys3yBaKEdGrfrW00";
-    const STRIPE_SUSCRIPCION = "https://buy.stripe.com/aFaaEX1Qk4CF7yseKvfrW01";
+  <div class="footer-copy">
+    © 1989–2026 · C.D. Bustarviejo · Todos los derechos reservados
+  </div>
+</footer>
 
-    document.getElementById("form").addEventListener("submit", async (e) => {
-      e.preventDefault();
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
 
-      const formData = new FormData(e.target);
-      const data = Object.fromEntries(formData.entries());
-
-      // Enviar email interno
-      await fetch("/api/send-socio-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        menu.classList.toggle('activo');
       });
-
-      // Elegir tipo de pago
-      const tipoPago = document.querySelector('input[name="tipo_pago"]:checked').value;
-      const stripeLink = tipoPago === "suscripcion"
-        ? STRIPE_SUSCRIPCION
-        : STRIPE_PAGO_UNICO;
-
-      // Metadata
-      const params = new URLSearchParams();
-      params.append("prefilled_email", data.email);
-
-      Object.entries(data).forEach(([key, value]) => {
-        params.append(`metadata[${key}]`, value || "");
-      });
-
-      window.location.href = stripeLink + "?" + params.toString();
-    });
-  </script>
+    }
+  });
+</script>
 
 </body>
 </html>
+
+
+
