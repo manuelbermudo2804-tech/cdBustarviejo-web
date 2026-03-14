@@ -8,14 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+<script>
 
+const aviso = document.getElementById("aviso-club");
+const texto = document.getElementById("texto-aviso").innerText.trim();
+
+if(texto === ""){
+aviso.style.display = "none";
+}
+
+</script>
 <body>
-  <div id="aviso-club" class="aviso-club">
-
-<span id="texto-aviso">
-  
-</span>
-
+<div id="aviso-club" class="aviso-club">
+<span id="texto-aviso"></span>
 </div>
 
 <header class="header">
