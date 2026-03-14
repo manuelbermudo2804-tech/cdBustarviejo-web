@@ -10,6 +10,12 @@
 </head>
 
 <body>
+  <div id="aviso-club" class="aviso-club">
+
+<span id="texto-aviso">
+</span>
+
+</div>
 
 <header class="header">
   <div class="header-contenido">
@@ -168,7 +174,16 @@
 </body>
 </html>
 
+<script>
 
+const aviso = document.getElementById("aviso-club");
+const texto = document.getElementById("texto-aviso").innerText.trim();
+
+if(texto === ""){
+aviso.style.display = "none";
+}
+
+</script>
 
 
 
