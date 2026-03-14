@@ -862,7 +862,19 @@ body {
   color: #000;
 }
 
+/* =========================
+   AVISO CLUB
+   ========================= */
 
+.aviso-club{
+width:100%;
+background:#f57c00;
+color:#000;
+text-align:center;
+padding:10px 20px;
+font-weight:700;
+font-size:0.95rem;
+}
 
 
 
