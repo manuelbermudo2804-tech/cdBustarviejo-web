@@ -1,6 +1,6 @@
 /* =========================
-   RESET
-   ========================= */
+RESET
+========================= */
 
 *{
 box-sizing:border-box;
@@ -8,7 +8,7 @@ box-sizing:border-box;
 
 body{
 margin:0;
-padding-top:120px;
+padding-top:80px;
 font-family:'Montserrat',Arial,sans-serif;
 color:#222;
 background:#fff;
@@ -18,8 +18,8 @@ line-height:1.8;
 
 
 /* =========================
-   AVISO CLUB
-   ========================= */
+AVISO CLUB
+========================= */
 
 .aviso-club{
 width:100%;
@@ -29,20 +29,16 @@ text-align:center;
 padding:10px 20px;
 font-weight:700;
 font-size:0.95rem;
-position:fixed;
-top:0;
-left:0;
-z-index:2000;
 }
 
 
 /* =========================
-   HEADER
-   ========================= */
+HEADER
+========================= */
 
 .header{
 position:fixed;
-top:42px;
+top:0;
 left:0;
 width:100%;
 z-index:1000;
@@ -108,8 +104,8 @@ pointer-events:none;
 
 
 /* =========================
-   HERO
-   ========================= */
+HERO
+========================= */
 
 .hero{
 position:relative;
@@ -154,8 +150,8 @@ opacity:0.95;
 
 
 /* =========================
-   BOTONES HERO
-   ========================= */
+BOTONES HERO
+========================= */
 
 .botones-hero{
 margin-top:35px;
@@ -186,8 +182,8 @@ color:#fff;
 
 
 /* =========================
-   REDES HERO
-   ========================= */
+REDES HERO
+========================= */
 
 .redes-hero{
 display:flex;
@@ -225,8 +221,8 @@ color:#000;
 
 
 /* =========================
-   CONTENIDO
-   ========================= */
+CONTENIDO
+========================= */
 
 .contenido-mejorado{
 max-width:950px;
@@ -254,8 +250,8 @@ margin-bottom:18px;
 
 
 /* =========================
-   FOOTER
-   ========================= */
+FOOTER
+========================= */
 
 .footer{
 background:#111;
@@ -296,8 +292,8 @@ color:#aaa;
 
 
 /* =========================
-   MENU MOVIL
-   ========================= */
+MENU MOVIL
+========================= */
 
 .menu-toggle{
 display:none;
@@ -312,10 +308,6 @@ margin-left:auto;
 
 .menu-toggle{
 display:block;
-}
-
-.header{
-top:42px;
 }
 
 .header-contenido{
@@ -352,7 +344,7 @@ display:flex;
 }
 
 body{
-padding-top:130px;
+padding-top:90px;
 }
 
 .hero{
