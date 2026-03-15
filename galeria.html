@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Galería · C.D. Bustarviejo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+
+.galeria{
+max-width:1200px;
+margin:120px auto;
+padding:0 20px;
+}
+
+.galeria h1{
+text-align:center;
+margin-bottom:40px;
+}
+
+.galeria-seccion{
+margin-bottom:60px;
+}
+
+.galeria-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.galeria-grid img{
+width:100%;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+<div class="header-contenido">
+
+<div class="logo">
+<img src="img/escudo.png">
+<span>C.D. Bustarviejo</span>
+</div>
+
+<button class="menu-toggle">☰</button>
+
+<nav class="menu">
+<a href="index.html">Inicio</a>
+<a href="el-club.html">El Club</a>
+<a href="equipos.html">Equipos</a>
+<a href="patrocinadores.html">Patrocinadores</a>
+<a href="galeria.html">Galería</a>
+<a href="tienda.html">Tienda</a>
+<a href="comunicados.html">Comunicados</a>
+</nav>
+
+</div>
+</header>
+
+<section class="galeria">
+
+<h1>Galería del club</h1>
+
+<div class="galeria-seccion">
+<h2>Temporada 2026</h2>
+
+<div class="galeria-grid">
+
+<img src="img/galeria/temporada2026/foto1.jpg">
+<img src="img/galeria/temporada2026/foto2.jpg">
+<img src="img/galeria/temporada2026/foto3.jpg">
+
+</div>
+</div>
+
+<div class="galeria-seccion">
+<h2>Equipo femenino</h2>
+
+<div class="galeria-grid">
+
+<img src="img/galeria/femenino/foto1.jpg">
+<img src="img/galeria/femenino/foto2.jpg">
+
+</div>
+</div>
+
+<div class="galeria-seccion">
+<h2>Eventos del club</h2>
+
+<div class="galeria-grid">
+
+<img src="img/galeria/eventos/foto1.jpg">
+<img src="img/galeria/eventos/foto2.jpg">
+
+</div>
+</div>
+
+</section>
+
+<footer class="footer">
+<div class="footer-contenido">
+
+<div class="footer-col">
+<img src="img/escudo.png" class="footer-logo">
+<p class="footer-titulo">C.D. Bustarviejo</p>
+<p class="footer-texto">Deporte y valores desde 1989</p>
+</div>
+
+<div class="footer-col">
+<p class="footer-titulo">Contacto</p>
+<p class="footer-texto">
+📧 cdbustarviejo@outlook.es<br>
+📍 Bustarviejo (Madrid)
+</p>
+</div>
+
+</div>
+
+<div class="footer-copy">
+© 1989–2026 · C.D. Bustarviejo
+</div>
+</footer>
+
+<script>
+
+const toggle=document.querySelector(".menu-toggle");
+const menu=document.querySelector(".menu");
+
+if(toggle){
+toggle.addEventListener("click",()=>{
+menu.classList.toggle("activo");
+});
+}
+
+</script>
+
+</body>
+</html>
