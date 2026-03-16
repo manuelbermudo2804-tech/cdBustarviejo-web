@@ -934,7 +934,12 @@ transform:translateX(-50%);
 @media (max-width:768px){
 
 .carrusel-track{
-animation:carruselPatro 20s linear infinite;
+animation:carruselPatro 16s linear infinite;
+gap:50px;
+}
+
+.carrusel-track img{
+height:50px;
 }
 
 }
