@@ -951,3 +951,43 @@ height:50px;
 }
 
 }
+/* =========================
+   HERO – APARICIÓN SUAVE
+   ========================= */
+
+.hero .contenido{
+opacity:0;
+transform:translateY(20px);
+animation:heroFade 1.2s ease forwards;
+}
+
+@keyframes heroFade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* =========================
+   HERO – TÍTULO MÁS POTENTE
+   ========================= */
+
+.hero h1{
+letter-spacing:1px;
+text-shadow:0 6px 20px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   CARRUSEL – PAUSA AL HOVER
+   ========================= */
+
+.carrusel-track:hover{
+animation-play-state:paused;
+}
