@@ -18,6 +18,36 @@ aviso.style.display = "none";
 }
 
 </script>
+  <script>
+
+fetch("patrocinadores.html")
+.then(res => res.text())
+.then(html => {
+
+const parser = new DOMParser();
+const doc = parser.parseFromString(html, "text/html");
+
+const lista = doc.querySelector("#lista-patrocinadores");
+
+const destino = document.getElementById("carrusel-patrocinadores");
+
+if(lista){
+
+const logos = lista.querySelectorAll(".logo-patrocinador");
+
+logos.forEach(logo => {
+destino.appendChild(logo.cloneNode(true));
+});
+
+logos.forEach(logo => {
+destino.appendChild(logo.cloneNode(true));
+});
+
+}
+
+});
+
+</script>
 <body>
 <div id="aviso-club" class="aviso-club">
 <span id="texto-aviso"></span>
@@ -124,7 +154,15 @@ Tienda oficial
     </p>
   </section>
 </section>
+<section class="patrocinadores-home">
 
+<h2>Nuestros patrocinadores</h2>
+
+<div class="carrusel-wrapper">
+<div class="carrusel-track" id="carrusel-patrocinadores"></div>
+</div>
+
+</section>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-contenido">
