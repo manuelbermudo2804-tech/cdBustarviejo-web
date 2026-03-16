@@ -882,6 +882,53 @@ font-size:0.95rem;
 display:none;
 }
 
+.patrocinadores-home{
+padding:70px 20px;
+background:#f7f7f7;
+text-align:center;
+overflow:hidden;
+}
 
+.patrocinadores-home h2{
+font-size:28px;
+margin-bottom:40px;
+}
+
+.carrusel-wrapper{
+width:100%;
+overflow:hidden;
+}
+
+.carrusel-track{
+display:flex;
+align-items:center;
+gap:70px;
+animation:carruselPatro 35s linear infinite;
+}
+
+.carrusel-track img{
+height:65px;
+filter:grayscale(100%);
+opacity:0.7;
+transition:0.3s;
+}
+
+.carrusel-track img:hover{
+filter:grayscale(0%);
+opacity:1;
+transform:scale(1.08);
+}
+
+@keyframes carruselPatro{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
 
 
