@@ -23,27 +23,37 @@ padding:0 20px;
 
 .galeria h1{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:20px;
+}
+
+/* TEXTO NUEVO */
+.galeria p{
+text-align:center;
+margin-bottom:30px;
+color:#555;
 }
 
 .galeria-seccion{
 margin-bottom:60px;
 }
 
+/* GRID MEJORADO */
 .galeria-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:10px;
 }
 
+/* IMÁGENES */
 .galeria-grid img{
 width:100%;
 border-radius:10px;
 box-shadow:0 8px 20px rgba(0,0,0,0.15);
 cursor:pointer;
-transition:transform 0.3s;
+transition:all 0.3s ease;
 }
 
+/* HOVER MÁS SUAVE */
 .galeria-grid img:hover{
 transform:scale(1.05);
 }
@@ -93,22 +103,25 @@ Hazte socio
 
 <h1>Galería del club</h1>
 
+<!-- TEXTO NUEVO -->
+<p>Momentos del club dentro y fuera del campo ⚽</p>
+
 <div class="galeria-seccion">
 <h2>Temporada 2026</h2>
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/foto1.jpg" class="glightbox"><img src="/img/img/galeria/foto1.jpg"></a>
-<a href="/img/img/galeria/foto2.jpg" class="glightbox"><img src="/img/img/galeria/foto2.jpg"></a>
-<a href="/img/img/galeria/foto3.jpeg" class="glightbox"><img src="/img/img/galeria/foto3.jpeg"></a>
-<a href="/img/img/galeria/foto4.jpeg" class="glightbox"><img src="/img/img/galeria/foto4.jpeg"></a>
-<a href="/img/img/galeria/foto5.jpeg" class="glightbox"><img src="/img/img/galeria/foto5.jpeg"></a>
-<a href="/img/img/galeria/foto6.jpeg" class="glightbox"><img src="/img/img/galeria/foto6.jpeg"></a>
-<a href="/img/img/galeria/foto7.jpeg" class="glightbox"><img src="/img/img/galeria/foto7.jpeg"></a>
-<a href="/img/img/galeria/foto8.jpeg" class="glightbox"><img src="/img/img/galeria/foto8.jpeg"></a>
-<a href="/img/img/galeria/foto9.jpeg" class="glightbox"><img src="/img/img/galeria/foto9.jpeg"></a>
-<a href="/img/img/galeria/foto10.jpeg" class="glightbox"><img src="/img/img/galeria/foto10.jpeg"></a>
-<a href="/img/img/galeria/foto11.jpeg" class="glightbox"><img src="/img/img/galeria/foto11.jpeg"></a>
+<a href="/img/img/galeria/foto1.jpg" class="glightbox"><img src="/img/img/galeria/foto1.jpg" loading="lazy"></a>
+<a href="/img/img/galeria/foto2.jpg" class="glightbox"><img src="/img/img/galeria/foto2.jpg" loading="lazy"></a>
+<a href="/img/img/galeria/foto3.jpeg" class="glightbox"><img src="/img/img/galeria/foto3.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto4.jpeg" class="glightbox"><img src="/img/img/galeria/foto4.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto5.jpeg" class="glightbox"><img src="/img/img/galeria/foto5.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto6.jpeg" class="glightbox"><img src="/img/img/galeria/foto6.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto7.jpeg" class="glightbox"><img src="/img/img/galeria/foto7.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto8.jpeg" class="glightbox"><img src="/img/img/galeria/foto8.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto9.jpeg" class="glightbox"><img src="/img/img/galeria/foto9.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto10.jpeg" class="glightbox"><img src="/img/img/galeria/foto10.jpeg" loading="lazy"></a>
+<a href="/img/img/galeria/foto11.jpeg" class="glightbox"><img src="/img/img/galeria/foto11.jpeg" loading="lazy"></a>
 
 </div>
 
