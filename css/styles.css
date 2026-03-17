@@ -1033,3 +1033,19 @@ font-weight:600;
 color:#fff;
 opacity:0.95;
 }
+/* =========================
+   MEJORA NITIDEZ PATROCINADORES (SIN ROMPER NADA)
+   ========================= */
+
+.carrusel-track img{
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Solo mejora en móvil (ligero ajuste sin cambiar tu diseño) */
+@media (max-width:768px){
+  .carrusel-track img{
+    height:60px; /* antes 50px → mejora nitidez */
+  }
+}
