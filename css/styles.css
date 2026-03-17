@@ -1049,3 +1049,20 @@ opacity:0.95;
     height:60px; /* antes 50px → mejora nitidez */
   }
 }
+/* =========================
+   CARRUSEL MÓVIL – MÁS VISUAL
+   ========================= */
+
+@media (max-width:768px){
+
+  .carrusel-track{
+    gap:30px;
+  }
+
+  .carrusel-track img{
+    height:80px;
+    opacity:1;
+    filter:grayscale(0%);
+  }
+
+}
