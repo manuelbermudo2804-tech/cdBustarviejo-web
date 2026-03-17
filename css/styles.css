@@ -1026,3 +1026,10 @@ animation-play-state:paused;
     grid-template-columns: 1fr;
   }
 }
+.mensaje-club{
+margin-top:20px;
+font-size:1.1rem;
+font-weight:600;
+color:#fff;
+opacity:0.95;
+}
