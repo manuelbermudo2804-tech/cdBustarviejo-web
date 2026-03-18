@@ -1089,3 +1089,35 @@ opacity:0.95;
     margin-top: 20px;
   }
 }
+/* =========================
+   MEJORA HERO PRO
+   ========================= */
+
+.hero h1{
+  font-size: 3.4rem;
+  line-height: 1.2;
+}
+
+@media (max-width:768px){
+  .hero h1{
+    font-size: 2.3rem;
+  }
+}
+
+.subtitulo{
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.mensaje-club{
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.btn.principal{
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn.principal:hover{
+  transform: translateY(-3px);
+}
