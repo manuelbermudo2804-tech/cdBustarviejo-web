@@ -1080,3 +1080,12 @@ opacity:0.95;
 .info-botones p{
   margin: 6px 0;
 }
+.escudo-grande {
+  margin-top: 40px;
+}
+
+@media (max-width: 768px){
+  .escudo-grande{
+    margin-top: 20px;
+  }
+}
