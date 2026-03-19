@@ -1145,7 +1145,7 @@ opacity:0.95;
 }
 
 .logos-colaboradores img{
-  max-height:70px;
+  max-height:120px;
   object-fit:contain;
   opacity:0.9;
   transition:0.3s;
