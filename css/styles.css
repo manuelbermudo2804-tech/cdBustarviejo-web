@@ -1121,3 +1121,37 @@ opacity:0.95;
 .btn.principal:hover{
   transform: translateY(-3px);
 }
+/* =========================
+   COLABORADORES
+   ========================= */
+
+.colaboradores{
+  text-align:center;
+  padding:60px 20px;
+  background:#fff;
+}
+
+.colaboradores h2{
+  font-size:24px;
+  margin-bottom:30px;
+}
+
+.logos-colaboradores{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+.logos-colaboradores img{
+  max-height:70px;
+  object-fit:contain;
+  opacity:0.9;
+  transition:0.3s;
+}
+
+.logos-colaboradores img:hover{
+  opacity:1;
+  transform:scale(1.05);
+}
