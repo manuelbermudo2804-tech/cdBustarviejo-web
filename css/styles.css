@@ -1232,3 +1232,32 @@ body.modo-partido::before{
     background-position: center 15% !important;
   }
 }
+/* =========================
+   HERO FIX MÓVIL DEFINITIVO
+   ========================= */
+
+.hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+
+  .hero {
+    background-position: center top; /* sube la imagen */
+    background-size: cover; /* mantiene proporción */
+  }
+
+}
+
+/* MÓVIL PEQUEÑO */
+@media (max-width: 480px) {
+
+  .hero {
+    background-position: center top;
+    background-size: cover;
+  }
+
+}
