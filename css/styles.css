@@ -1207,3 +1207,10 @@ body.modo-partido::before{
     background-repeat: no-repeat;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
