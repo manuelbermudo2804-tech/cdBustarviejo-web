@@ -352,5 +352,20 @@ botones.appendChild(btn);
 });
 
 </script>
+  <script>
+fetch("https://manuelbermudo2804-tech.github.io/cdBustarviejo-web/")
+  .then(res => res.text())
+  .then(html => {
+
+    if(html.includes("match-card")){
+
+      // 🔥 MODO PARTIDO
+      document.body.classList.add("modo-partido");
+
+    }
+
+  })
+  .catch(err => console.log("Error leyendo competición", err));
+</script>
 </body>
 </html>
