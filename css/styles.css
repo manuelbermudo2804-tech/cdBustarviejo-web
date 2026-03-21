@@ -1190,3 +1190,7 @@ body.modo-partido::before{
     min-height: 65vh;
   }
 }
+/* ACTIVAR CAMBIO DINÁMICO HERO (ESPARTANO) */
+.hero {
+  background-image: var(--hero-img, url("../img/fondo.jpg"));
+}
