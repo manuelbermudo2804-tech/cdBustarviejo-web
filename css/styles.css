@@ -1261,3 +1261,20 @@ body.modo-partido::before{
   }
 
 }
+/* =========================
+   FIX DEFINITIVO HERO (NO SE ROMPE NUNCA)
+   ========================= */
+
+.hero {
+  background-image: var(--hero-img, url("../img/fondo.jpg")) !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .hero {
+    background-position: center top !important;
+  }
+}
