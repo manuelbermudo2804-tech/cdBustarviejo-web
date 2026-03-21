@@ -294,6 +294,63 @@ bloques.forEach(b=>destino.appendChild(b.cloneNode(true)));
 });
 });
 </script>
+<script>
 
+document.addEventListener("DOMContentLoaded", function(){
+
+const hoy = new Date().getDay(); // 0 domingo, 6 sábado
+
+// SOLO viernes (5), sábado (6), domingo (0)
+if(hoy === 5 || hoy === 6 || hoy === 0){
+
+// CAMBIAR FONDO HERO
+const hero = document.querySelector(".hero");
+
+if(hero){
+hero.style.backgroundImage = "url('img/partido.jpg')";
+hero.style.backgroundSize = "cover";
+hero.style.backgroundPosition = "center";
+}
+
+// CAMBIAR TEXTO PRINCIPAL
+const titulo = document.querySelector(".hero h1");
+if(titulo){
+titulo.textContent = "HOY JUEGA EL CD BUSTARVIEJO";
+}
+
+// CAMBIAR SUBTEXTO
+const mensaje = document.querySelector(".mensaje-club");
+if(mensaje){
+mensaje.textContent = "Consulta horarios, rivales y partidos del fin de semana";
+}
+
+// AÑADIR BOTÓN PARTIDOS
+const botones = document.querySelector(".botones-hero");
+
+if(botones){
+
+const btn = document.createElement("a");
+
+btn.href = "https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData";
+btn.target = "_blank";
+btn.textContent = "Ver partidos";
+
+btn.style.background = "#f57c00";
+btn.style.color = "#000";
+btn.style.padding = "12px 20px";
+btn.style.borderRadius = "8px";
+btn.style.fontWeight = "800";
+btn.style.textDecoration = "none";
+btn.style.marginTop = "10px";
+btn.style.display = "inline-block";
+
+botones.appendChild(btn);
+}
+
+}
+
+});
+
+</script>
 </body>
 </html>
