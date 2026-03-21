@@ -1201,3 +1201,9 @@ body.modo-partido::before{
     background-position: center top;
   }
 }
+/* FIX HERO DEFINITIVO */
+.hero {
+  background-image: var(--hero-img, url("../img/fondo.jpg")) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
