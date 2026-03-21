@@ -307,9 +307,7 @@ if(hoy === 5 || hoy === 6 || hoy === 0){
 const hero = document.querySelector(".hero");
 
 if(hero){
-hero.style.backgroundImage = "url('img/partido.jpg')";
-hero.style.backgroundSize = "cover";
-hero.style.backgroundPosition = "center";
+hero.style.setProperty("--hero-img", "url('img/partido.jpg')");
 }
 
 // CAMBIAR TEXTO PRINCIPAL
