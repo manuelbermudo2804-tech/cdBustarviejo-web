@@ -1196,7 +1196,13 @@ body.modo-partido::before{
 }
 @media (max-width: 768px) {
   .hero {
-    background-size: cover;
+ @media (max-width: 768px) {
+  .hero {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
     background-position: center 30%;
     background-repeat: no-repeat;
   }
