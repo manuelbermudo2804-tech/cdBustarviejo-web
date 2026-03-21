@@ -1194,3 +1194,10 @@ body.modo-partido::before{
 .hero {
   background-image: var(--hero-img, url("../img/fondo.jpg"));
 }
+@media (max-width: 768px) {
+  .hero {
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+  }
+}
