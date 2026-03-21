@@ -1192,7 +1192,12 @@ body.modo-partido::before{
 }
 /* ACTIVAR CAMBIO DINÁMICO HERO (ESPARTANO) */
 .hero {
-  background-image: var(--hero-img, url("../img/fondo.jpg"));
+  background-image: url("../img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.hero.modo-partido {
+  background-image: url("../img/partido.jpg");
 }
 @media (max-width: 768px) {
   .hero {
