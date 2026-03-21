@@ -1184,3 +1184,9 @@ body.modo-partido::before{
     background-position: center top;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    background-position: center top;
+    min-height: 65vh;
+  }
+}
