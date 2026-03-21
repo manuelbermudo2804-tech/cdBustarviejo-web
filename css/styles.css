@@ -1178,3 +1178,26 @@ body.modo-partido::before{
   background: rgba(0,0,0,0.55);
   z-index:-1;
 }
+/* =========================
+   FIX HERO MÓVIL + CONTROL IMAGEN
+   ========================= */
+
+/* Forzamos que el fondo lo controle CSS y no JS directamente */
+.hero {
+  background: none !important;
+}
+
+/* Imagen del hero usando variable (compatible con tu JS) */
+.hero::before {
+  background-image: var(--hero-img, url("../img/fondo.jpg")) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ajuste fino para móvil */
+@media (max-width: 768px) {
+  .hero::before {
+    background-position: center top;
+  }
+}
