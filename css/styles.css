@@ -1155,3 +1155,26 @@ opacity:0.95;
   opacity:1;
   transform:scale(1.05);
 }
+/* 🔥 MODO PARTIDO */
+body.modo-partido {
+
+  background-image: url("img/fondo-partido.jpg"); /* tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  transition: all 0.5s ease;
+
+}
+
+/* oscurecer para que se vea pro */
+body.modo-partido::before{
+  content: "";
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.55);
+  z-index:-1;
+}
