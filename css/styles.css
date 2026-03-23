@@ -90,29 +90,43 @@ body {
    ========================= */
 .hero {
   position: relative;
-  min-height: 85vh;
-  background-image: url("../img/fondo.jpg");
+  min-height: 80vh;
+  background-image: url("../img/fondo_optimizado.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 35%; /* 🔥 clave para PC */
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+/* overlay limpio (sin blur) */
 .hero::before {
-content:"";
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(
-to bottom,
-rgba(0,0,0,0.55),
-rgba(0,0,0,0.65)
-);
-
-backdrop-filter: blur(2px);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.30),
+    rgba(0,0,0,0.40)
+  );
 }
+@media (max-width: 768px) {
 
+  .hero {
+    min-height: 75vh;
+    background-position: center 20%; /* 🔥 sube el foco (muy importante) */
+  }
+
+}
+@media (max-width: 480px) {
+
+  .hero {
+    min-height: 70vh;
+    background-position: center 15%; /* 🔥 aún mejor encuadre */
+  }
+
+}
 
 .hero .contenido {
   position: relative;
