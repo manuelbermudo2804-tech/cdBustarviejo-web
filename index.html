@@ -291,6 +291,93 @@ document.addEventListener("DOMContentLoaded", async function(){
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", async function(){
 
+  try{
+
+    const res = await fetch("https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData");
+    const html = await res.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    // 🔥 PRIMER PARTIDO (el importante)
+    const partido = doc.querySelector(".match-card-v2");
+    const fechaEl = doc.querySelector(".day-header .day-date");
+
+    if(!partido || !fechaEl) return;
+
+    // 📊 DATOS
+    const rival = partido.querySelector(".match-rival-name")?.innerText || "";
+    const hora = partido.querySelector(".match-hora")?.innerText || "Por confirmar";
+    const lugar = partido.querySelector(".match-lugar")?.innerText || "";
+    const fechaTexto = fechaEl.innerText;
+
+    // 📅 PARSEO SIMPLE FECHA
+    const hoy = new Date();
+
+    const meses = {
+      ene:0,feb:1,mar:2,abr:3,may:4,jun:5,
+      jul:6,ago:7,sep:8,oct:9,nov:10,dic:11
+    };
+
+    const partes = fechaTexto.split(" ");
+    const dia = parseInt(partes[1]);
+    const mes = meses[partes[2].toLowerCase()];
+
+    const fechaPartido = new Date(hoy.getFullYear(), mes, dia);
+
+    const diffDias = Math.ceil((fechaPartido - hoy) / (1000*60*60*24));
+
+    // 🎯 ELEMENTOS WEB
+    const hero = document.querySelector(".hero");
+    const titulo = document.querySelector(".hero h1");
+    const subtitulo = document.querySelector(".subtitulo");
+    const urgencia = document.querySelector(".urgencia");
+    const aviso = document.getElementById("texto-aviso");
+    const btnPartido = document.getElementById("btn-partido");
+
+    function activarModo(textoTitulo, textoUrgencia, textoAviso){
+
+      hero.style.backgroundImage = "url('img/fondo_partido.jpg')";
+
+      titulo.innerHTML = textoTitulo + "<br><span style='font-size:0.6em'>" + rival + "</span>";
+
+      subtitulo.innerHTML = fechaTexto + " · " + hora;
+      urgencia.innerHTML = textoUrgencia;
+      aviso.innerHTML = textoAviso;
+
+      if(btnPartido){
+        btnPartido.style.display = "inline-block";
+      }
+    }
+
+    // 🔥 LÓGICA
+    if(diffDias === 0){
+      activarModo("🔥 HOY JUGAMOS", "Ven a animar al equipo ⚽", "🔥 Partido HOY");
+
+      // REDIRECCIÓN MÓVIL
+      if(window.innerWidth < 768){
+        setTimeout(()=>{
+          window.location.href = "https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData";
+        }, 4000);
+      }
+    }
+
+    else if(diffDias === 1){
+      activarModo("⚠️ MAÑANA JUGAMOS", "No te lo pierdas", "⚠️ Partido mañana");
+    }
+
+    else if(diffDias <= 5){
+      activarModo("⚽ PRÓXIMO PARTIDO", "Este fin de semana", "⚽ Partido este finde");
+    }
+
+  }catch(e){
+    console.log("Error cargando competición", e);
+  }
+
+});
+</script>
 </body>
 </html>
