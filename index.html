@@ -239,6 +239,19 @@ console.log("Error competición", e);
 © 1989–2026 · C.D. Bustarviejo
 </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('activo');
+    });
+  }
+
+});
+</script>
 </body>
 </html>
