@@ -10,23 +10,14 @@
     });
   });
 </script>
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y70GTP9W0J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-Y70GTP9W0J');
-</script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>C.D. Bustarviejo</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-
 </head>
 
 <body>
@@ -39,11 +30,11 @@
 <div class="header-contenido">
 
 <div class="logo">
-<img src="img/escudo.png" alt="Escudo C.D. Bustarviejo">
+<img src="img/escudo.png">
 <span>C.D. Bustarviejo</span>
 </div>
 
-<button class="menu-toggle" aria-label="Abrir menú">☰</button>
+<button class="menu-toggle">☰</button>
 
 <nav class="menu">
 <a href="index.html">Inicio</a>
@@ -65,7 +56,6 @@ Competicion
 href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
 Hazte socio
 </a>
-
 </nav>
 
 </div>
@@ -73,172 +63,50 @@ Hazte socio
 
 <!-- HERO -->
 <section class="hero">
-
 <div class="contenido">
 
-<img class="escudo-grande" src="img/escudo.png" alt="Escudo">
+<img class="escudo-grande" src="img/escudo.png">
 
 <h1>Club Deportivo Bustarviejo</h1>
 
 <p class="subtitulo">Deporte, valores y comunidad</p>
+
 <p class="mensaje-club">
 Más de 140 jugadores y familias ya forman parte del club.
 Únete tú también.
 </p>
 
-<!-- 🔥 URGENCIA -->
 <p class="urgencia">
 Plazas limitadas · Contacto directo con el coordinador
 </p>
 
 <div class="botones-hero">
 
-<a class="btn principal"
-target="_blank"
+<a class="btn principal" target="_blank"
 href="https://alta-socio.vercel.app/jugadores.html">
 Quiero jugar
 </a>
 
-<a class="btn principal"
-target="_blank"
+<a class="btn principal" target="_blank"
 href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
 Hazte socio
 </a>
 
-<a class="btn principal"
-target="_blank"
+<a class="btn principal" target="_blank"
 href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData">
 Competición
 </a>
 
-<a class="btn principal"
-href="tienda.html">
+<a class="btn principal" href="tienda.html">
 Tienda oficial
 </a>
 
 </div>
 
-<div class="info-botones">
-  <p><strong>Quiero jugar:</strong> Te contactamos</p>
-  <p><strong>Hazte socio:</strong> Apoya al club</p>
-  <p><strong>Competición:</strong> Resultados y partidos</p>
-  <p><strong>Tienda:</strong> Ropa oficial</p>
-</div>
-
-<p style="margin-top:30px; font-weight:600; opacity:0.9;">
-Síguenos en redes sociales
-</p>
-
-<div class="redes-hero">
-<!-- redes igual -->
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTENIDO -->
-<section class="contenido-mejorado">
-<section class="bloque-texto" style="text-align:center;">
-<h2>Un club del pueblo, para todo el mundo</h2>
-<p>
-El Club Deportivo Bustarviejo es una entidad deportiva con más de tres décadas
-de historia, comprometida con la formación, el deporte femenino, la inclusión
-y la vida social de nuestro municipio.
-</p>
-</section>
-</section>
-
-<!-- COLABORACIÓN -->
-<section class="colaboradores">
-<h2>Con el apoyo de</h2>
-<div class="logos-colaboradores">
-<img src="img/ayuntamiento-bustarviejo.png">
-<img src="img/bustardeporte.png">
 </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-contenido">
-
-    <div class="footer-col">
-      <img src="img/escudo.png" class="footer-logo" alt="Escudo">
-      <p class="footer-titulo">C.D. Bustarviejo</p>
-      <p class="footer-texto">Deporte y valores desde 1989</p>
-    </div>
-
-    <div class="footer-col">
-      <p class="footer-titulo">Enlaces</p>
-      <ul class="footer-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="el-club.html">El Club</a></li>
-        <li><a href="equipos.html">Equipos</a></li>
-         <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="patrocinadores.html">Patrocinadores</a></li>
-        <li><a href="aviso-legal.html">Aviso Legal</a></li>
-        <li><a href="privacidad.html">Política de Privacidad</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <p class="footer-titulo">Contacto</p>
-      <p class="footer-texto">
-        📧 <a href="mailto:info@cdbustarviejo.com">info@cdbustarviejo.com</a><br>
-        📍 Bustarviejo (Madrid)
-      </p>
-    </div>
-
-  </div>
-
-  <div class="footer-copy">
-    © 1989–2026 · C.D. Bustarviejo · Todos los derechos reservados
-  </div>
-</footer>
-
-<!-- SCRIPTS ORIGINALES -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
-
-if (toggle && menu) {
-toggle.addEventListener('click', function () {
-menu.classList.toggle('activo');
-});
-}
-
-const aviso = document.getElementById("aviso-club");
-const texto = document.getElementById("texto-aviso").innerText.trim();
-
-if(texto === ""){
-aviso.style.display = "none";
-}
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-fetch("patrocinadores.html")
-.then(res => res.text())
-.then(html => {
-const parser = new DOMParser();
-const doc = parser.parseFromString(html,"text/html");
-
-const lista = doc.querySelector("#lista-patrocinadores");
-const destino = document.getElementById("carrusel-patrocinadores");
-
-if(lista){
-const bloques = lista.querySelectorAll(".patrocinador");
-
-bloques.forEach(b=>destino.appendChild(b.cloneNode(true)));
-bloques.forEach(b=>destino.appendChild(b.cloneNode(true)));
-}
-});
-});
-</script>
-
-
+<!-- SCRIPT BUENO -->
 <script>
 document.addEventListener("DOMContentLoaded", async function(){
 
@@ -250,19 +118,20 @@ document.addEventListener("DOMContentLoaded", async function(){
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
 
-    // 🔥 PRIMER PARTIDO (el importante)
     const partido = doc.querySelector(".match-card-v2");
     const fechaEl = doc.querySelector(".day-header .day-date");
 
     if(!partido || !fechaEl) return;
 
-    // 📊 DATOS
     const rival = partido.querySelector(".match-rival-name")?.innerText || "";
     const hora = partido.querySelector(".match-hora")?.innerText || "Por confirmar";
     const lugar = partido.querySelector(".match-lugar")?.innerText || "";
+    const categoria = partido.querySelector(".match-cat-bar")?.innerText || "";
+
+    const lugarLimpio = lugar.replace("🏠","").replace("✈️","").trim();
+
     const fechaTexto = fechaEl.innerText;
 
-    // 📅 PARSEO SIMPLE FECHA
     const hoy = new Date();
 
     const meses = {
@@ -276,60 +145,87 @@ document.addEventListener("DOMContentLoaded", async function(){
 
     const fechaPartido = new Date(hoy.getFullYear(), mes, dia);
 
-// quitar horas (CLAVE)
-const hoySinHora = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
-const partidoSinHora = new Date(fechaPartido.getFullYear(), fechaPartido.getMonth(), fechaPartido.getDate());
+    // 🔥 FIX IMPORTANTE
+    const hoySinHora = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+    const partidoSinHora = new Date(fechaPartido.getFullYear(), fechaPartido.getMonth(), fechaPartido.getDate());
 
-const diffDias = Math.round((partidoSinHora - hoySinHora) / (1000*60*60*24));
+    const diffDias = Math.round((partidoSinHora - hoySinHora) / (1000*60*60*24));
 
-    // 🎯 ELEMENTOS WEB
     const hero = document.querySelector(".hero");
     const titulo = document.querySelector(".hero h1");
     const subtitulo = document.querySelector(".subtitulo");
     const urgencia = document.querySelector(".urgencia");
     const aviso = document.getElementById("texto-aviso");
-    const btnPartido = document.getElementById("btn-partido");
 
-    function activarModo(textoTitulo, textoUrgencia, textoAviso){
+    function activarModo(tituloTxt, avisoTxt){
 
       hero.style.backgroundImage = "url('img/partido.jpg')";
 
-      titulo.innerHTML = textoTitulo + "<br><span style='font-size:0.6em'>" + rival + "</span>";
+      titulo.innerHTML = `
+        ${tituloTxt}
+        <br><span style="font-size:0.6em">${categoria}</span>
+        <br><span style="font-size:0.8em">${rival}</span>
+      `;
 
-      subtitulo.innerHTML = fechaTexto + " · " + hora;
-      urgencia.innerHTML = textoUrgencia;
-      aviso.innerHTML = textoAviso;
-
-      if(btnPartido){
-        btnPartido.style.display = "inline-block";
-      }
+      subtitulo.innerHTML = `${fechaTexto} · ${hora}`;
+      urgencia.innerHTML = `${lugarLimpio} · Ven a animar al equipo ⚽`;
+      aviso.innerHTML = avisoTxt;
     }
 
-    // 🔥 LÓGICA
     if(diffDias === 0){
-      activarModo("🔥 HOY JUGAMOS", "Ven a animar al equipo ⚽", "🔥 Partido HOY");
-
-      // REDIRECCIÓN MÓVIL
-      if(window.innerWidth < 768){
-        setTimeout(()=>{
-          window.location.href = "https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData";
-        }, 4000);
-      }
+      activarModo("🔥 HOY JUGAMOS","🔥 Partido hoy");
     }
-
     else if(diffDias === 1){
-      activarModo("⚠️ MAÑANA JUGAMOS", "No te lo pierdas", "⚠️ Partido mañana");
+      activarModo("⚠️ MAÑANA JUGAMOS","⚠️ Partido mañana");
     }
-
     else if(diffDias <= 3){
-      activarModo("⚽ PRÓXIMO PARTIDO", "Este fin de semana", "⚽ Partido este finde");
+      activarModo("⚽ PRÓXIMO PARTIDO","⚽ Partido este finde");
     }
 
   }catch(e){
-    console.log("Error cargando competición", e);
+    console.log("Error competición", e);
   }
 
 });
 </script>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-contenido">
+
+<div>
+<img src="img/escudo.png" class="footer-logo">
+<p class="footer-titulo">C.D. Bustarviejo</p>
+<p class="footer-texto">Deporte y valores desde 1989</p>
+</div>
+
+<div>
+<p class="footer-titulo">Enlaces</p>
+<ul class="footer-links">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="el-club.html">El Club</a></li>
+<li><a href="equipos.html">Equipos</a></li>
+<li><a href="galeria.html">Galería</a></li>
+<li><a href="patrocinadores.html">Patrocinadores</a></li>
+<li><a href="aviso-legal.html">Aviso Legal</a></li>
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+</ul>
+</div>
+
+<div>
+<p class="footer-titulo">Contacto</p>
+<p class="footer-texto">
+📧 info@cdbustarviejo.com<br>
+📍 Bustarviejo (Madrid)
+</p>
+</div>
+
+</div>
+
+<div class="footer-copy">
+© 1989–2026 · C.D. Bustarviejo
+</div>
+</footer>
+
 </body>
 </html>
