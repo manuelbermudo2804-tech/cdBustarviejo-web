@@ -238,59 +238,7 @@ bloques.forEach(b=>destino.appendChild(b.cloneNode(true)));
 });
 </script>
 
-<!-- 🔥 MODO PARTIDO AUTOMÁTICO PRO -->
-<script>
-document.addEventListener("DOMContentLoaded", async function(){
 
-  const hoy = new Date();
-  const dia = hoy.getDay();
-
-  const hero = document.querySelector(".hero");
-  const titulo = document.querySelector(".hero h1");
-  const subtitulo = document.querySelector(".subtitulo");
-  const urgencia = document.querySelector(".urgencia");
-  const aviso = document.getElementById("texto-aviso");
-
-  function activarModoPartido(textoTitulo, textoAviso){
-    hero.style.backgroundImage = "url('img/partido.jpg')";
-    titulo.innerHTML = textoTitulo;
-    subtitulo.innerHTML = "C.D. Bustarviejo · Partido oficial";
-    urgencia.innerHTML = "Ven a animar al equipo ⚽";
-    aviso.innerHTML = textoAviso;
-  }
-
-  if(dia === 5){
-    activarModoPartido("⚽ ESTE FIN DE SEMANA JUGAMOS","⚽ Partido este fin de semana");
-  }
-
-  if(dia === 6 || dia === 0){
-    activarModoPartido("🔥 HOY JUGAMOS","🔥 Partido hoy");
-  }
-
-  try {
-    const res = await fetch("https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData");
-    const data = await res.json();
-
-    const partidos = data.partidos || data.data || data;
-
-    if(partidos && partidos.length){
-
-      partidos.sort((a,b)=> new Date(a.fecha) - new Date(b.fecha));
-
-      const siguiente = partidos.find(p => new Date(p.fecha) >= hoy);
-
-      if(siguiente && (dia === 5 || dia === 6 || dia === 0)){
-        subtitulo.innerHTML = `${siguiente.local || ""} vs ${siguiente.visitante || ""}`;
-        urgencia.innerHTML = `🕒 ${siguiente.hora || ""} · ${siguiente.lugar || "Campo municipal"}`;
-      }
-    }
-
-  } catch(e){
-    console.log("Base44 fallback");
-  }
-
-});
-</script>
 <script>
 document.addEventListener("DOMContentLoaded", async function(){
 
@@ -328,7 +276,11 @@ document.addEventListener("DOMContentLoaded", async function(){
 
     const fechaPartido = new Date(hoy.getFullYear(), mes, dia);
 
-    const diffDias = Math.ceil((fechaPartido - hoy) / (1000*60*60*24));
+// quitar horas (CLAVE)
+const hoySinHora = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+const partidoSinHora = new Date(fechaPartido.getFullYear(), fechaPartido.getMonth(), fechaPartido.getDate());
+
+const diffDias = Math.round((partidoSinHora - hoySinHora) / (1000*60*60*24));
 
     // 🎯 ELEMENTOS WEB
     const hero = document.querySelector(".hero");
