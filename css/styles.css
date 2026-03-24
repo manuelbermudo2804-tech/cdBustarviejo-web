@@ -1202,7 +1202,7 @@ opacity:0.95;
 /* móvil más rápido */
 @media (max-width: 768px) {
   .carrusel-track {
-    animation: scroll 5s linear infinite;
+    animation: scroll 35s linear infinite;
     gap: 25px;
   }
 }
