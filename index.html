@@ -333,18 +333,23 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+<script>
+window.addEventListener("load", function(){
 
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menu');
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
 
-  if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      menu.classList.toggle('activo');
-    });
-  }
+if(!toggle || !menu){
+  console.log("Menu no encontrado");
+  return;
+}
+
+toggle.onclick = function(){
+  menu.classList.toggle('activo');
+};
 
 });
+</script>
 </script>
 </body>
 </html>
