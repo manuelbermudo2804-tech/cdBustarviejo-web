@@ -201,7 +201,44 @@ console.log("Error competición", e);
 
 });
 </script>
+<!-- SCRIPT CARRUSEL PATROCINADORES -->
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+fetch("patrocinadores.html")
+.then(res => res.text())
+.then(html => {
+
+const parser = new DOMParser();
+const doc = parser.parseFromString(html,"text/html");
+
+const lista = doc.querySelector("#lista-patrocinadores");
+const destino = document.getElementById("carrusel-patrocinadores");
+
+if(lista){
+
+const bloques = lista.querySelectorAll(".patrocinador");
+
+bloques.forEach(b=>{
+destino.appendChild(b.cloneNode(true));
+});
+
+bloques.forEach(b=>{
+destino.appendChild(b.cloneNode(true));
+});
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
 <!-- FOOTER -->
 <footer class="footer">
 <div class="footer-contenido">
