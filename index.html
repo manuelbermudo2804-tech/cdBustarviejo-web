@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.D. Bustarviejo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
 window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -11,13 +19,6 @@ appId: "bdb62027-47c1-4d37-919b-b917cf8b4995",
 });
 </script>
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>C.D. Bustarviejo</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -87,7 +88,7 @@ Plazas limitadas · Contacto directo con el coordinador
 <div class="botones-hero">
 
 <a id="btn-partido" class="btn principal"
-style="background:#f57c00; font-size:1.1em; box-shadow:0 4px 15px rgba(245,124,0,0.5);"
+style="background:#f57c00; font-size:1.1em;"
 target="_blank"
 href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData">
 ⚽ Ver partidos y resultados
@@ -111,6 +112,8 @@ Tienda oficial
 
 </div>
 </section>
+
+<!-- CARRUSEL PATROCINADORES -->
 <section class="patrocinadores-home">
 
 <h2>Nuestros patrocinadores</h2>
@@ -120,7 +123,46 @@ Tienda oficial
 </div>
 
 </section>
-<!-- 🔥 SCRIPT DETECCIÓN BUENO -->
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-contenido">
+
+<div>
+<img src="img/escudo.png" class="footer-logo">
+<p class="footer-titulo">C.D. Bustarviejo</p>
+<p class="footer-texto">Deporte y valores desde 1989</p>
+</div>
+
+<div>
+<p class="footer-titulo">Enlaces</p>
+<ul class="footer-links">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="el-club.html">El Club</a></li>
+<li><a href="equipos.html">Equipos</a></li>
+<li><a href="galeria.html">Galería</a></li>
+<li><a href="patrocinadores.html">Patrocinadores</a></li>
+<li><a href="aviso-legal.html">Aviso Legal</a></li>
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+</ul>
+</div>
+
+<div>
+<p class="footer-titulo">Contacto</p>
+<p class="footer-texto">
+📧 info@cdbustarviejo.com<br>
+📍 Bustarviejo (Madrid)
+</p>
+</div>
+
+</div>
+
+<div class="footer-copy">
+© 1989–2026 · C.D. Bustarviejo
+</div>
+</footer>
+
+<!-- SCRIPT PARTIDOS -->
 <script>
 document.addEventListener("DOMContentLoaded", async function(){
 
@@ -158,13 +200,11 @@ const mes = meses[partes[2].toLowerCase()];
 
 const fechaPartido = new Date(hoy.getFullYear(), mes, dia);
 
-// FIX HORAS
 const hoySinHora = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
 const partidoSinHora = new Date(fechaPartido.getFullYear(), fechaPartido.getMonth(), fechaPartido.getDate());
 
 const diffDias = Math.round((partidoSinHora - hoySinHora) / (1000*60*60*24));
 
-// ELEMENTOS
 const hero = document.querySelector(".hero");
 const titulo = document.querySelector(".hero h1");
 const subtitulo = document.querySelector(".subtitulo");
@@ -187,12 +227,10 @@ subtitulo.innerHTML = `${fechaTexto} · ${hora}`;
 urgencia.innerHTML = `${lugarLimpio} · Ven a animar al equipo ⚽`;
 aviso.innerHTML = textoAviso;
 
-// 🔥 CAMBIO BOTÓN
 btn.innerHTML = "🔥 VER PARTIDO";
 mensaje.innerHTML = "👉 No te pierdas el próximo partido";
 }
 
-// LÓGICA
 if(diffDias === 0){
 activarModo("🔥 HOY JUGAMOS","🔥 Partido hoy");
 }
@@ -209,10 +247,9 @@ console.log("Error competición", e);
 
 });
 </script>
-<!-- SCRIPT CARRUSEL PATROCINADORES -->
 
+<!-- SCRIPT CARRUSEL -->
 <script>
-
 document.addEventListener("DOMContentLoaded", function(){
 
 fetch("patrocinadores.html")
@@ -242,7 +279,18 @@ destino.appendChild(b.cloneNode(true));
 });
 
 });
+</script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('activo');
+    });
+  }
+});
 </script>
 
 </body>
