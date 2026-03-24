@@ -1173,3 +1173,36 @@ opacity:0.95;
   opacity:1;
   transform:scale(1.05);
 }
+.carrusel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrusel-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll 18s linear infinite;
+}
+
+.patrocinador {
+  flex: 0 0 auto;
+}
+
+/* animación continua */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* móvil más rápido */
+@media (max-width: 768px) {
+  .carrusel-track {
+    animation: scroll 12s linear infinite;
+    gap: 25px;
+  }
+}
