@@ -1240,3 +1240,14 @@ body {
   overflow-x: hidden;
   overflow-y: visible;
 }
+/* 🔥 FIX FRANJA NARANJA */
+
+.aviso-club {
+  position: relative;
+  z-index: 9999;
+}
+
+.header {
+  position: relative;
+  z-index: 1000;
+}
