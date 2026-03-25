@@ -113,9 +113,8 @@ Tienda oficial
 </div>
 </section>
 
-<!-- CARRUSEL PATROCINADORES -->
+<!-- CARRUSEL -->
 <section class="patrocinadores-home">
-
 <h2>Nuestros patrocinadores</h2>
 
 <div class="carrusel-wrapper">
@@ -165,9 +164,7 @@ Tienda oficial
 <!-- SCRIPT PARTIDOS -->
 <script>
 document.addEventListener("DOMContentLoaded", async function(){
-
 try{
-
 const res = await fetch("https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData");
 const html = await res.text();
 
@@ -189,10 +186,7 @@ const fechaTexto = fechaEl.innerText;
 
 const hoy = new Date();
 
-const meses = {
-ene:0,feb:1,mar:2,abr:3,may:4,jun:5,
-jul:6,ago:7,sep:8,oct:9,nov:10,dic:11
-};
+const meses = {ene:0,feb:1,mar:2,abr:3,may:4,jun:5,jul:6,ago:7,sep:8,oct:9,nov:10,dic:11};
 
 const partes = fechaTexto.split(" ");
 const dia = parseInt(partes[1]);
@@ -214,37 +208,20 @@ const btn = document.getElementById("btn-partido");
 const mensaje = document.getElementById("mensaje-partidos");
 
 function activarModo(textoTitulo, textoAviso){
-
 hero.style.backgroundImage = "url('img/partido.jpg')";
-
-titulo.innerHTML = `
-${textoTitulo}
-<br><span style="font-size:0.6em">${categoria}</span>
-<br><span style="font-size:0.8em">${rival}</span>
-`;
-
+titulo.innerHTML = `${textoTitulo}<br><span style="font-size:0.6em">${categoria}</span><br><span style="font-size:0.8em">${rival}</span>`;
 subtitulo.innerHTML = `${fechaTexto} · ${hora}`;
 urgencia.innerHTML = `${lugarLimpio} · Ven a animar al equipo ⚽`;
 aviso.innerHTML = textoAviso;
-
 btn.innerHTML = "🔥 VER PARTIDO";
 mensaje.innerHTML = "👉 No te pierdas el próximo partido";
 }
 
-if(diffDias === 0){
-activarModo("🔥 HOY JUGAMOS","🔥 Partido hoy");
-}
-else if(diffDias === 1){
-activarModo("⚠️ MAÑANA JUGAMOS","⚠️ Partido mañana");
-}
-else if(diffDias <= 3){
-activarModo("⚽ PRÓXIMO PARTIDO","⚽ Este fin de semana");
-}
+if(diffDias === 0){ activarModo("🔥 HOY JUGAMOS","🔥 Partido hoy"); }
+else if(diffDias === 1){ activarModo("⚠️ MAÑANA JUGAMOS","⚠️ Partido mañana"); }
+else if(diffDias <= 3){ activarModo("⚽ PRÓXIMO PARTIDO","⚽ Este fin de semana"); }
 
-}catch(e){
-console.log("Error competición", e);
-}
-
+}catch(e){ console.log("Error competición", e); }
 });
 </script>
 
@@ -263,28 +240,21 @@ const lista = doc.querySelector("#lista-patrocinadores");
 const destino = document.getElementById("carrusel-patrocinadores");
 
 if(lista){
-
 const bloques = lista.querySelectorAll(".patrocinador");
-
-bloques.forEach(b=>{
-destino.appendChild(b.cloneNode(true));
-});
-
-bloques.forEach(b=>{
-destino.appendChild(b.cloneNode(true));
-});
-
+bloques.forEach(b=> destino.appendChild(b.cloneNode(true)));
+bloques.forEach(b=> destino.appendChild(b.cloneNode(true)));
 }
 
 });
-
 });
 </script>
 
+<!-- 🔥 MENÚ (ÚNICO Y CORRECTO) -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.menu');
+
   if (toggle && menu) {
     toggle.addEventListener('click', function () {
       menu.classList.toggle('activo');
@@ -293,27 +263,5 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-</body>
-</html>
-
-
-<script>
-window.addEventListener("load", function(){
-
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
-
-if(!toggle || !menu){
-  console.log("Menu no encontrado");
-  return;
-}
-
-toggle.onclick = function(){
-  menu.classList.toggle('activo');
-};
-
-});
-</script>
-</script>
 </body>
 </html>
