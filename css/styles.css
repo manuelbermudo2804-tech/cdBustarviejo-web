@@ -892,17 +892,17 @@ body {
 /* =========================
 AVISO CLUB
 ========================= */
-
-.aviso-club{
-width:100%;
-background:#f57c00;
-color:#000;
-text-align:center;
-padding:10px 20px;
-font-weight:700;
-font-size:0.95rem;
+.aviso-club {
+  background: #f57c00;
+  color: white;
+  text-align: center;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;   /* 🔥 clave */
+  word-wrap: break-word; /* 🔥 evita cortes */
 }
-
 /* si no hay texto dentro, no se muestra */
 #texto-aviso:empty{
 display:none;
