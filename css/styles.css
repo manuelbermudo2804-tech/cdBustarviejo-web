@@ -892,17 +892,8 @@ body {
 /* =========================
 AVISO CLUB
 ========================= */
-.aviso-club {
-  background: #f57c00;
-  color: white;
-  text-align: center;
-  padding: 12px 20px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.4;
-  white-space: normal;   /* 🔥 clave */
-  word-wrap: break-word; /* 🔥 evita cortes */
-}
+
+
 /* si no hay texto dentro, no se muestra */
 #texto-aviso:empty{
 display:none;
@@ -1208,27 +1199,7 @@ opacity:0.95;
 }
 /* 🔥 FIX TOTAL AVISO SUPERIOR */
 
-.aviso-club {
-  position: relative;
-  width: 100%;
-  background: #f57c00;
-  color: #fff;
 
-  display: block;
-
-  padding: 12px 16px;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.4;
-
-  text-align: center;
-
-  height: auto !important;        /* 🔥 clave */
-  min-height: auto !important;    /* 🔥 clave */
-  white-space: normal !important; /* 🔥 clave */
-
-  overflow: visible !important;   /* 🔥 clave */
-}
 
 /* asegura que el texto no esté limitado */
 #texto-aviso {
@@ -1242,15 +1213,23 @@ body {
 }
 /* 🔥 FIX FRANJA NARANJA */
 
-.aviso-club {
-  position: relative;
-  z-index: 9999;
-}
 
 .header {
   position: relative;
   z-index: 1000;
 }
-body {
-  margin-top: 40px;
+/* =========================
+   AVISO CLUB (LIMPIO)
+   ========================= */
+.aviso-club {
+  width: 100%;
+  background: #f57c00;
+  color: #fff;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+
+  padding: 5px 10px;
+  line-height: 1.2;
 }
