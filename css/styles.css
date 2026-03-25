@@ -1206,3 +1206,32 @@ opacity:0.95;
     gap: 25px;
   }
 }
+/* 🔥 FIX TOTAL AVISO SUPERIOR */
+
+.aviso-club {
+  position: relative;
+  width: 100%;
+  background: #f57c00;
+  color: #fff;
+
+  display: block;
+
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  text-align: center;
+
+  height: auto !important;        /* 🔥 clave */
+  min-height: auto !important;    /* 🔥 clave */
+  white-space: normal !important; /* 🔥 clave */
+
+  overflow: visible !important;   /* 🔥 clave */
+}
+
+/* asegura que el texto no esté limitado */
+#texto-aviso {
+  display: block;
+  width: 100%;
+}
