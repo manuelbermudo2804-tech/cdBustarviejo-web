@@ -26,7 +26,11 @@ appId: "bdb62027-47c1-4d37-919b-b917cf8b4995",
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="manifest" href="img/site.webmanifest">
 </head>
-
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
 <body>
 
 <div id="aviso-club" class="aviso-club">
