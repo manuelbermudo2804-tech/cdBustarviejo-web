@@ -308,7 +308,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-</script>
 <!-- POPUP SAN ISIDRO -->
 <div id="popup-san-isidro" class="popup-overlay" style="display:none;">
   <div class="popup-content">
@@ -317,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <img src="/img/cartel-san-isidro-2026.jpg" alt="San Isidro 2026">
 
     <!-- BOTÓN INSCRIPCIONES -->
-    <a href="https://TU-URL-FORMULARIO.com" class="btn-inscripcion">
+    <a href__="https://app.base44.com/ilm0kny/SanIsidro" target="_blank" class="btn-inscripcion">
       INSCRIPCIONES
     </a>
 
@@ -339,15 +338,12 @@ document.addEventListener('DOMContentLoaded', function () {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-
 .popup-overlay.show {
   opacity: 1;
 }
-
 .popup-content {
   position: relative;
   max-width: 420px;
@@ -356,21 +352,17 @@ document.addEventListener('DOMContentLoaded', function () {
   border-radius: 12px;
   overflow: hidden;
   text-align: center;
-
   transform: scale(0.9);
   transition: transform 0.3s ease;
 }
-
 .popup-overlay.show .popup-content {
   transform: scale(1);
 }
-
 .popup-content img {
   width: 100%;
   height: auto;
   display: block;
 }
-
 .btn-inscripcion {
   display: block;
   background: #e53935;
@@ -380,12 +372,9 @@ document.addEventListener('DOMContentLoaded', function () {
   font-size: 18px;
   text-decoration: none;
 }
-
 .btn-inscripcion:hover {
   background: #c62828;
 }
-
-/* BOTÓN CERRAR MEJORADO */
 .popup-close {
   position: absolute;
   top: 10px;
@@ -407,17 +396,13 @@ document.addEventListener('DOMContentLoaded', function () {
 function cerrarPopup() {
   const popup = document.getElementById("popup-san-isidro");
   popup.classList.remove("show");
-
-  setTimeout(() => {
-    popup.style.display = "none";
-  }, 300);
+  setTimeout(() => { popup.style.display = "none"; }, 300);
 }
 
 window.onload = function() {
   const hoy = new Date();
-  const fechaInicio = new Date("2026-04-19");
+  const fechaInicio = new Date("2026-05-01");
   const fechaFin = new Date("2026-05-15");
-
   if (hoy >= fechaInicio && hoy <= fechaFin) {
     setTimeout(() => {
       const popup = document.getElementById("popup-san-isidro");
