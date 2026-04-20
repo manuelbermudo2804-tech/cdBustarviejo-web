@@ -309,5 +309,93 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+  <!-- POPUP SAN ISIDRO -->
+<div id="popup-san-isidro" class="popup-overlay" style="display:none;">
+  <div class="popup-content">
+    
+    <!-- IMAGEN DEL CARTEL -->
+    <img src="/img/cartel-san-isidro-2026.jpg" alt="San Isidro 2026">
+
+    <!-- BOTÓN INSCRIPCIONES -->
+    <a href="https://TU-URL-FORMULARIO.com" class="btn-inscripcion">
+      INSCRIPCIONES
+    </a>
+
+    <!-- BOTÓN CERRAR -->
+    <span class="popup-close" onclick="cerrarPopup()">✕</span>
+
+  </div>
+</div>
+
+<style>
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  position: relative;
+  max-width: 420px;
+  width: 92%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.popup-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.btn-inscripcion {
+  display: block;
+  background: #e53935;
+  color: white;
+  font-weight: bold;
+  padding: 16px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.btn-inscripcion:hover {
+  background: #c62828;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+}
+</style>
+
+<script>
+function cerrarPopup() {
+  document.getElementById("popup-san-isidro").style.display = "none";
+}
+
+// MOSTRAR SIEMPRE (solo entre fechas)
+window.onload = function() {
+  const hoy = new Date();
+  const fechaInicio = new Date("2026-05-01");
+  const fechaFin = new Date("2026-05-15");
+
+  if (hoy >= fechaInicio && hoy <= fechaFin) {
+    document.getElementById("popup-san-isidro").style.display = "flex";
+  }
+};
+</script>
 </body>
 </html>
