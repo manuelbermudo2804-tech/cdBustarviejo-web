@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
-  <!-- POPUP SAN ISIDRO -->
+ <!-- POPUP SAN ISIDRO -->
 <div id="popup-san-isidro" class="popup-overlay" style="display:none;">
   <div class="popup-content">
     
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
       INSCRIPCIONES
     </a>
 
-    <!-- BOTÓN CERRAR -->
+    <!-- CERRAR -->
     <span class="popup-close" onclick="cerrarPopup()">✕</span>
 
   </div>
@@ -339,6 +339,13 @@ document.addEventListener('DOMContentLoaded', function () {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.popup-overlay.show {
+  opacity: 1;
 }
 
 .popup-content {
@@ -349,6 +356,13 @@ document.addEventListener('DOMContentLoaded', function () {
   border-radius: 12px;
   overflow: hidden;
   text-align: center;
+
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.popup-overlay.show .popup-content {
+  transform: scale(1);
 }
 
 .popup-content img {
@@ -383,17 +397,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 function cerrarPopup() {
-  document.getElementById("popup-san-isidro").style.display = "none";
+  const popup = document.getElementById("popup-san-isidro");
+  popup.classList.remove("show");
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 300);
 }
 
-// MOSTRAR SIEMPRE (solo entre fechas)
 window.onload = function() {
   const hoy = new Date();
-  const fechaInicio = new Date("2026-04-19");
+  const fechaInicio = new Date("2026-05-01");
   const fechaFin = new Date("2026-05-15");
 
   if (hoy >= fechaInicio && hoy <= fechaFin) {
-    document.getElementById("popup-san-isidro").style.display = "flex";
+    setTimeout(() => {
+      const popup = document.getElementById("popup-san-isidro");
+      popup.style.display = "flex";
+      setTimeout(() => popup.classList.add("show"), 10);
+    }, 1200);
   }
 };
 </script>
