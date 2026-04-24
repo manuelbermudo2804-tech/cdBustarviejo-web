@@ -1274,3 +1274,42 @@ opacity:0.95;
   }
 
 }
+/* =========================
+   DESTACAR PATROCINADORES (WEB + MÓVIL)
+   ========================= */
+
+/* Desktop (página patrocinadores) */
+.pagina-patrocinadores .patrocinador.oro img{
+  max-height:260px !important;
+  filter:none;
+}
+
+.pagina-patrocinadores .patrocinador.plata img{
+  max-height:230px !important;
+  filter:none;
+}
+
+.pagina-patrocinadores .patrocinador.bronce img{
+  max-height:210px !important;
+  filter:none;
+}
+
+/* Móvil */
+@media (max-width:768px){
+
+  .pagina-patrocinadores .patrocinador.oro img{
+    max-height:190px !important;
+    border:2px solid #f57c00;
+    border-radius:10px;
+    padding:6px;
+  }
+
+  .pagina-patrocinadores .patrocinador.plata img{
+    max-height:170px !important;
+  }
+
+  .pagina-patrocinadores .patrocinador.bronce img{
+    max-height:150px !important;
+  }
+
+}
