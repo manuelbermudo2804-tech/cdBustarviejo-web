@@ -309,8 +309,8 @@ body {
    ========================= */
 
 .pagina-patrocinadores .patrocinador {
-  width: 400px;
-  height: 260px;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
