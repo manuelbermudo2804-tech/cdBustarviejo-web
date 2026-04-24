@@ -1250,3 +1250,27 @@ opacity:0.95;
   border-radius:10px;
   padding:10px;
 }
+/* =========================
+   DESTACAR PATROCINADORES MÓVIL (FIX)
+   ========================= */
+
+@media (max-width:768px){
+
+  .patrocinador.oro img{
+    height:110px !important;
+    transform:scale(1.2);
+    border:2px solid #f57c00;
+    border-radius:10px;
+    padding:5px;
+  }
+
+  .patrocinador.plata img{
+    height:95px !important;
+    transform:scale(1.1);
+  }
+
+  .patrocinador.bronce img{
+    height:85px !important;
+  }
+
+}
