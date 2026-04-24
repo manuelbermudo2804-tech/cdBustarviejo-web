@@ -1299,3 +1299,81 @@ opacity:0.95;
   }
 
 }
+/* =========================
+   PATROCINADORES PRO DEFINITIVO
+   ========================= */
+
+.pagina-patrocinadores .patrocinador{
+  position: relative;
+  padding: 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LOGOS NORMALES */
+.pagina-patrocinadores .logo-patrocinador{
+  max-width: 280px;
+  max-height: 160px;
+  object-fit: contain;
+}
+
+/* ORO */
+.pagina-patrocinadores .patrocinador.oro{
+  transform: scale(1.15);
+}
+
+.pagina-patrocinadores .patrocinador.oro .logo-patrocinador{
+  border: 4px solid #d4af37;
+  border-radius: 14px;
+  padding: 12px;
+  background:#fff;
+}
+
+.pagina-patrocinadores .patrocinador.oro::after{
+  content: "🥇";
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 26px;
+}
+
+/* PLATA */
+.pagina-patrocinadores .patrocinador.plata{
+  transform: scale(1.08);
+}
+
+.pagina-patrocinadores .patrocinador.plata .logo-patrocinador{
+  border: 4px solid #c0c0c0;
+  border-radius: 14px;
+  padding: 10px;
+  background:#fff;
+}
+
+.pagina-patrocinadores .patrocinador.plata::after{
+  content: "🥈";
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 24px;
+}
+
+/* BRONCE */
+.pagina-patrocinadores .patrocinador.bronce{
+  transform: scale(1.05);
+}
+
+.pagina-patrocinadores .patrocinador.bronce .logo-patrocinador{
+  border: 4px solid #cd7f32;
+  border-radius: 14px;
+  padding: 8px;
+  background:#fff;
+}
+
+.pagina-patrocinadores .patrocinador.bronce::after{
+  content: "🥉";
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 22px;
+}
