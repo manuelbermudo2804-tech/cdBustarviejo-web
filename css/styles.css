@@ -1215,3 +1215,38 @@ opacity:0.95;
     z-index: 2000;
   }
 }
+/* =========================
+   DESTACAR PATROCINADORES
+   ========================= */
+
+/* base */
+.patrocinador{
+  transition: all 0.3s ease;
+}
+
+/* ORO */
+.patrocinador.oro img{
+  height:90px;
+  transform:scale(1.2);
+  filter:none;
+}
+
+/* PLATA */
+.patrocinador.plata img{
+  height:75px;
+  transform:scale(1.1);
+  filter:none;
+}
+
+/* BRONCE */
+.patrocinador.bronce img{
+  height:65px;
+  filter:none;
+}
+
+/* opcional sombra */
+.patrocinador.oro{
+  background:rgba(212,175,55,0.1);
+  border-radius:10px;
+  padding:10px;
+}
