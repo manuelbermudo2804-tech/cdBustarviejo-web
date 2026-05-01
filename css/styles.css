@@ -1853,3 +1853,16 @@ opacity:0.95;
   position: relative;
   z-index: 1;
 }
+/* 🔥 FIX CLICK BOTÓN PATROCINIO */
+.cta-patrocinio-temporal *{
+  pointer-events: auto !important;
+}
+
+.cta-patrocinio-temporal{
+  position: relative;
+  z-index: 10;
+}
+
+.cta-patrocinio-temporal::before{
+  pointer-events: none !important;
+}
