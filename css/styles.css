@@ -1490,3 +1490,49 @@ opacity:0.95;
     height:65px;
   }
 }
+/* =========================
+   REDES CLUB PRO
+   ========================= */
+
+.redes-club{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.red-social{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+/* Instagram */
+.red-social.instagram{
+  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+  color: #fff;
+}
+
+/* Facebook */
+.red-social.facebook{
+  background: #1877f2;
+  color: #fff;
+}
+
+.red-social svg{
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.red-social:hover{
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
