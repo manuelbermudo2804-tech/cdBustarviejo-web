@@ -1845,9 +1845,11 @@ opacity:0.95;
 
 }
 .menu{
-  pointer-events: none;
+  position: relative;
+  z-index: 1000;
 }
 
-.menu.activo{
-  pointer-events: auto;
+.cta-patrocinio-temporal{
+  position: relative;
+  z-index: 1;
 }
