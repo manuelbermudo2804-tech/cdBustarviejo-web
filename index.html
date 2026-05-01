@@ -155,7 +155,6 @@ Tienda oficial
 </div>
 
 </section>
-</section>
 
 <!-- 👇 AQUÍ -->
 <section id="cta-patrocinio-temporal" class="cta-patrocinio-temporal" style="display:none;">
@@ -459,4 +458,21 @@ if (window.location.pathname !== "/" && window.location.pathname !== "/index.htm
 }
 </script>
 </body>
+  <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const inicio = new Date("2026-05-01");
+  const fin = new Date("2026-05-20");
+
+  const hoy = new Date();
+
+  if(hoy >= inicio && hoy <= fin){
+    const bloque = document.getElementById("cta-patrocinio-temporal");
+    if(bloque){
+      bloque.style.display = "block";
+    }
+  }
+
+});
+</script>
 </html>
