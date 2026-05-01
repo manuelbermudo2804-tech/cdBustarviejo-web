@@ -1771,3 +1771,76 @@ opacity:0.95;
   }
 
 }
+/* =========================
+   CTA PATROCINIO TEMPORAL PRO
+   ========================= */
+
+.cta-patrocinio-temporal{
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 30px;
+
+  background: linear-gradient(135deg,#111,#2b2b2b);
+  color: #fff;
+
+  border-radius: 16px;
+  text-align: center;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* etiqueta urgencia */
+.cta-urgencia{
+  display:inline-block;
+  background:#f57c00;
+  color:#000;
+  padding:6px 14px;
+  font-weight:800;
+  border-radius:20px;
+  margin-bottom:15px;
+  font-size:0.85rem;
+}
+
+/* título */
+.cta-patrocinio-temporal h2{
+  font-size:2rem;
+  margin-bottom:12px;
+}
+
+/* texto */
+.cta-patrocinio-temporal p{
+  font-size:1.1rem;
+  opacity:0.9;
+  margin-bottom:25px;
+}
+
+/* BOTÓN */
+.cta-patrocinio-temporal .btn{
+  display:inline-block;
+  background:#f57c00;
+  color:#000;
+  padding:16px 32px;
+  border-radius:50px;
+  font-weight:800;
+  text-decoration:none;
+  transition:0.25s;
+}
+
+.cta-patrocinio-temporal .btn:hover{
+  background:#fff;
+  transform:translateY(-3px);
+}
+
+/* móvil */
+@media (max-width:768px){
+
+  .cta-patrocinio-temporal{
+    margin:40px 15px;
+    padding:30px 20px;
+  }
+
+  .cta-patrocinio-temporal h2{
+    font-size:1.6rem;
+  }
+
+}
