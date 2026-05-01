@@ -251,6 +251,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
 
+  const inicio = new Date("2026-05-01");
+  const fin = new Date("2026-05-15"); // CAMBIA SI QUIERES
+
+  const hoy = new Date();
+
+  if(hoy >= inicio && hoy <= fin){
+    const bloque = document.getElementById("cta-patrocinio-temporal");
+    if(bloque){
+      bloque.style.display = "block";
+    }
+  }
+
+});
+</script>
 </body>
 </html>
