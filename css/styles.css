@@ -1844,3 +1844,10 @@ opacity:0.95;
   }
 
 }
+.menu{
+  pointer-events: none;
+}
+
+.menu.activo{
+  pointer-events: auto;
+}
