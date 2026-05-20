@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="popup-content">
     
     <!-- IMAGEN -->
-    <img src="/img/cartel-san-isidro-2026.jpg" alt="San Isidro 2026">
+    <img src="/img/maraton_futbol_sala.png" alt="Maratón futbol sala 2026">
 
     <!-- BOTÓN INSCRIPCIONES -->
     <a href="https://app.cdbustarviejo.com/l/maratonfutbolsala2026" class="btn-inscripcion">
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 function cerrarPopup() {
-  const popup = document.getElementById("popup-san-isidro");
+  const popup = document.getElementById("popup-maraton futbol-sala");
   popup.classList.remove("show");
 
   setTimeout(() => {
@@ -474,12 +474,12 @@ function cerrarPopup() {
 
 window.onload = function() {
   const hoy = new Date();
-  const fechaInicio = new Date("2026-05-01");
-  const fechaFin = new Date("2026-05-15");
+  const fechaInicio = new Date("2026-05-20");
+  const fechaFin = new Date("2026-05-21");
 
   if (hoy >= fechaInicio && hoy <= fechaFin) {
     setTimeout(() => {
-      const popup = document.getElementById("popup-san-isidro");
+      const popup = document.getElementById("popup-maraton futbol-sala");
       popup.style.display = "flex";
       setTimeout(() => popup.classList.add("show"), 10);
     }, 1200);
@@ -495,8 +495,8 @@ if (window.location.pathname !== "/" && window.location.pathname !== "/index.htm
   <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-  const inicio = new Date("2026-05-01");
-  const fin = new Date("2026-05-20");
+  const inicio = new Date("2026-05-20");
+  const fin = new Date("2026-05-21");
 
   const hoy = new Date();
 
