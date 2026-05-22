@@ -370,160 +370,171 @@ document.addEventListener('DOMContentLoaded', function () {
   </script>
 <!-- POPUP PORRA DEL MUNDIAL -->
 <div id="popup-porra-del-mundial" class="popup-overlay" style="display:none;">
+
   <div class="popup-content">
-    
+
     <!-- IMAGEN -->
-    <img src="/img/porra.png" alt="Porra del Mundial 2026 CD Bustarviejo">
+    <img src="/img/porra.png" alt="Porra Mundial 2026">
 
-    <!-- BOTÓN INSCRIPCIONES -->
-    <a href="🌍⚽ YA ESTÁ AQUÍ LA PORRA DEL MUNDIAL 2026 ⚽🌍
-
-No es solo una porra.
-Es otra forma de apoyar al Club Deportivo Bustarviejo ❤️🖤
-
-Por solo 10€ podrás disfrutar del Mundial partido a partido, competir con amigos, pelear por grandes premios y, sobre todo, seguir haciendo crecer nuestro club y nuestra comunidad.
-
-📲 PARTICIPA AQUÍ:
-https://app.cdbustarviejo.com/porra
-
-⚽ Pronostica
-🏆 Compite
-🔥 Disfruta
-❤️ Apoya a tu club
-
-UN CLUB, UNA AFICIÓN, ¡UN MISMO OBJETIVO!
-" class="btn-inscripcion">
-     APUNTA TU PORRA 
+    <!-- BOTÓN -->
+    <a href="https://app.cdbustarviejo.com/porra"
+       target="_blank"
+       class="btn-inscripcion">
+       🌍 APUNTA TU PORRA
     </a>
 
-    <!-- BOTÓN CERRAR -->
+    <!-- CERRAR -->
     <span class="popup-close" onclick="cerrarPopup()">✕</span>
 
   </div>
+
 </div>
 
 <style>
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
 
-  opacity: 0;
-  transition: opacity 0.4s ease;
+.popup-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.75);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+
+  opacity:0;
+  transition:opacity 0.4s ease;
 }
 
-.popup-overlay.show {
-  opacity: 1;
+.popup-overlay.show{
+  opacity:1;
 }
 
-.popup-content {
-  position: relative;
-  max-width: 420px;
-  width: 92%;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
+.popup-content{
 
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
+  position:relative;
+
+  max-width:420px;
+  width:92%;
+
+  background:#fff;
+
+  border-radius:16px;
+
+  overflow:hidden;
+
+  text-align:center;
+
+  transform:scale(0.9);
+  transition:transform 0.3s ease;
+
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
 }
 
-.popup-overlay.show .popup-content {
-  transform: scale(1);
+.popup-overlay.show .popup-content{
+  transform:scale(1);
 }
 
-.popup-content img {
-  width: 100%;
-  height: auto;
-  display: block;
+.popup-content img{
+  width:100%;
+  display:block;
 }
 
-.btn-inscripcion {
-  display: block;
-  background: #e53935;
-  color: white;
-  font-weight: bold;
-  padding: 16px;
-  font-size: 18px;
-  text-decoration: none;
+.btn-inscripcion{
+
+  display:block;
+
+  background:#f57c00;
+  color:#000;
+
+  font-weight:800;
+
+  padding:18px;
+
+  font-size:18px;
+
+  text-decoration:none;
+
+  transition:0.25s;
 }
 
-.btn-inscripcion:hover {
-  background: #c62828;
+.btn-inscripcion:hover{
+  background:#111;
+  color:#fff;
 }
 
-/* BOTÓN CERRAR */
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+/* cerrar */
+
+.popup-close{
+
+  position:absolute;
+
+  top:10px;
+  right:10px;
+
+  background:rgba(0,0,0,0.65);
+
+  color:#fff;
+
+  width:34px;
+  height:34px;
+
+  border-radius:50%;
+
+  font-size:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
 }
+
 </style>
 
 <script>
-function cerrarPopup() {
-  const popup = document.getElementById("popup-maraton futbol-sala");
+
+function cerrarPopup(){
+
+  const popup = document.getElementById("popup-porra-del-mundial");
+
   popup.classList.remove("show");
 
   setTimeout(() => {
     popup.style.display = "none";
   }, 300);
+
 }
 
-window.onload = function() {
+window.onload = function(){
+
   const hoy = new Date();
+
   const fechaInicio = new Date("2026-05-22");
   const fechaFin = new Date("2026-06-11");
 
-  if (hoy >= fechaInicio && hoy <= fechaFin) {
+  if(hoy >= fechaInicio && hoy <= fechaFin){
+
     setTimeout(() => {
-      
-      const popup = document.getElementById("popup-maraton futbol-sala");
+
+      const popup = document.getElementById("popup-porra-del-mundial");
+
       popup.style.display = "flex";
-      setTimeout(() => popup.classList.add("show"), 10);
+
+      setTimeout(() => {
+        popup.classList.add("show");
+      }, 10);
+
     }, 1200);
+
   }
+
 };
-</script>
-  <script>
-if (window.location.pathname !== "/" && window.location.pathname !== "/index.html") {
-  document.body.innerHTML = "<h1>Página no encontrada</h1>";
-}
-</script>
-</body>
-  <script>
-document.addEventListener("DOMContentLoaded", function(){
 
-  const inicio = new Date("2026-05-22");
-  const fin = new Date("2026-06-11");
-
-  const hoy = new Date();
-
-  if(hoy >= inicio && hoy <= fin){
-    const bloque = document.getElementById("cta-patrocinio-temporal");
-    if(bloque){
-      bloque.style.display = "block";
-    }
-  }
-
-});
 </script>
 </html>
