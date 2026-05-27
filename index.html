@@ -557,4 +557,26 @@ window.onload = function(){
 };
 
 </script>
+  <script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const inicio = new Date("2026-05-27");
+  const fin = new Date("2026-06-15");
+
+  const hoy = new Date();
+
+  if(hoy >= inicio && hoy <= fin){
+
+    const teaser = document.querySelector(".teaser-equipacion");
+
+    if(teaser){
+      teaser.style.display = "block";
+    }
+
+  }
+
+});
+
+</script>
 </html>
