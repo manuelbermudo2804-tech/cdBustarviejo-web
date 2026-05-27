@@ -1965,3 +1965,183 @@ opacity:0.95;
   }
 
 }
+/* =========================
+   TEASER EQUIPACIÓN PRO
+   ========================= */
+
+.teaser-equipacion{
+
+  position:relative;
+
+  max-width:1000px;
+  margin:70px auto;
+  padding:50px 25px;
+
+  border-radius:20px;
+
+  background:linear-gradient(135deg,#111,#1f1f1f);
+
+  color:#fff;
+
+  text-align:center;
+
+  overflow:hidden;
+
+  box-shadow:0 25px 60px rgba(0,0,0,0.35);
+}
+
+.teaser-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top right,
+  rgba(245,124,0,0.15),
+  transparent 45%);
+}
+
+.teaser-etiqueta{
+
+  display:inline-block;
+
+  background:#f57c00;
+  color:#000;
+
+  padding:8px 18px;
+
+  border-radius:30px;
+
+  font-weight:800;
+
+  font-size:0.85rem;
+
+  margin-bottom:18px;
+
+  position:relative;
+  z-index:1;
+}
+
+.teaser-equipacion h2{
+  font-size:2.5rem;
+  margin-bottom:12px;
+  position:relative;
+  z-index:1;
+}
+
+.teaser-equipacion p{
+  font-size:1.15rem;
+  opacity:0.9;
+  margin-bottom:35px;
+  position:relative;
+  z-index:1;
+}
+
+/* imagen */
+
+.teaser-imagen{
+  margin-bottom:35px;
+  position:relative;
+  z-index:1;
+}
+
+.teaser-imagen img{
+
+  width:100%;
+  max-width:420px;
+
+  filter:blur(12px);
+
+  opacity:0.9;
+
+  transform:scale(1.05) rotate(-4deg);
+
+  transition:0.4s;
+}
+
+.teaser-imagen img:hover{
+  filter:blur(8px);
+  transform:scale(1.08) rotate(-2deg);
+}
+
+/* contador */
+
+.contador-teaser{
+
+  display:flex;
+  justify-content:center;
+  gap:18px;
+
+  margin-bottom:35px;
+
+  position:relative;
+  z-index:1;
+}
+
+.contador-teaser div{
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:14px;
+
+  padding:16px 20px;
+
+  min-width:90px;
+}
+
+.contador-teaser span{
+  display:block;
+  font-size:2rem;
+  font-weight:800;
+}
+
+.contador-teaser small{
+  opacity:0.7;
+}
+
+/* botón */
+
+.btn-teaser{
+
+  display:inline-block;
+
+  background:#f57c00;
+  color:#000;
+
+  padding:18px 36px;
+
+  border-radius:50px;
+
+  font-weight:800;
+
+  text-decoration:none;
+
+  transition:0.25s;
+
+  position:relative;
+  z-index:1;
+}
+
+.btn-teaser:hover{
+  background:#fff;
+  transform:translateY(-3px);
+}
+
+/* móvil */
+
+@media(max-width:768px){
+
+  .teaser-equipacion h2{
+    font-size:2rem;
+  }
+
+  .contador-teaser{
+    flex-wrap:wrap;
+  }
+
+  .teaser-imagen img{
+    max-width:300px;
+  }
+
+}
