@@ -551,8 +551,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 
-
-
 function cerrarPopup(){
 
   const popup = document.getElementById("popup-maraton-futbol-sala");
@@ -578,11 +576,15 @@ window.onload = function(){
 
       const popup = document.getElementById("popup-maraton-futbol-sala");
 
-      popup.style.display = "flex";
+      if(popup){
 
-      setTimeout(() => {
-        popup.classList.add("show");
-      }, 10);
+        popup.style.display = "flex";
+
+        setTimeout(() => {
+          popup.classList.add("show");
+        }, 10);
+
+      }
 
     }, 1200);
 
