@@ -2191,3 +2191,25 @@ opacity:0.95;
   transform:scale(1.05);
   transition:0.3s;
 }
+/* =========================
+   GALERÍA UNIFORME PRO
+   ========================= */
+
+.galeria-grid a{
+  display:block;
+  height:260px;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.galeria-grid img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block;
+  transition:.3s;
+}
+
+.galeria-grid img:hover{
+  transform:scale(1.05);
+}
