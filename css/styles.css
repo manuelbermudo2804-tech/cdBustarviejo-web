@@ -2213,3 +2213,41 @@ opacity:0.95;
 .galeria-grid img:hover{
   transform:scale(1.05);
 }
+/* =========================
+   LANZAMIENTO TIENDA
+   ========================= */
+
+.lanzamiento-tienda{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.lanzamiento-etiqueta{
+  display:inline-block;
+  background:#f57c00;
+  color:#000;
+  font-weight:800;
+  padding:8px 18px;
+  border-radius:30px;
+  margin-bottom:20px;
+}
+
+.lanzamiento-tienda h2{
+  font-size:2.4rem;
+  margin-bottom:15px;
+}
+
+.lanzamiento-tienda p{
+  max-width:700px;
+  margin:auto;
+  margin-bottom:30px;
+}
+
+.lanzamiento-botones{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
