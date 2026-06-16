@@ -2308,3 +2308,10 @@ opacity:0.95;
   }
 
 }
+/* FIX TITULO PATROCINADORES */
+
+.patrocinadores-home h2{
+  color:#111 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
