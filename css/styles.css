@@ -2315,3 +2315,85 @@ opacity:0.95;
   opacity:1 !important;
   text-shadow:none !important;
 }
+/* =========================
+   DOSSIER DE PATROCINIO
+   ========================= */
+
+.cta-dossier{
+
+  max-width:900px;
+  margin:50px auto 70px;
+  padding:45px;
+
+  background:#fff;
+
+  border:2px solid #f57c00;
+  border-radius:16px;
+
+  text-align:center;
+
+  box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.cta-dossier h2{
+
+  font-size:2rem;
+  margin-bottom:15px;
+  color:#111;
+
+}
+
+.cta-dossier p{
+
+  font-size:1.1rem;
+  max-width:700px;
+  margin:0 auto 30px;
+  color:#555;
+
+}
+
+.btn-dossier{
+
+  display:inline-block;
+
+  background:#f57c00;
+  color:#000;
+
+  padding:18px 34px;
+
+  border-radius:40px;
+
+  text-decoration:none;
+
+  font-weight:800;
+
+  transition:.25s;
+
+}
+
+.btn-dossier:hover{
+
+  background:#111;
+  color:#fff;
+
+  transform:translateY(-3px);
+
+}
+
+@media(max-width:768px){
+
+.cta-dossier{
+
+margin:35px 20px 50px;
+padding:30px 20px;
+
+}
+
+.cta-dossier h2{
+
+font-size:1.6rem;
+
+}
+
+}
