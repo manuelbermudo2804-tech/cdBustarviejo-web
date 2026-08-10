@@ -531,6 +531,8 @@ function cerrarPopup(){
 
   const popup = document.getElementById("popup-torneo-padel");
 
+  if (!popup) return;
+
   popup.classList.remove("show");
 
   setTimeout(() => {
