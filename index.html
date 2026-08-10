@@ -397,25 +397,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
   </script>
 <!-- POPUP TORNEO PÁDEL -->
-<div id="popup-maraton-futbol-sala" class="popup-overlay" style="display:none;">
+<div id="popup-torneo-padel" class="popup-overlay" style="display:none;">
 
   <div class="popup-content">
 
     <!-- IMAGEN -->
-    <img src="/img/maraton (2).png" alt="maratón Futbol Sala 2026">
+    <img src="/img/TORNEOPADEL.png" alt="TORNEO PÁDEL 2026">
 
     <!-- BOTÓN -->
-    <a href="https://app.cdbustarviejo.com/l/maratonfutbolsala2026"
+    <a href=" https://app.cdbustarviejo.com/l/torneopadel"
        target="_blank"
        class="btn-inscripcion">
        🌍INSCRIBETE
     </a>
-  <!-- BOTÓN -->
-    <a href="https://app.cdbustarviejo.com/Patrocinadores"
-       target="_blank"
-       class="btn-inscripcion">
-       🌍PATROCINA
-    </a>
+
     <!-- CERRAR -->
     <span class="popup-close" onclick="cerrarPopup()">✕</span>
 
@@ -534,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function cerrarPopup(){
 
-  const popup = document.getElementById("popup-maraton-futbol-sala");
+  const popup = document.getElementById("Torneo-pádel");
 
   popup.classList.remove("show");
 
@@ -548,14 +543,14 @@ window.onload = function(){
 
   const hoy = new Date();
 
-  const fechaInicio = new Date("2026-06-12");
-  const fechaFin = new Date("2026-07-09");
+  const fechaInicio = new Date("2026-08-10");
+  const fechaFin = new Date("2026-09-02");
 
   if(hoy >= fechaInicio && hoy <= fechaFin){
 
     setTimeout(() => {
 
-      const popup = document.getElementById("popup-maraton-futbol-sala");
+      const popup = document.getElementById("popup-torneo-padel");
 
       if(popup){
 
