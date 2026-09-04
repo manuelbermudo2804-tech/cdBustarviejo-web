@@ -264,7 +264,357 @@ Hazte socio
 © 1989–2026 · C.D. Bustarviejo
 </div>
 </footer>
+<!-- ===================================================== -->
+<!-- POPUP LOTERÍA C.D. BUSTARVIEJO · 28720 -->
+<!-- ===================================================== -->
 
+<div id="popup-loteria" class="popup-loteria">
+
+  <div class="popup-loteria-caja">
+
+    <button class="cerrar-loteria" onclick="cerrarLoteria()">×</button>
+
+    <!-- CARTEL -->
+    <img
+      src="img/loteria.png"
+      alt="Lotería de Navidad C.D. Bustarviejo · 28720"
+      class="cartel-loteria"
+    >
+
+    <!-- BOTÓN -->
+    <a
+      href="https://app.cdbustarviejo.com/loteria"
+      target="_blank"
+      class="boton-loteria"
+    >
+      🎟️ TODA LA INFORMACIÓN Y COMPRA
+    </a>
+
+    <!-- CONFETI -->
+    <span class="confeti confeti1">🎉</span>
+    <span class="confeti confeti2">✨</span>
+    <span class="confeti confeti3">🎊</span>
+    <span class="confeti confeti4">⭐</span>
+    <span class="confeti confeti5">🎉</span>
+    <span class="confeti confeti6">✨</span>
+
+  </div>
+
+</div>
+
+
+<style>
+
+/* ===================================================== */
+/* POPUP */
+/* ===================================================== */
+
+.popup-loteria {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  background: rgba(0,0,0,0.78);
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.popup-loteria.activo {
+  opacity: 1;
+}
+
+
+/* ===================================================== */
+/* CAJA */
+/* ===================================================== */
+
+.popup-loteria-caja {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  padding: 10px 10px 18px;
+
+  box-shadow:
+    0 20px 70px rgba(0,0,0,0.55);
+
+  transform: scale(0.75);
+
+  transition: transform 0.45s ease;
+
+  overflow: visible;
+
+  text-align: center;
+}
+
+.popup-loteria.activo .popup-loteria-caja {
+  transform: scale(1);
+}
+
+
+/* ===================================================== */
+/* CARTEL */
+/* ===================================================== */
+
+.cartel-loteria {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 16px;
+}
+
+
+/* ===================================================== */
+/* BOTÓN */
+/* ===================================================== */
+
+.boton-loteria {
+
+  display: block;
+
+  margin: 14px 5px 0;
+
+  padding: 16px 12px;
+
+  border-radius: 13px;
+
+  background: #000;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family: Montserrat, sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.2px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.25);
+}
+
+.boton-loteria:hover {
+  transform: scale(1.03);
+  background: #f57c00;
+  color: #000;
+}
+
+
+/* ===================================================== */
+/* CERRAR */
+/* ===================================================== */
+
+.cerrar-loteria {
+
+  position: absolute;
+
+  top: -14px;
+  right: -14px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #000;
+  color: #fff;
+
+  font-size: 25px;
+  line-height: 38px;
+
+  cursor: pointer;
+
+  z-index: 100;
+}
+
+
+/* ===================================================== */
+/* CONFETI */
+/* ===================================================== */
+
+.confeti {
+
+  position: absolute;
+
+  z-index: 50;
+
+  font-size: 27px;
+
+  pointer-events: none;
+
+  animation: flotarConfeti 2s ease-in-out infinite alternate;
+}
+
+.confeti1 {
+  top: 25px;
+  left: -18px;
+}
+
+.confeti2 {
+  top: 80px;
+  right: -20px;
+  animation-delay: .3s;
+}
+
+.confeti3 {
+  top: 180px;
+  left: -20px;
+  animation-delay: .6s;
+}
+
+.confeti4 {
+  top: 240px;
+  right: -18px;
+  animation-delay: .9s;
+}
+
+.confeti5 {
+  bottom: 70px;
+  left: -18px;
+  animation-delay: 1.2s;
+}
+
+.confeti6 {
+  bottom: 55px;
+  right: -20px;
+  animation-delay: .5s;
+}
+
+@keyframes flotarConfeti {
+
+  from {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  to {
+    transform: translateY(-12px) rotate(8deg);
+  }
+
+}
+
+
+/* ===================================================== */
+/* MÓVIL */
+/* ===================================================== */
+
+@media (max-width: 600px) {
+
+  .popup-loteria {
+    padding: 15px;
+  }
+
+  .popup-loteria-caja {
+    max-width: 390px;
+    padding: 7px 7px 14px;
+  }
+
+  .boton-loteria {
+    font-size: 14px;
+    padding: 14px 8px;
+  }
+
+  .cerrar-loteria {
+    width: 34px;
+    height: 34px;
+
+    top: -10px;
+    right: -10px;
+
+    font-size: 22px;
+    line-height: 34px;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+/* ===================================================== */
+/* LOTERÍA · CONFIGURACIÓN */
+/* ===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const popup = document.getElementById("popup-loteria");
+
+  if (!popup) return;
+
+  /*
+     FECHAS DE LA CAMPAÑA
+     --------------------------------
+     Cambia únicamente estas dos fechas.
+  */
+
+  const inicioLoteria = new Date("2026-09-05T00:00:00");
+  const finLoteria    = new Date("2026-12-22T23:59:59");
+
+  const ahora = new Date();
+
+  /*
+     Si estamos dentro de la campaña,
+     mostramos el popup.
+  */
+
+  if (ahora >= inicioLoteria && ahora <= finLoteria) {
+
+    setTimeout(function () {
+
+      popup.style.display = "flex";
+
+      setTimeout(function () {
+        popup.classList.add("activo");
+      }, 50);
+
+    }, 1500);
+
+  }
+
+});
+
+
+/* ===================================================== */
+/* CERRAR */
+/* ===================================================== */
+
+function cerrarLoteria() {
+
+  const popup = document.getElementById("popup-loteria");
+
+  if (!popup) return;
+
+  popup.classList.remove("activo");
+
+  setTimeout(function () {
+    popup.style.display = "none";
+  }, 450);
+
+}
+
+</script>
 <!-- SCRIPT PARTIDOS -->
 <script>
 document.addEventListener("DOMContentLoaded", async function(){
