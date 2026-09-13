@@ -2397,3 +2397,190 @@ font-size:1.6rem;
 }
 
 }
+/* =========================================================
+   📸 COMPARTE TU MOMENTO
+   ========================================================= */
+
+.comparte-momento {
+  position: relative;
+  margin: 30px auto;
+  padding: 28px 25px;
+  max-width: 950px;
+
+  background: linear-gradient(135deg, #111 0%, #222 55%, #f57c00 180%);
+  border-radius: 22px;
+
+  text-align: center;
+  color: #fff;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.22);
+
+  border: 2px solid rgba(245,124,0,.45);
+}
+
+/* Brillo animado */
+.comparte-momento::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+
+  width: 60%;
+  height: 200%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.18),
+    transparent
+  );
+
+  transform: rotate(20deg);
+
+  animation: brilloComparte 4s ease-in-out infinite;
+}
+
+@keyframes brilloComparte {
+  0%, 65% {
+    left: -100%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+/* Icono */
+.comparte-icono {
+  position: relative;
+
+  font-size: 48px;
+  line-height: 1;
+
+  margin-bottom: 10px;
+
+  animation: camaraPulso 2s ease-in-out infinite;
+}
+
+@keyframes camaraPulso {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.12) rotate(-4deg);
+  }
+}
+
+/* Texto */
+.comparte-texto {
+  position: relative;
+  z-index: 2;
+}
+
+.comparte-texto h2 {
+  margin: 5px 0 8px;
+
+  font-size: 1.65rem;
+  font-weight: 900;
+
+  letter-spacing: .3px;
+}
+
+.comparte-texto p {
+  margin: 0 auto 20px;
+
+  max-width: 650px;
+
+  font-size: 1rem;
+  line-height: 1.5;
+
+  opacity: .95;
+}
+
+/* Botón */
+.boton-comparte {
+  position: relative;
+  z-index: 3;
+
+  display: inline-block;
+
+  padding: 16px 28px;
+
+  background: #f57c00;
+  color: #000;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+
+  box-shadow:
+    0 7px 22px rgba(0,0,0,.35);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+/* Efecto al pasar el ratón */
+.boton-comparte:hover {
+  background: #fff;
+
+  transform: scale(1.06);
+
+  box-shadow:
+    0 10px 30px rgba(245,124,0,.55);
+}
+
+/* Efecto al pulsar */
+.boton-comparte:active {
+  transform: scale(.97);
+}
+
+
+/* =========================================================
+   📱 MÓVIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .comparte-momento {
+    margin: 22px 12px;
+    padding: 25px 17px;
+
+    border-radius: 20px;
+  }
+
+  .comparte-icono {
+    font-size: 44px;
+  }
+
+  .comparte-texto h2 {
+    font-size: 1.3rem;
+    line-height: 1.25;
+  }
+
+  .comparte-texto p {
+    font-size: .92rem;
+    line-height: 1.45;
+  }
+
+  .boton-comparte {
+    display: block;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 17px 10px;
+
+    font-size: 16px;
+  }
+}
