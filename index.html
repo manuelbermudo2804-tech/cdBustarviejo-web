@@ -1085,13 +1085,13 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="popup-content">
 
     <!-- IMAGEN -->
-    <img src="/img/padelnuevo.png" alt="TORNEO PÁDEL 2026">
+    <img src="/img/desafio.png" alt="DESAFIO SIERRA NORTE 2026">
 
     <!-- BOTÓN -->
-    <a href="https://app.cdbustarviejo.com/l/torneopadel"
+    <a href="https://app.cdbustarviejo.com/l/torneo-desafio-sierra-norte"
        target="_blank"
        class="btn-inscripcion">
-       🌍INSCRIBETE
+       🌍INFORMACIÓN Y TORNEO EN DIRECTO
     </a>
 
     <!-- CERRAR -->
@@ -1212,7 +1212,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function cerrarPopup(){
 
-  const popup = document.getElementById("popup-torneo-padel");
+  const popup = document.getElementById("popup-torneo-desafio-sierra-norte");
 
   if (!popup) return;
 
@@ -1228,14 +1228,14 @@ window.onload = function(){
 
   const hoy = new Date();
 
-  const fechaInicio = new Date("2026-08-10");
-  const fechaFin = new Date("2026-09-15");
+  const fechaInicio = new Date("2026-09-24");
+  const fechaFin = new Date("2026-09-27");
 
   if(hoy >= fechaInicio && hoy <= fechaFin){
 
     setTimeout(() => {
 
-      const popup = document.getElementById("popup-torneo-padel");
+      const popup = document.getElementById("popup-torneo-desafio-sierra-norte");
 
       if(popup){
 
