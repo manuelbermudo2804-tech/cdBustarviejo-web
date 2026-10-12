@@ -291,6 +291,27 @@ HAZTE SOCIO
 © 1989–2026 · C.D. Bustarviejo
 </div>
 </footer>
+<!-- POPUP JUNTA GENERAL DE SOCIOS -->
+<div id="popup-junta-socios" class="popup-junta-socios" aria-label="Junta General Ordinaria de Socios">
+  <div class="popup-junta-caja">
+    <button type="button" class="cerrar-junta" onclick="cerrarPopupJunta()" aria-label="Cerrar">×</button>
+    <a href="https://app.cdbustarviejo.com/l/juntageneral" target="_blank" rel="noopener" aria-label="Consultar Junta General Ordinaria de Socios">
+      <img src="img/IMG-20261008-WA0007.jpg" alt="Convocatoria a la Junta General Ordinaria de Socios del C.D. Bustarviejo" class="cartel-junta">
+    </a>
+    <a class="boton-junta" href="https://app.cdbustarviejo.com/l/juntageneral" target="_blank" rel="noopener">📋 CONSULTAR CONVOCATORIA</a>
+  </div>
+</div>
+<style>
+.popup-junta-socios{display:none;position:fixed;inset:0;z-index:100001;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.84);opacity:0;transition:opacity .35s ease;}
+.popup-junta-socios.activo{opacity:1;}
+.popup-junta-caja{position:relative;width:min(100%,480px);max-height:94vh;overflow-y:auto;padding:8px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.5);transform:scale(.96);transition:transform .3s ease;text-align:center;}
+.popup-junta-socios.activo .popup-junta-caja{transform:scale(1);}
+.cartel-junta{display:block;width:100%;height:auto;max-height:76vh;object-fit:contain;border-radius:12px;}
+.cerrar-junta{position:absolute;top:8px;right:8px;z-index:2;width:38px;height:38px;border:2px solid #fff;border-radius:50%;background:#111;color:#fff;font-size:27px;line-height:30px;font-weight:700;cursor:pointer;box-shadow:0 3px 12px #0006;}
+.boton-junta{display:block;margin:10px 0 0;padding:14px 10px;border-radius:12px;background:#f57c00;color:#111;text-decoration:none;font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;}
+@media(max-width:600px){.popup-junta-socios{padding:12px}.popup-junta-caja{max-width:420px}.cartel-junta{max-height:72vh}.boton-junta{font-size:14px;padding:12px 8px}}
+</style>
+
 <!-- ===================================================== -->
 <!-- POPUP LOTERÍA C.D. BUSTARVIEJO · 28720 -->
 <!-- ===================================================== -->
@@ -887,41 +908,42 @@ HAZTE SOCIO
 /* ===================================================== */
 
 window.addEventListener("load", function () {
+  const popupJunta = document.getElementById("popup-junta-socios");
+  const popupLoteria = document.getElementById("popup-loteria");
+  const ahora = new Date();
+  const inicioJunta = new Date("2026-10-14T00:00:00");
+  const finJunta = new Date("2026-11-13T23:59:59");
+  const inicioLoteria = new Date("2026-09-04T00:00:00");
+  const finLoteria = new Date("2026-12-22T23:59:59");
+  const juntaActiva = ahora >= inicioJunta && ahora <= finJunta;
+  const loteriaActiva = ahora >= inicioLoteria && ahora <= finLoteria;
 
-  const popup =
-    document.getElementById("popup-loteria");
-
-  if (!popup) return;
-
-  const inicioLoteria =
-    new Date("2026-09-04T00:00:00");
-
-  const finLoteria =
-    new Date("2026-12-22T23:59:59");
-
-  const ahora =
-    new Date();
-
-  if (
-    ahora >= inicioLoteria &&
-    ahora <= finLoteria
-  ) {
-
+  if (juntaActiva && popupJunta) {
     setTimeout(function () {
-
-      popup.style.display = "flex";
-
-      setTimeout(function () {
-
-        popup.classList.add("activo");
-
-      }, 80);
-
-    }, 1200);
-
+      popupJunta.style.display = "flex";
+      setTimeout(function () { popupJunta.classList.add("activo"); }, 50);
+    }, 900);
+  } else if (loteriaActiva && popupLoteria) {
+    setTimeout(mostrarLoteria, 1200);
   }
 
+  function mostrarLoteria() {
+    if (!loteriaActiva || !popupLoteria) return;
+    popupLoteria.style.display = "flex";
+    setTimeout(function () { popupLoteria.classList.add("activo"); }, 80);
+  }
+  window.mostrarPopupLoteria = mostrarLoteria;
 });
+
+function cerrarPopupJunta() {
+  const popup = document.getElementById("popup-junta-socios");
+  if (!popup) return;
+  popup.classList.remove("activo");
+  setTimeout(function () {
+    popup.style.display = "none";
+    if (window.mostrarPopupLoteria) setTimeout(window.mostrarPopupLoteria, 450);
+  }, 350);
+}
 
 
 /* ===================================================== */
