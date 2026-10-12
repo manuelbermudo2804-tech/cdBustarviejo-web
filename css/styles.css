@@ -2584,3 +2584,118 @@ font-size:1.6rem;
     font-size: 16px;
   }
 }
+
+/* =========================================================
+   AJUSTE ESTÉTICO GLOBAL · OCTUBRE 2026
+   Pulido discreto y común a todas las páginas.
+   Mantiene la identidad naranja y negra del club.
+   ========================================================= */
+
+:root {
+  --club-naranja: #f57c00;
+  --club-negro: #111111;
+  --club-texto: #292929;
+  --club-borde: #e9e9e9;
+  --club-radio: 14px;
+  --club-sombra-suave: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  color: var(--club-texto);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img {
+  max-width: 100%;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--club-naranja);
+  outline-offset: 4px;
+}
+
+.btn,
+.btn-menu,
+.btn-tienda,
+.btn-dossier,
+.btn-premium,
+.btn-teaser,
+.boton-comparte,
+.boton-junta,
+.boton-loteria {
+  transition: background-color .2s ease, color .2s ease,
+              border-color .2s ease, box-shadow .2s ease,
+              transform .2s ease;
+}
+
+.btn.principal:hover,
+.btn-menu:hover {
+  box-shadow: 0 5px 14px rgba(245, 124, 0, .20);
+}
+
+.cabecera-pagina {
+  border-bottom: 3px solid var(--club-naranja);
+}
+
+.bloque-texto,
+.tienda-card,
+.acceso,
+.lista-documentos a {
+  border: 1px solid var(--club-borde);
+}
+
+.bloque-texto,
+.tienda-card {
+  box-shadow: var(--club-sombra-suave);
+}
+
+.footer a:hover {
+  color: var(--club-naranja);
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 90px;
+  }
+
+  .cabecera-pagina {
+    padding: 44px 18px;
+  }
+
+  .bloque-texto {
+    border-radius: var(--club-radio);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
