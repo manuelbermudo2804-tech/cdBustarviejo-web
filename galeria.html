@@ -191,6 +191,14 @@
  .pagina-galeria .galeria-nav::-webkit-scrollbar-thumb{background:#f57c00!important;border-radius:6px!important}
  .pagina-galeria .galeria-nav a{flex:0 0 auto!important}
 }
+
+/* Al abrir el menú móvil, ocultar temporalmente las barras flotantes para que no tapen Inicio ni otros enlaces */
+@media(max-width:760px){
+ body.menu-movil-abierto .pagina-galeria .temporadas-nav,
+ body.menu-movil-abierto .pagina-galeria .galeria-nav{display:none!important}
+ body.menu-movil-abierto .menu,
+ body.menu-movil-abierto #menu-principal{z-index:10050!important}
+}
 </style>
 
 </head>
@@ -726,6 +734,7 @@ const menu=document.querySelector(".menu");
 if(toggle){
 toggle.addEventListener("click",()=>{
 const abierto = menu.classList.toggle("activo");
+document.body.classList.toggle("menu-movil-abierto", abierto);
 toggle.setAttribute("aria-expanded", String(abierto));
 toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación");
 });
