@@ -3321,3 +3321,85 @@ button:focus-visible {
   .pagina-comunicados .contenido-mejorado { padding: 0 14px; }
   .pagina-comunicados .lista-documentos a { padding: 13px 14px; font-size: .95rem; }
 }
+
+
+/* INICIO · JERARQUÍA VISUAL DE LA PORTADA */
+.pagina-inicio .hero::before {
+  background: linear-gradient(
+    110deg,
+    rgba(0,0,0,.34) 0%,
+    rgba(0,0,0,.22) 58%,
+    rgba(0,0,0,.30) 100%
+  );
+}
+.pagina-inicio .hero .contenido {
+  width: min(100%, 960px);
+  padding: clamp(24px, 4vw, 46px) 22px;
+}
+.pagina-inicio .hero h1 {
+  line-height: 1.12;
+  text-wrap: balance;
+  text-shadow: 0 3px 18px rgba(0,0,0,.28);
+}
+.pagina-inicio .hero .mensaje-club {
+  display: inline-block;
+  margin: 14px auto 4px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,.32);
+  border-radius: 999px;
+  background: rgba(0,0,0,.30);
+  font-weight: 700;
+}
+.pagina-inicio .hero .urgencia {
+  margin: 8px 0 0;
+  font-size: .92rem;
+  font-weight: 600;
+  color: #fff;
+}
+.pagina-inicio .hero .botones-hero {
+  gap: 12px;
+  margin-top: 26px;
+}
+.pagina-inicio .hero .botones-hero > a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  border: 2px solid #f57c00;
+  border-radius: 999px;
+  padding: 13px 23px;
+  color: #171717;
+  background: #f57c00;
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.pagina-inicio .hero .botones-hero > a.btn:hover,
+.pagina-inicio .hero .botones-hero > a.btn:focus-visible {
+  background: #ff982e;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.24);
+}
+.pagina-inicio .hero .botones-hero > a.btn[href*="jugadores.html"] {
+  background: #fff;
+  border-color: #fff;
+}
+.pagina-inicio .hero .botones-hero > a.btn[href*="alta-socio.html"] {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.pagina-inicio .hero .botones-hero > a.btn[href*="alta-socio.html"]:hover,
+.pagina-inicio .hero .botones-hero > a.btn[href*="alta-socio.html"]:focus-visible {
+  background: #fff;
+  color: #171717;
+}
+@media (max-width: 600px) {
+  .pagina-inicio .hero .contenido { padding: 26px 16px; }
+  .pagina-inicio .hero h1 { font-size: clamp(2rem, 8vw, 2.7rem); }
+  .pagina-inicio .hero .mensaje-club { border-radius: 14px; }
+  .pagina-inicio .hero .botones-hero { gap: 10px; }
+  .pagina-inicio .hero .botones-hero > a.btn { width: 100%; max-width: 340px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pagina-inicio .hero .botones-hero > a.btn { transition: none; }
+}
