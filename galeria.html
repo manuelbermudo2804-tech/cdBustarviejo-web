@@ -176,6 +176,21 @@
 .pagina-galeria .galeria-grid>a[class~="glightbox-video"] .video-thumb img{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:cover!important;object-position:center!important}
 .pagina-galeria .galeria-grid>a[class~="glightbox-video"] .play-video{position:absolute!important;z-index:2!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important;width:48px!important;height:48px!important;border-radius:50%!important;background:rgba(0,0,0,.7)!important;color:#fff!important;font-size:22px!important}
 @media(max-width:760px){.pagina-galeria .galeria-grid>a[class~="glightbox-video"]{aspect-ratio:1/1!important}}
+
+/* En escritorio, la barra de galerías debe poder recorrerse con ratón y rueda */
+@media(min-width:761px){
+ .pagina-galeria .galeria-nav{
+   overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;
+   cursor:grab!important;scroll-behavior:smooth!important;overscroll-behavior-x:contain!important;
+   scrollbar-width:thin!important;scrollbar-color:#f57c00 #f2f2f2!important;
+   padding-bottom:10px!important;
+ }
+ .pagina-galeria .galeria-nav:active{cursor:grabbing!important}
+ .pagina-galeria .galeria-nav::-webkit-scrollbar{display:block!important;height:6px!important}
+ .pagina-galeria .galeria-nav::-webkit-scrollbar-track{background:#f2f2f2!important;border-radius:6px!important}
+ .pagina-galeria .galeria-nav::-webkit-scrollbar-thumb{background:#f57c00!important;border-radius:6px!important}
+ .pagina-galeria .galeria-nav a{flex:0 0 auto!important}
+}
 </style>
 
 </head>
