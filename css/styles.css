@@ -3403,3 +3403,12 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .pagina-inicio .hero .botones-hero > a.btn { transition: none; }
 }
+
+/* AJUSTE FINAL · CABECERA DE EQUIPOS COHERENTE CON EL RESTO DE LA WEB */
+.pagina-equipos .cabecera-pagina {
+  background: linear-gradient(135deg, #fff8ef 0%, #f7f7f7 58%, #fff 100%);
+  color: #171717;
+  border-bottom: 4px solid var(--club-naranja, #f57c00);
+}
+.pagina-equipos .cabecera-pagina h1 { color: #171717; }
+.pagina-equipos .cabecera-pagina p { color: #454545; }
