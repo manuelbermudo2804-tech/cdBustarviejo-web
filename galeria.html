@@ -26,55 +26,27 @@
 <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 
 <style>
-
-.galeria{
-max-width:1200px;
-margin:120px auto;
-padding:0 20px;
-}
-
-.galeria h1{
-text-align:center;
-margin-bottom:20px;
-}
-
-/* TEXTO NUEVO */
-.galeria p{
-text-align:center;
-margin-bottom:30px;
-color:#555;
-}
-
-.galeria-seccion{
-margin-bottom:60px;
-}
-
-/* GRID MEJORADO */
-.galeria-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-gap:10px;
-}
-
-/* IMÁGENES */
-.galeria-grid img{
-width:100%;
-border-radius:10px;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-cursor:pointer;
-transition:all 0.3s ease;
-}
-
-/* HOVER MÁS SUAVE */
-.galeria-grid img:hover{
-transform:scale(1.05);
-}
-
+.pagina-galeria .galeria{max-width:1240px;margin:54px auto 90px;padding:0 clamp(16px,3vw,30px)}
+.pagina-galeria .galeria h1{text-align:center;margin:0 0 14px;color:#202020;font-size:clamp(2rem,4vw,3rem);line-height:1.12}
+.pagina-galeria .galeria>p{text-align:center;margin:0 auto 26px;max-width:680px;color:#4b4b4b;font-size:1.08rem;line-height:1.7}
+.pagina-galeria .galeria-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 auto 48px;padding:18px;border:1px solid #eee;border-radius:18px;background:linear-gradient(135deg,#fff,#fff8f0);box-shadow:0 8px 24px rgba(0,0,0,.05)}
+.pagina-galeria .galeria-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 15px;border:1px solid #f57c00;border-radius:999px;background:#fff;color:#282828;font-size:.9rem;font-weight:700;text-decoration:none;transition:background .18s ease,color .18s ease,transform .18s ease}
+.pagina-galeria .galeria-nav a:hover,.pagina-galeria .galeria-nav a:focus-visible{background:#f57c00;color:#171717;transform:translateY(-1px)}
+.pagina-galeria .galeria-seccion{margin:0 0 58px;scroll-margin-top:100px}
+.pagina-galeria .galeria-seccion h2{position:relative;margin:0 0 20px;padding:0 0 12px 16px;border-bottom:1px solid #e8e8e8;color:#222;font-size:clamp(1.35rem,2.5vw,1.8rem);line-height:1.3}
+.pagina-galeria .galeria-seccion h2:before{content:"";position:absolute;left:0;top:2px;bottom:12px;width:5px;border-radius:4px;background:#f57c00}
+.pagina-galeria .galeria-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:14px}
+.pagina-galeria .galeria-grid a{display:block;overflow:hidden;aspect-ratio:4/3;border-radius:12px;background:#f1f1f1;box-shadow:0 5px 18px rgba(0,0,0,.11);outline-offset:4px;transform:translateZ(0)}
+.pagina-galeria .galeria-grid img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit;box-shadow:none;cursor:zoom-in;transition:transform .28s ease,filter .28s ease}
+.pagina-galeria .galeria-grid a:hover img,.pagina-galeria .galeria-grid a:focus-visible img{transform:scale(1.045);filter:saturate(1.06)}
+.pagina-galeria .galeria-grid a:focus-visible,.pagina-galeria .galeria-nav a:focus-visible{outline:3px solid #222}
+@media(max-width:640px){.pagina-galeria .galeria{margin-top:32px}.pagina-galeria .galeria-nav{justify-content:stretch;gap:8px;margin-bottom:36px;padding:12px}.pagina-galeria .galeria-nav a{flex:1 1 calc(50% - 8px);padding:9px 10px;font-size:.84rem}.pagina-galeria .galeria-seccion{margin-bottom:42px}.pagina-galeria .galeria-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pagina-galeria .galeria-grid a{border-radius:9px}}
+@media(prefers-reduced-motion:reduce){.pagina-galeria .galeria-nav a,.pagina-galeria .galeria-grid img{transition:none}}
 </style>
 
 </head>
 
-<body>
+<body class="pagina-galeria">
 
 <header class="header">
 <div class="header-contenido">
@@ -84,9 +56,9 @@ transform:scale(1.05);
 <span>C.D. Bustarviejo</span>
 </div>
 
-<button class="menu-toggle">☰</button>
+<button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="menu-principal" aria-expanded="false">☰</button>
 
-<nav class="menu">
+<nav class="menu" id="menu-principal">
 <a href="index.html">Inicio</a>
 <a href="el-club.html">El Club</a>
 <a href="equipos.html">Equipos</a>
@@ -122,6 +94,10 @@ Hazte socio
 <!-- TEXTO NUEVO -->
 <p>Momentos del club dentro y fuera del campo ⚽</p>
 
+<nav class="galeria-nav" aria-label="Saltar a una sección de la galería">
+<a href="#desafio-sierra-norte">Desafío Sierra Norte</a><a href="#torneo-padel">Torneo de pádel</a><a href="#maraton-futbol-sala">Maratón de fútbol sala</a><a href="#copa-rural">Copa Rural</a><a href="#equipos">Equipos</a><a href="#temporada">Temporada</a><a href="#san-isidro">San Isidro</a>
+</nav>
+
 
 <!-- ====================================================== -->
 <!-- DESAFÍO SIERRA NORTE -->
@@ -129,7 +105,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>Desafio Sierra Norte 2026</h2>
+<h2 id="desafio-sierra-norte">Desafío Sierra Norte 2026</h2>
 
 <div class="galeria-grid">
 
@@ -235,7 +211,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>Torneo padel 2026</h2>
+<h2 id="torneo-padel">Torneo de pádel 2026</h2>
 
 <div class="galeria-grid">
 
@@ -266,7 +242,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>Maratón Futbol Sala 2026</h2>
+<h2 id="maraton-futbol-sala">Maratón de fútbol sala 2026</h2>
 
 <div class="galeria-grid">
 
@@ -303,7 +279,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>Copa rural 2026</h2>
+<h2 id="copa-rural">Copa Rural 2026</h2>
 
 <div class="galeria-grid">
 
@@ -326,7 +302,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>Equipos 2025/2026</h2>
+<h2 id="equipos">Equipos 2025/2026</h2>
 
 <div class="galeria-grid">
 
@@ -347,7 +323,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>Temporada 2025/2026</h2>
+<h2 id="temporada">Temporada 2025/2026</h2>
 
 <div class="galeria-grid">
 
@@ -374,7 +350,7 @@ Hazte socio
 
 <div class="galeria-seccion">
 
-<h2>San Isidro 2026</h2>
+<h2 id="san-isidro">San Isidro 2026</h2>
 
 <div class="galeria-grid">
 
@@ -432,7 +408,7 @@ Hazte socio
 <div class="footer-contenido">
 
 <div class="footer-col">
-<img src="img/escudo.png" class="footer-logo" alt="Escudo">
+<img src="img/escudo.png" class="footer-logo" alt="Escudo del Club Deportivo Bustarviejo" loading="lazy" decoding="async">
 <p class="footer-titulo">C.D. Bustarviejo</p>
 <p class="footer-texto">Deporte y valores desde 1989</p>
 </div>
@@ -443,7 +419,7 @@ Hazte socio
 <li><a href="index.html">Inicio</a></li>
 <li><a href="el-club.html">El Club</a></li>
 <li><a href="equipos.html">Equipos</a></li>
-<li><a href="galeria.html">Galeria</a></li>
+<li><a href="galeria.html">Galería</a></li>
 <li>
 <a href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData"
 target="_blank" rel="noopener">
@@ -489,7 +465,9 @@ const menu=document.querySelector(".menu");
 
 if(toggle){
 toggle.addEventListener("click",()=>{
-menu.classList.toggle("activo");
+const abierto = menu.classList.toggle("activo");
+toggle.setAttribute("aria-expanded", String(abierto));
+toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación");
 });
 }
 
