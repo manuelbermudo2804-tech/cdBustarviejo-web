@@ -2699,3 +2699,204 @@ button:focus-visible {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* =========================================================
+   PORTADA · JERARQUÍA VISUAL Y USO EN MÓVIL
+   Mejora progresiva: conserva colores, contenido y destinos.
+   ========================================================= */
+.hero {
+  min-height: clamp(620px, 78vh, 860px);
+  isolation: isolate;
+}
+
+.hero::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .48) 0%,
+    rgba(0, 0, 0, .62) 55%,
+    rgba(0, 0, 0, .76) 100%
+  );
+  z-index: -1;
+}
+
+.hero .contenido {
+  width: min(100%, 980px);
+  padding: clamp(28px, 4vw, 54px) 22px;
+}
+
+.hero .escudo-grande {
+  width: clamp(112px, 14vw, 165px);
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 18px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .35));
+}
+
+.hero h1 {
+  margin: 0 auto 12px;
+  max-width: 850px;
+  font-size: clamp(2.15rem, 5vw, 3.7rem);
+  letter-spacing: -.035em;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, .45);
+}
+
+.hero .subtitulo {
+  margin: 0 0 16px;
+  font-size: clamp(1.08rem, 2.3vw, 1.45rem);
+}
+
+.hero .mensaje-club {
+  display: inline-block;
+  margin: 8px auto 12px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .28);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.hero #mensaje-partidos {
+  margin: 18px auto 0 !important;
+  font-size: clamp(.98rem, 2vw, 1.12rem) !important;
+}
+
+.hero .urgencia {
+  margin: 10px auto 0;
+  font-size: .96rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.hero .botones-hero {
+  max-width: 760px;
+  margin: 24px auto 0;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero .botones-hero > a.btn,
+.hero .botones-hero > button.btn {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: .96rem;
+  line-height: 1.25;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+}
+
+.hero #btn-partido {
+  background: var(--club-naranja, #f57c00) !important;
+  color: #111;
+  border-color: var(--club-naranja, #f57c00) !important;
+}
+
+.hero .botones-hero a[href*="jugadores.html"] {
+  background: #fff;
+  color: #171717;
+  border-color: #fff;
+}
+
+.hero .botones-hero a[href*="alta-socio.html"] {
+  background: rgba(0, 0, 0, .24);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .78);
+}
+
+.hero .botones-hero > a.btn:hover,
+.hero .botones-hero > button.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, .3);
+}
+
+.hero .botones-hero > a.btn:focus-visible,
+.hero .botones-hero > button.btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.hero .redes-club {
+  margin-top: 24px;
+  gap: 10px;
+}
+
+.hero .red-social {
+  min-height: 42px;
+  padding: 10px 15px;
+}
+
+.comparte-momento {
+  margin-top: 34px;
+}
+
+.lanzamiento-tienda {
+  position: relative;
+  overflow: hidden;
+}
+
+.lanzamiento-tienda h2 {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.lanzamiento-tienda .foto-lanzamento,
+.lanzamiento-tienda .foto-lanzamiento {
+  border-radius: 16px;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, .28));
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero .contenido {
+    padding: 30px 16px 36px;
+  }
+
+  .hero .mensaje-club {
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .hero .botones-hero {
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hero .botones-hero > a.btn,
+  .hero .botones-hero > button.btn {
+    width: 100%;
+    max-width: 380px;
+    min-height: 48px;
+    padding: 13px 15px;
+  }
+
+  .hero .redes-club {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .hero .red-social {
+    padding: 10px 12px;
+    font-size: .88rem;
+  }
+
+  .lanzamiento-tienda {
+    padding: 48px 18px;
+  }
+
+  .lanzamiento-tienda h2 {
+    font-size: clamp(1.7rem, 7vw, 2.15rem);
+  }
+}
