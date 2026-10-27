@@ -33,6 +33,8 @@
 .pagina-galeria .galeria-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 15px;border:1px solid #f57c00;border-radius:999px;background:#fff;color:#282828;font-size:.9rem;font-weight:700;text-decoration:none;transition:background .18s ease,color .18s ease,transform .18s ease}
 .pagina-galeria .galeria-nav a:hover,.pagina-galeria .galeria-nav a:focus-visible{background:#f57c00;color:#171717;transform:translateY(-1px)}
 .pagina-galeria .galeria-seccion{margin:0 0 58px;scroll-margin-top:100px}
+.pagina-galeria .galeria-nav{position:sticky;top:10px;z-index:50;display:flex;flex-wrap:nowrap;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;white-space:nowrap;padding:12px;margin:0 0 24px;border:1px solid #eee;border-radius:16px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);box-shadow:0 6px 22px rgba(0,0,0,.09);scrollbar-width:thin}
+.pagina-galeria .galeria-nav a{flex:0 0 auto}
 .pagina-galeria .temporadas-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0 auto 24px}
 .pagina-galeria .temporadas-nav button{min-height:76px;padding:16px 22px;border:2px solid #f57c00;border-radius:18px;background:#fff;color:#222;font:700 clamp(1.1rem,2.4vw,1.65rem) Montserrat,sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:background .18s,color .18s,transform .18s}
 .pagina-galeria .temporadas-nav button[aria-selected="true"]{background:#f57c00;color:#171717;box-shadow:0 8px 24px rgba(245,124,0,.22)}
@@ -417,7 +419,7 @@ Hazte socio
 
 <!-- INICIO ALBUMES PUBLICADOS DESDE LA APP -->
 <div class="galeria-seccion" data-album-id="6ad371978e5e264a169c9d36" data-category="Fútbol Alevín Femenino">
-<h2 id="app-futbol-alevin-femenino-chat-entrenador-futbol-alevin-femenino-6ad371978e5e264a169c9d36">📸 Chat Entrenador - Fútbol Alevín Femenino</h2>
+<h2 id="app-futbol-alevin-femenino-chat-entrenador-futbol-alevin-femenino-6ad371978e5e264a169c9d36">Fútbol Alevín Femenino</h2>
 <p>Fotos compartidas desde el chat del entrenador</p>
 <div class="galeria-grid">
 <a href="https://base44.app/api/apps/6992c6be619d2da592897991/files/mp/public/6992c6be619d2da592897991/871e03cfc_IMG_5866.jpg" class="glightbox" data-photo-url="https://base44.app/api/apps/6992c6be619d2da592897991/files/mp/public/6992c6be619d2da592897991/871e03cfc_IMG_5866.jpg"><img src="https://base44.app/api/apps/6992c6be619d2da592897991/files/mp/public/6992c6be619d2da592897991/871e03cfc_IMG_5866.jpg" alt="📸 Chat Entrenador - Fútbol Alevín Femenino — foto 1" loading="lazy"></a>
@@ -521,13 +523,13 @@ toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abr
   allSections.forEach(section => {
     const heading = section.querySelector('h2');
     const id = heading ? (heading.id || '') : '';
-    if (id === 'equipos' || id === 'temporada') panel25.appendChild(section);
+    if (id === 'equipos' || id === 'temporada' || id === 'san-isidro' || id === 'copa-rural') panel25.appendChild(section);
     else panel26.appendChild(section);
   });
 
   // Move the existing section shortcuts into the 2026/2027 panel and remove links to 2025/2026 sections.
   categoryNav.querySelectorAll('a').forEach(a => {
-    if (a.getAttribute('href') === '#equipos' || a.getAttribute('href') === '#temporada') a.remove();
+    if (['#equipos','#temporada','#san-isidro','#copa-rural'].includes(a.getAttribute('href'))) a.remove();
   });
   panel26.insertBefore(categoryNav, panel26.firstChild);
   seasonNav.after(panel25, panel26);
@@ -573,5 +575,6 @@ toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abr
   selectSeason(1);
 })();
 </script>
-\n</body>
+
+</body>
 </html>
