@@ -2848,7 +2848,6 @@ button:focus-visible {
   text-wrap: balance;
 }
 
-.lanzamiento-tienda .foto-lanzamento,
 .lanzamiento-tienda .foto-lanzamiento {
   border-radius: 16px;
   filter: drop-shadow(0 16px 24px rgba(0, 0, 0, .28));
