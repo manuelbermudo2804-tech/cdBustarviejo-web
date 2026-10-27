@@ -2713,9 +2713,9 @@ button:focus-visible {
 .hero::before {
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, .48) 0%,
-    rgba(0, 0, 0, .62) 55%,
-    rgba(0, 0, 0, .76) 100%
+    rgba(0, 0, 0, .24) 0%,
+    rgba(0, 0, 0, .36) 55%,
+    rgba(0, 0, 0, .50) 100%
   );
   z-index: -1;
 }
