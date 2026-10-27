@@ -20,9 +20,9 @@
       <span>C.D. Bustarviejo</span>
     </div>
 
-    <button class="menu-toggle">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="menu-principal" aria-expanded="false">☰</button>
 
-    <nav class="menu">
+    <nav class="menu" id="menu-principal">
 <a href="index.html">Inicio</a>
 <a href="el-club.html">El Club</a>
 <a href="equipos.html">Equipos</a>
@@ -139,31 +139,31 @@ Hazte socio
   </div>
 
  <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/alberto-pq_orig.png">
+    <img class="logo-patrocinador" src="img/logos/alberto-pq_orig.png" alt="Patrocinador Alberto">
   </div>
 
   <div class="patrocinador">
     <a href="https://www.farmacias.es/madrid/bustarviejo/maria-sagrario-vinuales-garcia-12195" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/farmacia-pq_orig.png">
+      <img class="logo-patrocinador" src="img/logos/farmacia-pq_orig.png" alt="Farmacia María Sagrario Viñuales García">
     </a>
   </div>
 
   <div class="patrocinador plata">
     <a href="https://www.cadena88.com/marraz" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/ferreteriamarraz.jpg">
+      <img class="logo-patrocinador" src="img/logos/ferreteriamarraz.jpg" alt="Ferretería Marraz">
     </a>
   </div>
 
   <div class="patrocinador">
     <a href="https://www.facebook.com/people/El-Garaje-Bar/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/garaje_orig.jpg">
+      <img class="logo-patrocinador" src="img/logos/garaje_orig.jpg" alt="El Garaje Bar">
     </a>
   </div>
 
 
   <div class="patrocinador bronce">
     <a href="http://www.alberfis.es/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/kiko_orig.jpg">
+      <img class="logo-patrocinador" src="img/logos/kiko_orig.jpg" alt="Alberfis">
     </a>
   </div>
 
@@ -171,40 +171,40 @@ Hazte socio
 
   <div class="patrocinador">
     <a href="https://ludotecalapajarita.es/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/logo-la-pajarita_orig.jpg">
+      <img class="logo-patrocinador" src="img/logos/logo-la-pajarita_orig.jpg" alt="Ludoteca La Pajarita">
     </a>
   </div>
 
   <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/Bambu_Logo.png">
+    <img class="logo-patrocinador" src="img/logos/Bambu_Logo.png" alt="Bambú">
   </div>
 
   <div class="patrocinador">
     <a href="https://www.facebook.com/papeleriabustarviejo/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/papeleria-pq_orig.png">
+      <img class="logo-patrocinador" src="img/logos/papeleria-pq_orig.png" alt="Papelería Bustarviejo">
     </a>
   </div>
 
  <div class="patrocinador plata">
-    <img class="logo-patrocinador" src="img/logos/logo-hesdom-header-260.png">
+    <img class="logo-patrocinador" src="img/logos/logo-hesdom-header-260.png" alt="Hesdom">
   </div>
 
   <div class="patrocinador oro">
     <a href="https://ventanasteclum.com/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/teclum_orig.png">
+      <img class="logo-patrocinador" src="img/logos/teclum_orig.png" alt="Ventanas Teclum">
     </a>
   </div>
 
   <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/unide_orig.jpg">
+    <img class="logo-patrocinador" src="img/logos/unide_orig.jpg" alt="Unide">
   </div>
 
   <div class="patrocinador">
-    <img class="logo-patrocinador" src="img/logos/logo-pescaderia.JPG">
+    <img class="logo-patrocinador" src="img/logos/logo-pescaderia.JPG" alt="Pescadería colaboradora">
   </div>
   <div class="patrocinador plata">
     <a href="https://lahuertadeabril.es/" target="_blank">
-      <img class="logo-patrocinador" src="img/logos/huerta.png">
+      <img class="logo-patrocinador" src="img/logos/huerta.png" alt="La Huerta de Abril">
     </a>
   </div>
 
@@ -263,7 +263,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const menu = document.querySelector('.menu');
   if (toggle && menu) {
     toggle.addEventListener('click', function () {
-      menu.classList.toggle('activo');
+      const abierto = menu.classList.toggle('activo');
+    toggle.setAttribute('aria-expanded', String(abierto));
+    toggle.setAttribute('aria-label', abierto ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
     });
   }
 });
