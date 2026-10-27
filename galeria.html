@@ -16,8 +16,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>C.D. Bustarviejo | GalerÃ­a de Fotos y VÃ­deos</title>
-<meta name="description" content="GalerÃ­a de fotos y vÃ­deos del C.D. Bustarviejo: equipos, fÃºtbol, fÃºtbol sala, torneos, San Isidro y momentos del club en Bustarviejo.">
+<title>C.D. Bustarviejo | Galería de Fotos y Vídeos</title>
+<meta name="description" content="Galería de fotos y vídeos del C.D. Bustarviejo: equipos, fútbol, fútbol sala, torneos, San Isidro y momentos del club en Bustarviejo.">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
@@ -33,6 +33,14 @@
 .pagina-galeria .galeria-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 15px;border:1px solid #f57c00;border-radius:999px;background:#fff;color:#282828;font-size:.9rem;font-weight:700;text-decoration:none;transition:background .18s ease,color .18s ease,transform .18s ease}
 .pagina-galeria .galeria-nav a:hover,.pagina-galeria .galeria-nav a:focus-visible{background:#f57c00;color:#171717;transform:translateY(-1px)}
 .pagina-galeria .galeria-seccion{margin:0 0 58px;scroll-margin-top:100px}
+.pagina-galeria .temporadas-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0 auto 24px}
+.pagina-galeria .temporadas-nav button{min-height:76px;padding:16px 22px;border:2px solid #f57c00;border-radius:18px;background:#fff;color:#222;font:700 clamp(1.1rem,2.4vw,1.65rem) Montserrat,sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:background .18s,color .18s,transform .18s}
+.pagina-galeria .temporadas-nav button[aria-selected="true"]{background:#f57c00;color:#171717;box-shadow:0 8px 24px rgba(245,124,0,.22)}
+.pagina-galeria .temporadas-nav button:hover{transform:translateY(-1px)}
+.pagina-galeria .temporada-panel[hidden]{display:none!important}
+.pagina-galeria .galeria-nav a[data-app-category="true"]{border-style:dashed}
+@media(max-width:560px){.pagina-galeria .temporadas-nav{grid-template-columns:1fr;gap:9px}.pagina-galeria .temporadas-nav button{min-height:58px}}
+
 .pagina-galeria .galeria-seccion h2{position:relative;margin:0 0 20px;padding:0 0 12px 16px;border-bottom:1px solid #e8e8e8;color:#222;font-size:clamp(1.35rem,2.5vw,1.8rem);line-height:1.3}
 .pagina-galeria .galeria-seccion h2:before{content:"";position:absolute;left:0;top:2px;bottom:12px;width:5px;border-radius:4px;background:#f57c00}
 .pagina-galeria .galeria-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:14px}
@@ -52,11 +60,11 @@
 <div class="header-contenido">
 
 <div class="logo">
-<img src="img/escudo.png" alt="Momentos y actividades del C.D. Bustarviejo â escudo">
+<img src="img/escudo.png" alt="Momentos y actividades del C.D. Bustarviejo — escudo">
 <span>C.D. Bustarviejo</span>
 </div>
 
-<button class="menu-toggle" type="button" aria-label="Abrir menÃº de navegaciÃ³n" aria-controls="menu-principal" aria-expanded="false">â°</button>
+<button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="menu-principal" aria-expanded="false">☰</button>
 
 <nav class="menu" id="menu-principal">
 <a href="index.html">Inicio</a>
@@ -65,18 +73,18 @@
 <a href="patrocinadores.html">Patrocinadores</a>
 <a href="tienda.html">Tienda</a>
 <a href="comunicados.html">Comunicados</a>
-<a href="galeria.html">GalerÃ­a</a>
+<a href="galeria.html">Galería</a>
 
 <a class="btn-menu" target="_blank"
 href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData">
-â½ Ver partidos
+⚽ Ver partidos
 </a>
 <a class="btn-menu" target="_blank"
 href="https://alta-socio.vercel.app/jugadores.html">
 Quiero jugar
 </a>
 
-<a href="area-interna.html">Ãrea interna</a>
+<a href="area-interna.html">Área interna</a>
 
 <a class="btn-menu" target="_blank"
 href="https://alta-socio.vercel.app/alta-socio.html?ref=9TB4YE">
@@ -89,185 +97,190 @@ Hazte socio
 
 <section class="galeria">
 
-<h1>GalerÃ­a del club</h1>
+<h1>Galería del club</h1>
 
 <!-- TEXTO NUEVO -->
-<p>Momentos del club dentro y fuera del campo â½</p>
+<p>Momentos del club dentro y fuera del campo ⚽</p>
 
-<nav class="galeria-nav" aria-label="Saltar a una secciÃ³n de la galerÃ­a">
-<a href="#desafio-sierra-norte">DesafÃ­o Sierra Norte</a><a href="#torneo-padel">Torneo de pÃ¡del</a><a href="#maraton-futbol-sala">MaratÃ³n de fÃºtbol sala</a><a href="#copa-rural">Copa Rural</a><a href="#equipos">Equipos</a><a href="#temporada">Temporada</a><a href="#san-isidro">San Isidro</a>
+<nav class="temporadas-nav" id="temporadas-nav" aria-label="Seleccionar temporada">
+<button type="button" id="tab-temporada-2025" role="tab" aria-controls="panel-temporada-2025" aria-selected="false">Temporada 2025/2026</button>
+<button type="button" id="tab-temporada-2026" role="tab" aria-controls="panel-temporada-2026" aria-selected="true">Temporada 2026/2027</button>
+</nav>
+
+<nav class="galeria-nav" aria-label="Saltar a una sección de la galería">
+<a href="#desafio-sierra-norte">Desafío Sierra Norte</a><a href="#torneo-padel">Torneo de pádel</a><a href="#maraton-futbol-sala">Maratón de fútbol sala</a><a href="#copa-rural">Copa Rural</a><a href="#equipos">Equipos</a><a href="#temporada">Temporada</a><a href="#san-isidro">San Isidro</a>
 </nav>
 
 
 <!-- ====================================================== -->
-<!-- DESAFÃO SIERRA NORTE -->
+<!-- DESAFÍO SIERRA NORTE -->
 <!-- ====================================================== -->
 
 <div class="galeria-seccion">
 
-<h2 id="desafio-sierra-norte">DesafÃ­o Sierra Norte 2026</h2>
+<h2 id="desafio-sierra-norte">Desafío Sierra Norte 2026</h2>
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/desafio1.jpeg" class="glightbox"><img src="/img/img/galeria/desafio1.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio1" loading="lazy"></a>
-<a href="/img/img/galeria/desafio2.jpeg" class="glightbox"><img src="/img/img/galeria/desafio2.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio2" loading="lazy"></a>
-<a href="/img/img/galeria/desafio3.jpeg" class="glightbox"><img src="/img/img/galeria/desafio3.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio3" loading="lazy"></a>
-<a href="/img/img/galeria/desafio4.jpeg" class="glightbox"><img src="/img/img/galeria/desafio4.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio4" loading="lazy"></a>
-<a href="/img/img/galeria/desafio5.jpeg" class="glightbox"><img src="/img/img/galeria/desafio5.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio5" loading="lazy"></a>
-<a href="/img/img/galeria/desafio6.jpeg" class="glightbox"><img src="/img/img/galeria/desafio6.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio6" loading="lazy"></a>
-<a href="/img/img/galeria/desafio7.jpeg" class="glightbox"><img src="/img/img/galeria/desafio7.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio7" loading="lazy"></a>
-<a href="/img/img/galeria/desafio8.jpeg" class="glightbox"><img src="/img/img/galeria/desafio8.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio8" loading="lazy"></a>
-<a href="/img/img/galeria/desafio9.jpeg" class="glightbox"><img src="/img/img/galeria/desafio9.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio9" loading="lazy"></a>
-<a href="/img/img/galeria/desafio10.jpeg" class="glightbox"><img src="/img/img/galeria/desafio10.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio10" loading="lazy"></a>
-<a href="/img/img/galeria/desafio11.jpeg" class="glightbox"><img src="/img/img/galeria/desafio11.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio11" loading="lazy"></a>
-<a href="/img/img/galeria/desafio12.jpeg" class="glightbox"><img src="/img/img/galeria/desafio12.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio12" loading="lazy"></a>
-<a href="/img/img/galeria/desafio13.jpeg" class="glightbox"><img src="/img/img/galeria/desafio13.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio13" loading="lazy"></a>
-<a href="/img/img/galeria/desafio14.jpeg" class="glightbox"><img src="/img/img/galeria/desafio14.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio14" loading="lazy"></a>
-<a href="/img/img/galeria/desafio15.jpeg" class="glightbox"><img src="/img/img/galeria/desafio15.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio15" loading="lazy"></a>
-<a href="/img/img/galeria/desafio16.jpeg" class="glightbox"><img src="/img/img/galeria/desafio16.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio16" loading="lazy"></a>
-<a href="/img/img/galeria/desafio17.jpeg" class="glightbox"><img src="/img/img/galeria/desafio17.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio17" loading="lazy"></a>
-<a href="/img/img/galeria/desafio18.jpeg" class="glightbox"><img src="/img/img/galeria/desafio18.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio18" loading="lazy"></a>
-<a href="/img/img/galeria/desafio19.jpeg" class="glightbox"><img src="/img/img/galeria/desafio19.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio19" loading="lazy"></a>
-<a href="/img/img/galeria/desafio20.jpeg" class="glightbox"><img src="/img/img/galeria/desafio20.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio20" loading="lazy"></a>
-<a href="/img/img/galeria/desafio21.jpeg" class="glightbox"><img src="/img/img/galeria/desafio21.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio21" loading="lazy"></a>
-<a href="/img/img/galeria/desafio22.jpeg" class="glightbox"><img src="/img/img/galeria/desafio22.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio22" loading="lazy"></a>
-<a href="/img/img/galeria/desafio23.jpeg" class="glightbox"><img src="/img/img/galeria/desafio23.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio23" loading="lazy"></a>
-<a href="/img/img/galeria/desafio24.jpeg" class="glightbox"><img src="/img/img/galeria/desafio24.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio24" loading="lazy"></a>
-<a href="/img/img/galeria/desafio25.jpeg" class="glightbox"><img src="/img/img/galeria/desafio25.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio25" loading="lazy"></a>
-<a href="/img/img/galeria/desafio26.jpeg" class="glightbox"><img src="/img/img/galeria/desafio26.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio26" loading="lazy"></a>
-<a href="/img/img/galeria/desafio27.jpeg" class="glightbox"><img src="/img/img/galeria/desafio27.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio27" loading="lazy"></a>
-<a href="/img/img/galeria/desafio28.jpeg" class="glightbox"><img src="/img/img/galeria/desafio28.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio28" loading="lazy"></a>
-<a href="/img/img/galeria/desafio29.jpeg" class="glightbox"><img src="/img/img/galeria/desafio29.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio29" loading="lazy"></a>
-<a href="/img/img/galeria/desafio30.jpeg" class="glightbox"><img src="/img/img/galeria/desafio30.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio30" loading="lazy"></a>
-<a href="/img/img/galeria/desafio31.jpeg" class="glightbox"><img src="/img/img/galeria/desafio31.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio31" loading="lazy"></a>
-<a href="/img/img/galeria/desafio32.jpeg" class="glightbox"><img src="/img/img/galeria/desafio32.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio32" loading="lazy"></a>
-<a href="/img/img/galeria/desafio33.jpeg" class="glightbox"><img src="/img/img/galeria/desafio33.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio33" loading="lazy"></a>
-<a href="/img/img/galeria/desafio34.jpeg" class="glightbox"><img src="/img/img/galeria/desafio34.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio34" loading="lazy"></a>
-<a href="/img/img/galeria/desafio35.jpeg" class="glightbox"><img src="/img/img/galeria/desafio35.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio35" loading="lazy"></a>
-<a href="/img/img/galeria/desafio36.jpeg" class="glightbox"><img src="/img/img/galeria/desafio36.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio36" loading="lazy"></a>
-<a href="/img/img/galeria/desafio37.jpeg" class="glightbox"><img src="/img/img/galeria/desafio37.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio37" loading="lazy"></a>
-<a href="/img/img/galeria/desafio38.jpeg" class="glightbox"><img src="/img/img/galeria/desafio38.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio38" loading="lazy"></a>
-<a href="/img/img/galeria/desafio39.jpeg" class="glightbox"><img src="/img/img/galeria/desafio39.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio39" loading="lazy"></a>
-<a href="/img/img/galeria/desafio40.jpeg" class="glightbox"><img src="/img/img/galeria/desafio40.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio40" loading="lazy"></a>
-<a href="/img/img/galeria/desafio41.jpeg" class="glightbox"><img src="/img/img/galeria/desafio41.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio41" loading="lazy"></a>
-<a href="/img/img/galeria/desafio42.jpeg" class="glightbox"><img src="/img/img/galeria/desafio42.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio42" loading="lazy"></a>
-<a href="/img/img/galeria/desafio43.jpeg" class="glightbox"><img src="/img/img/galeria/desafio43.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio43" loading="lazy"></a>
-<a href="/img/img/galeria/desafio44.jpeg" class="glightbox"><img src="/img/img/galeria/desafio44.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio44" loading="lazy"></a>
-<a href="/img/img/galeria/desafio45.jpeg" class="glightbox"><img src="/img/img/galeria/desafio45.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio45" loading="lazy"></a>
-<a href="/img/img/galeria/desafio46.jpeg" class="glightbox"><img src="/img/img/galeria/desafio46.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio46" loading="lazy"></a>
-<a href="/img/img/galeria/desafio47.jpeg" class="glightbox"><img src="/img/img/galeria/desafio47.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio47" loading="lazy"></a>
-<a href="/img/img/galeria/desafio48.jpeg" class="glightbox"><img src="/img/img/galeria/desafio48.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio48" loading="lazy"></a>
-<a href="/img/img/galeria/desafio49.jpeg" class="glightbox"><img src="/img/img/galeria/desafio49.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio49" loading="lazy"></a>
-<a href="/img/img/galeria/desafio50.jpeg" class="glightbox"><img src="/img/img/galeria/desafio50.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio50" loading="lazy"></a>
-<a href="/img/img/galeria/desafio51.jpeg" class="glightbox"><img src="/img/img/galeria/desafio51.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio51" loading="lazy"></a>
-<a href="/img/img/galeria/desafio52.jpeg" class="glightbox"><img src="/img/img/galeria/desafio52.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio52" loading="lazy"></a>
-<a href="/img/img/galeria/desafio53.jpeg" class="glightbox"><img src="/img/img/galeria/desafio53.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio53" loading="lazy"></a>
-<a href="/img/img/galeria/desafio54.jpeg" class="glightbox"><img src="/img/img/galeria/desafio54.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio54" loading="lazy"></a>
-<a href="/img/img/galeria/desafio55.jpeg" class="glightbox"><img src="/img/img/galeria/desafio55.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio55" loading="lazy"></a>
-<a href="/img/img/galeria/desafio56.jpeg" class="glightbox"><img src="/img/img/galeria/desafio56.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio56" loading="lazy"></a>
-<a href="/img/img/galeria/desafio57.jpeg" class="glightbox"><img src="/img/img/galeria/desafio57.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio57" loading="lazy"></a>
-<a href="/img/img/galeria/desafio58.jpeg" class="glightbox"><img src="/img/img/galeria/desafio58.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio58" loading="lazy"></a>
-<a href="/img/img/galeria/desafio59.jpeg" class="glightbox"><img src="/img/img/galeria/desafio59.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio59" loading="lazy"></a>
-<a href="/img/img/galeria/desafio60.jpeg" class="glightbox"><img src="/img/img/galeria/desafio60.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio60" loading="lazy"></a>
-<a href="/img/img/galeria/desafio61.jpeg" class="glightbox"><img src="/img/img/galeria/desafio61.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio61" loading="lazy"></a>
-<a href="/img/img/galeria/desafio62.jpeg" class="glightbox"><img src="/img/img/galeria/desafio62.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio62" loading="lazy"></a>
-<a href="/img/img/galeria/desafio63.jpeg" class="glightbox"><img src="/img/img/galeria/desafio63.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio63" loading="lazy"></a>
-<a href="/img/img/galeria/desafio64.jpeg" class="glightbox"><img src="/img/img/galeria/desafio64.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio64" loading="lazy"></a>
-<a href="/img/img/galeria/desafio65.jpeg" class="glightbox"><img src="/img/img/galeria/desafio65.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio65" loading="lazy"></a>
-<a href="/img/img/galeria/desafio66.jpeg" class="glightbox"><img src="/img/img/galeria/desafio66.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio66" loading="lazy"></a>
-<a href="/img/img/galeria/desafio67.jpeg" class="glightbox"><img src="/img/img/galeria/desafio67.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio67" loading="lazy"></a>
-<a href="/img/img/galeria/desafio68.jpeg" class="glightbox"><img src="/img/img/galeria/desafio68.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio68" loading="lazy"></a>
-<a href="/img/img/galeria/desafio69.jpeg" class="glightbox"><img src="/img/img/galeria/desafio69.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio69" loading="lazy"></a>
-<a href="/img/img/galeria/desafio70.jpeg" class="glightbox"><img src="/img/img/galeria/desafio70.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio70" loading="lazy"></a>
-<a href="/img/img/galeria/desafio71.jpeg" class="glightbox"><img src="/img/img/galeria/desafio71.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio71" loading="lazy"></a>
-<a href="/img/img/galeria/desafio72.jpeg" class="glightbox"><img src="/img/img/galeria/desafio72.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio72" loading="lazy"></a>
-<a href="/img/img/galeria/desafio73.jpeg" class="glightbox"><img src="/img/img/galeria/desafio73.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio73" loading="lazy"></a>
-<a href="/img/img/galeria/desafio74.jpeg" class="glightbox"><img src="/img/img/galeria/desafio74.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio74" loading="lazy"></a>
-<a href="/img/img/galeria/desafio75.jpeg" class="glightbox"><img src="/img/img/galeria/desafio75.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio75" loading="lazy"></a>
-<a href="/img/img/galeria/desafio76.jpeg" class="glightbox"><img src="/img/img/galeria/desafio76.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio76" loading="lazy"></a>
-<a href="/img/img/galeria/desafio77.jpeg" class="glightbox"><img src="/img/img/galeria/desafio77.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio77" loading="lazy"></a>
-<a href="/img/img/galeria/desafio78.jpeg" class="glightbox"><img src="/img/img/galeria/desafio78.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio78" loading="lazy"></a>
-<a href="/img/img/galeria/desafio79.jpeg" class="glightbox"><img src="/img/img/galeria/desafio79.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio79" loading="lazy"></a>
-<a href="/img/img/galeria/desafio80.jpeg" class="glightbox"><img src="/img/img/galeria/desafio80.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio80" loading="lazy"></a>
-<a href="/img/img/galeria/desafio81.jpeg" class="glightbox"><img src="/img/img/galeria/desafio81.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio81" loading="lazy"></a>
-<a href="/img/img/galeria/desafio82.jpeg" class="glightbox"><img src="/img/img/galeria/desafio82.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio82" loading="lazy"></a>
-<a href="/img/img/galeria/desafio83.jpeg" class="glightbox"><img src="/img/img/galeria/desafio83.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio83" loading="lazy"></a>
-<a href="/img/img/galeria/desafio84.jpeg" class="glightbox"><img src="/img/img/galeria/desafio84.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio84" loading="lazy"></a>
-<a href="/img/img/galeria/desafio85.jpeg" class="glightbox"><img src="/img/img/galeria/desafio85.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio85" loading="lazy"></a>
-<a href="/img/img/galeria/desafio86.jpeg" class="glightbox"><img src="/img/img/galeria/desafio86.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio86" loading="lazy"></a>
-<a href="/img/img/galeria/desafio87.jpeg" class="glightbox"><img src="/img/img/galeria/desafio87.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio87" loading="lazy"></a>
-<a href="/img/img/galeria/desafio88.jpeg" class="glightbox"><img src="/img/img/galeria/desafio88.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio88" loading="lazy"></a>
-<a href="/img/img/galeria/desafio89.jpeg" class="glightbox"><img src="/img/img/galeria/desafio89.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio89" loading="lazy"></a>
-<a href="/img/img/galeria/desafio90.jpeg" class="glightbox"><img src="/img/img/galeria/desafio90.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio90" loading="lazy"></a>
-<a href="/img/img/galeria/desafio91.jpeg" class="glightbox"><img src="/img/img/galeria/desafio91.jpeg" alt="Torneo DesafÃ­o Sierra Norte â desafio91" loading="lazy"></a>
+<a href="/img/img/galeria/desafio1.jpeg" class="glightbox"><img src="/img/img/galeria/desafio1.jpeg" alt="Torneo Desafío Sierra Norte — desafio1" loading="lazy"></a>
+<a href="/img/img/galeria/desafio2.jpeg" class="glightbox"><img src="/img/img/galeria/desafio2.jpeg" alt="Torneo Desafío Sierra Norte — desafio2" loading="lazy"></a>
+<a href="/img/img/galeria/desafio3.jpeg" class="glightbox"><img src="/img/img/galeria/desafio3.jpeg" alt="Torneo Desafío Sierra Norte — desafio3" loading="lazy"></a>
+<a href="/img/img/galeria/desafio4.jpeg" class="glightbox"><img src="/img/img/galeria/desafio4.jpeg" alt="Torneo Desafío Sierra Norte — desafio4" loading="lazy"></a>
+<a href="/img/img/galeria/desafio5.jpeg" class="glightbox"><img src="/img/img/galeria/desafio5.jpeg" alt="Torneo Desafío Sierra Norte — desafio5" loading="lazy"></a>
+<a href="/img/img/galeria/desafio6.jpeg" class="glightbox"><img src="/img/img/galeria/desafio6.jpeg" alt="Torneo Desafío Sierra Norte — desafio6" loading="lazy"></a>
+<a href="/img/img/galeria/desafio7.jpeg" class="glightbox"><img src="/img/img/galeria/desafio7.jpeg" alt="Torneo Desafío Sierra Norte — desafio7" loading="lazy"></a>
+<a href="/img/img/galeria/desafio8.jpeg" class="glightbox"><img src="/img/img/galeria/desafio8.jpeg" alt="Torneo Desafío Sierra Norte — desafio8" loading="lazy"></a>
+<a href="/img/img/galeria/desafio9.jpeg" class="glightbox"><img src="/img/img/galeria/desafio9.jpeg" alt="Torneo Desafío Sierra Norte — desafio9" loading="lazy"></a>
+<a href="/img/img/galeria/desafio10.jpeg" class="glightbox"><img src="/img/img/galeria/desafio10.jpeg" alt="Torneo Desafío Sierra Norte — desafio10" loading="lazy"></a>
+<a href="/img/img/galeria/desafio11.jpeg" class="glightbox"><img src="/img/img/galeria/desafio11.jpeg" alt="Torneo Desafío Sierra Norte — desafio11" loading="lazy"></a>
+<a href="/img/img/galeria/desafio12.jpeg" class="glightbox"><img src="/img/img/galeria/desafio12.jpeg" alt="Torneo Desafío Sierra Norte — desafio12" loading="lazy"></a>
+<a href="/img/img/galeria/desafio13.jpeg" class="glightbox"><img src="/img/img/galeria/desafio13.jpeg" alt="Torneo Desafío Sierra Norte — desafio13" loading="lazy"></a>
+<a href="/img/img/galeria/desafio14.jpeg" class="glightbox"><img src="/img/img/galeria/desafio14.jpeg" alt="Torneo Desafío Sierra Norte — desafio14" loading="lazy"></a>
+<a href="/img/img/galeria/desafio15.jpeg" class="glightbox"><img src="/img/img/galeria/desafio15.jpeg" alt="Torneo Desafío Sierra Norte — desafio15" loading="lazy"></a>
+<a href="/img/img/galeria/desafio16.jpeg" class="glightbox"><img src="/img/img/galeria/desafio16.jpeg" alt="Torneo Desafío Sierra Norte — desafio16" loading="lazy"></a>
+<a href="/img/img/galeria/desafio17.jpeg" class="glightbox"><img src="/img/img/galeria/desafio17.jpeg" alt="Torneo Desafío Sierra Norte — desafio17" loading="lazy"></a>
+<a href="/img/img/galeria/desafio18.jpeg" class="glightbox"><img src="/img/img/galeria/desafio18.jpeg" alt="Torneo Desafío Sierra Norte — desafio18" loading="lazy"></a>
+<a href="/img/img/galeria/desafio19.jpeg" class="glightbox"><img src="/img/img/galeria/desafio19.jpeg" alt="Torneo Desafío Sierra Norte — desafio19" loading="lazy"></a>
+<a href="/img/img/galeria/desafio20.jpeg" class="glightbox"><img src="/img/img/galeria/desafio20.jpeg" alt="Torneo Desafío Sierra Norte — desafio20" loading="lazy"></a>
+<a href="/img/img/galeria/desafio21.jpeg" class="glightbox"><img src="/img/img/galeria/desafio21.jpeg" alt="Torneo Desafío Sierra Norte — desafio21" loading="lazy"></a>
+<a href="/img/img/galeria/desafio22.jpeg" class="glightbox"><img src="/img/img/galeria/desafio22.jpeg" alt="Torneo Desafío Sierra Norte — desafio22" loading="lazy"></a>
+<a href="/img/img/galeria/desafio23.jpeg" class="glightbox"><img src="/img/img/galeria/desafio23.jpeg" alt="Torneo Desafío Sierra Norte — desafio23" loading="lazy"></a>
+<a href="/img/img/galeria/desafio24.jpeg" class="glightbox"><img src="/img/img/galeria/desafio24.jpeg" alt="Torneo Desafío Sierra Norte — desafio24" loading="lazy"></a>
+<a href="/img/img/galeria/desafio25.jpeg" class="glightbox"><img src="/img/img/galeria/desafio25.jpeg" alt="Torneo Desafío Sierra Norte — desafio25" loading="lazy"></a>
+<a href="/img/img/galeria/desafio26.jpeg" class="glightbox"><img src="/img/img/galeria/desafio26.jpeg" alt="Torneo Desafío Sierra Norte — desafio26" loading="lazy"></a>
+<a href="/img/img/galeria/desafio27.jpeg" class="glightbox"><img src="/img/img/galeria/desafio27.jpeg" alt="Torneo Desafío Sierra Norte — desafio27" loading="lazy"></a>
+<a href="/img/img/galeria/desafio28.jpeg" class="glightbox"><img src="/img/img/galeria/desafio28.jpeg" alt="Torneo Desafío Sierra Norte — desafio28" loading="lazy"></a>
+<a href="/img/img/galeria/desafio29.jpeg" class="glightbox"><img src="/img/img/galeria/desafio29.jpeg" alt="Torneo Desafío Sierra Norte — desafio29" loading="lazy"></a>
+<a href="/img/img/galeria/desafio30.jpeg" class="glightbox"><img src="/img/img/galeria/desafio30.jpeg" alt="Torneo Desafío Sierra Norte — desafio30" loading="lazy"></a>
+<a href="/img/img/galeria/desafio31.jpeg" class="glightbox"><img src="/img/img/galeria/desafio31.jpeg" alt="Torneo Desafío Sierra Norte — desafio31" loading="lazy"></a>
+<a href="/img/img/galeria/desafio32.jpeg" class="glightbox"><img src="/img/img/galeria/desafio32.jpeg" alt="Torneo Desafío Sierra Norte — desafio32" loading="lazy"></a>
+<a href="/img/img/galeria/desafio33.jpeg" class="glightbox"><img src="/img/img/galeria/desafio33.jpeg" alt="Torneo Desafío Sierra Norte — desafio33" loading="lazy"></a>
+<a href="/img/img/galeria/desafio34.jpeg" class="glightbox"><img src="/img/img/galeria/desafio34.jpeg" alt="Torneo Desafío Sierra Norte — desafio34" loading="lazy"></a>
+<a href="/img/img/galeria/desafio35.jpeg" class="glightbox"><img src="/img/img/galeria/desafio35.jpeg" alt="Torneo Desafío Sierra Norte — desafio35" loading="lazy"></a>
+<a href="/img/img/galeria/desafio36.jpeg" class="glightbox"><img src="/img/img/galeria/desafio36.jpeg" alt="Torneo Desafío Sierra Norte — desafio36" loading="lazy"></a>
+<a href="/img/img/galeria/desafio37.jpeg" class="glightbox"><img src="/img/img/galeria/desafio37.jpeg" alt="Torneo Desafío Sierra Norte — desafio37" loading="lazy"></a>
+<a href="/img/img/galeria/desafio38.jpeg" class="glightbox"><img src="/img/img/galeria/desafio38.jpeg" alt="Torneo Desafío Sierra Norte — desafio38" loading="lazy"></a>
+<a href="/img/img/galeria/desafio39.jpeg" class="glightbox"><img src="/img/img/galeria/desafio39.jpeg" alt="Torneo Desafío Sierra Norte — desafio39" loading="lazy"></a>
+<a href="/img/img/galeria/desafio40.jpeg" class="glightbox"><img src="/img/img/galeria/desafio40.jpeg" alt="Torneo Desafío Sierra Norte — desafio40" loading="lazy"></a>
+<a href="/img/img/galeria/desafio41.jpeg" class="glightbox"><img src="/img/img/galeria/desafio41.jpeg" alt="Torneo Desafío Sierra Norte — desafio41" loading="lazy"></a>
+<a href="/img/img/galeria/desafio42.jpeg" class="glightbox"><img src="/img/img/galeria/desafio42.jpeg" alt="Torneo Desafío Sierra Norte — desafio42" loading="lazy"></a>
+<a href="/img/img/galeria/desafio43.jpeg" class="glightbox"><img src="/img/img/galeria/desafio43.jpeg" alt="Torneo Desafío Sierra Norte — desafio43" loading="lazy"></a>
+<a href="/img/img/galeria/desafio44.jpeg" class="glightbox"><img src="/img/img/galeria/desafio44.jpeg" alt="Torneo Desafío Sierra Norte — desafio44" loading="lazy"></a>
+<a href="/img/img/galeria/desafio45.jpeg" class="glightbox"><img src="/img/img/galeria/desafio45.jpeg" alt="Torneo Desafío Sierra Norte — desafio45" loading="lazy"></a>
+<a href="/img/img/galeria/desafio46.jpeg" class="glightbox"><img src="/img/img/galeria/desafio46.jpeg" alt="Torneo Desafío Sierra Norte — desafio46" loading="lazy"></a>
+<a href="/img/img/galeria/desafio47.jpeg" class="glightbox"><img src="/img/img/galeria/desafio47.jpeg" alt="Torneo Desafío Sierra Norte — desafio47" loading="lazy"></a>
+<a href="/img/img/galeria/desafio48.jpeg" class="glightbox"><img src="/img/img/galeria/desafio48.jpeg" alt="Torneo Desafío Sierra Norte — desafio48" loading="lazy"></a>
+<a href="/img/img/galeria/desafio49.jpeg" class="glightbox"><img src="/img/img/galeria/desafio49.jpeg" alt="Torneo Desafío Sierra Norte — desafio49" loading="lazy"></a>
+<a href="/img/img/galeria/desafio50.jpeg" class="glightbox"><img src="/img/img/galeria/desafio50.jpeg" alt="Torneo Desafío Sierra Norte — desafio50" loading="lazy"></a>
+<a href="/img/img/galeria/desafio51.jpeg" class="glightbox"><img src="/img/img/galeria/desafio51.jpeg" alt="Torneo Desafío Sierra Norte — desafio51" loading="lazy"></a>
+<a href="/img/img/galeria/desafio52.jpeg" class="glightbox"><img src="/img/img/galeria/desafio52.jpeg" alt="Torneo Desafío Sierra Norte — desafio52" loading="lazy"></a>
+<a href="/img/img/galeria/desafio53.jpeg" class="glightbox"><img src="/img/img/galeria/desafio53.jpeg" alt="Torneo Desafío Sierra Norte — desafio53" loading="lazy"></a>
+<a href="/img/img/galeria/desafio54.jpeg" class="glightbox"><img src="/img/img/galeria/desafio54.jpeg" alt="Torneo Desafío Sierra Norte — desafio54" loading="lazy"></a>
+<a href="/img/img/galeria/desafio55.jpeg" class="glightbox"><img src="/img/img/galeria/desafio55.jpeg" alt="Torneo Desafío Sierra Norte — desafio55" loading="lazy"></a>
+<a href="/img/img/galeria/desafio56.jpeg" class="glightbox"><img src="/img/img/galeria/desafio56.jpeg" alt="Torneo Desafío Sierra Norte — desafio56" loading="lazy"></a>
+<a href="/img/img/galeria/desafio57.jpeg" class="glightbox"><img src="/img/img/galeria/desafio57.jpeg" alt="Torneo Desafío Sierra Norte — desafio57" loading="lazy"></a>
+<a href="/img/img/galeria/desafio58.jpeg" class="glightbox"><img src="/img/img/galeria/desafio58.jpeg" alt="Torneo Desafío Sierra Norte — desafio58" loading="lazy"></a>
+<a href="/img/img/galeria/desafio59.jpeg" class="glightbox"><img src="/img/img/galeria/desafio59.jpeg" alt="Torneo Desafío Sierra Norte — desafio59" loading="lazy"></a>
+<a href="/img/img/galeria/desafio60.jpeg" class="glightbox"><img src="/img/img/galeria/desafio60.jpeg" alt="Torneo Desafío Sierra Norte — desafio60" loading="lazy"></a>
+<a href="/img/img/galeria/desafio61.jpeg" class="glightbox"><img src="/img/img/galeria/desafio61.jpeg" alt="Torneo Desafío Sierra Norte — desafio61" loading="lazy"></a>
+<a href="/img/img/galeria/desafio62.jpeg" class="glightbox"><img src="/img/img/galeria/desafio62.jpeg" alt="Torneo Desafío Sierra Norte — desafio62" loading="lazy"></a>
+<a href="/img/img/galeria/desafio63.jpeg" class="glightbox"><img src="/img/img/galeria/desafio63.jpeg" alt="Torneo Desafío Sierra Norte — desafio63" loading="lazy"></a>
+<a href="/img/img/galeria/desafio64.jpeg" class="glightbox"><img src="/img/img/galeria/desafio64.jpeg" alt="Torneo Desafío Sierra Norte — desafio64" loading="lazy"></a>
+<a href="/img/img/galeria/desafio65.jpeg" class="glightbox"><img src="/img/img/galeria/desafio65.jpeg" alt="Torneo Desafío Sierra Norte — desafio65" loading="lazy"></a>
+<a href="/img/img/galeria/desafio66.jpeg" class="glightbox"><img src="/img/img/galeria/desafio66.jpeg" alt="Torneo Desafío Sierra Norte — desafio66" loading="lazy"></a>
+<a href="/img/img/galeria/desafio67.jpeg" class="glightbox"><img src="/img/img/galeria/desafio67.jpeg" alt="Torneo Desafío Sierra Norte — desafio67" loading="lazy"></a>
+<a href="/img/img/galeria/desafio68.jpeg" class="glightbox"><img src="/img/img/galeria/desafio68.jpeg" alt="Torneo Desafío Sierra Norte — desafio68" loading="lazy"></a>
+<a href="/img/img/galeria/desafio69.jpeg" class="glightbox"><img src="/img/img/galeria/desafio69.jpeg" alt="Torneo Desafío Sierra Norte — desafio69" loading="lazy"></a>
+<a href="/img/img/galeria/desafio70.jpeg" class="glightbox"><img src="/img/img/galeria/desafio70.jpeg" alt="Torneo Desafío Sierra Norte — desafio70" loading="lazy"></a>
+<a href="/img/img/galeria/desafio71.jpeg" class="glightbox"><img src="/img/img/galeria/desafio71.jpeg" alt="Torneo Desafío Sierra Norte — desafio71" loading="lazy"></a>
+<a href="/img/img/galeria/desafio72.jpeg" class="glightbox"><img src="/img/img/galeria/desafio72.jpeg" alt="Torneo Desafío Sierra Norte — desafio72" loading="lazy"></a>
+<a href="/img/img/galeria/desafio73.jpeg" class="glightbox"><img src="/img/img/galeria/desafio73.jpeg" alt="Torneo Desafío Sierra Norte — desafio73" loading="lazy"></a>
+<a href="/img/img/galeria/desafio74.jpeg" class="glightbox"><img src="/img/img/galeria/desafio74.jpeg" alt="Torneo Desafío Sierra Norte — desafio74" loading="lazy"></a>
+<a href="/img/img/galeria/desafio75.jpeg" class="glightbox"><img src="/img/img/galeria/desafio75.jpeg" alt="Torneo Desafío Sierra Norte — desafio75" loading="lazy"></a>
+<a href="/img/img/galeria/desafio76.jpeg" class="glightbox"><img src="/img/img/galeria/desafio76.jpeg" alt="Torneo Desafío Sierra Norte — desafio76" loading="lazy"></a>
+<a href="/img/img/galeria/desafio77.jpeg" class="glightbox"><img src="/img/img/galeria/desafio77.jpeg" alt="Torneo Desafío Sierra Norte — desafio77" loading="lazy"></a>
+<a href="/img/img/galeria/desafio78.jpeg" class="glightbox"><img src="/img/img/galeria/desafio78.jpeg" alt="Torneo Desafío Sierra Norte — desafio78" loading="lazy"></a>
+<a href="/img/img/galeria/desafio79.jpeg" class="glightbox"><img src="/img/img/galeria/desafio79.jpeg" alt="Torneo Desafío Sierra Norte — desafio79" loading="lazy"></a>
+<a href="/img/img/galeria/desafio80.jpeg" class="glightbox"><img src="/img/img/galeria/desafio80.jpeg" alt="Torneo Desafío Sierra Norte — desafio80" loading="lazy"></a>
+<a href="/img/img/galeria/desafio81.jpeg" class="glightbox"><img src="/img/img/galeria/desafio81.jpeg" alt="Torneo Desafío Sierra Norte — desafio81" loading="lazy"></a>
+<a href="/img/img/galeria/desafio82.jpeg" class="glightbox"><img src="/img/img/galeria/desafio82.jpeg" alt="Torneo Desafío Sierra Norte — desafio82" loading="lazy"></a>
+<a href="/img/img/galeria/desafio83.jpeg" class="glightbox"><img src="/img/img/galeria/desafio83.jpeg" alt="Torneo Desafío Sierra Norte — desafio83" loading="lazy"></a>
+<a href="/img/img/galeria/desafio84.jpeg" class="glightbox"><img src="/img/img/galeria/desafio84.jpeg" alt="Torneo Desafío Sierra Norte — desafio84" loading="lazy"></a>
+<a href="/img/img/galeria/desafio85.jpeg" class="glightbox"><img src="/img/img/galeria/desafio85.jpeg" alt="Torneo Desafío Sierra Norte — desafio85" loading="lazy"></a>
+<a href="/img/img/galeria/desafio86.jpeg" class="glightbox"><img src="/img/img/galeria/desafio86.jpeg" alt="Torneo Desafío Sierra Norte — desafio86" loading="lazy"></a>
+<a href="/img/img/galeria/desafio87.jpeg" class="glightbox"><img src="/img/img/galeria/desafio87.jpeg" alt="Torneo Desafío Sierra Norte — desafio87" loading="lazy"></a>
+<a href="/img/img/galeria/desafio88.jpeg" class="glightbox"><img src="/img/img/galeria/desafio88.jpeg" alt="Torneo Desafío Sierra Norte — desafio88" loading="lazy"></a>
+<a href="/img/img/galeria/desafio89.jpeg" class="glightbox"><img src="/img/img/galeria/desafio89.jpeg" alt="Torneo Desafío Sierra Norte — desafio89" loading="lazy"></a>
+<a href="/img/img/galeria/desafio90.jpeg" class="glightbox"><img src="/img/img/galeria/desafio90.jpeg" alt="Torneo Desafío Sierra Norte — desafio90" loading="lazy"></a>
+<a href="/img/img/galeria/desafio91.jpeg" class="glightbox"><img src="/img/img/galeria/desafio91.jpeg" alt="Torneo Desafío Sierra Norte — desafio91" loading="lazy"></a>
 
 </div>
 </div>
 
 
 <!-- ====================================================== -->
-<!-- PÃDEL -->
+<!-- PÁDEL -->
 <!-- ====================================================== -->
 
 <div class="galeria-seccion">
 
-<h2 id="torneo-padel">Torneo de pÃ¡del 2026</h2>
+<h2 id="torneo-padel">Torneo de pádel 2026</h2>
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/padel1.jpeg" class="glightbox"><img src="/img/img/galeria/padel1.jpeg" alt="Actividad de pÃ¡del del club â padel1" loading="lazy"></a>
-<a href="/img/img/galeria/padel2.jpeg" class="glightbox"><img src="/img/img/galeria/padel2.jpeg" alt="Actividad de pÃ¡del del club â padel2" loading="lazy"></a>
-<a href="/img/img/galeria/padel3.jpeg" class="glightbox"><img src="/img/img/galeria/padel3.jpeg" alt="Actividad de pÃ¡del del club â padel3" loading="lazy"></a>
-<a href="/img/img/galeria/padel4.jpeg" class="glightbox"><img src="/img/img/galeria/padel4.jpeg" alt="Actividad de pÃ¡del del club â padel4" loading="lazy"></a>
-<a href="/img/img/galeria/padel5.jpeg" class="glightbox"><img src="/img/img/galeria/padel5.jpeg" alt="Actividad de pÃ¡del del club â padel5" loading="lazy"></a>
-<a href="/img/img/galeria/padel6.jpeg" class="glightbox"><img src="/img/img/galeria/padel6.jpeg" alt="Actividad de pÃ¡del del club â padel6" loading="lazy"></a>
-<a href="/img/img/galeria/padel7.jpeg" class="glightbox"><img src="/img/img/galeria/padel7.jpeg" alt="Actividad de pÃ¡del del club â padel7" loading="lazy"></a>
-<a href="/img/img/galeria/padel8.jpeg" class="glightbox"><img src="/img/img/galeria/padel8.jpeg" alt="Actividad de pÃ¡del del club â padel8" loading="lazy"></a>
-<a href="/img/img/galeria/padel9.jpeg" class="glightbox"><img src="/img/img/galeria/padel9.jpeg" alt="Actividad de pÃ¡del del club â padel9" loading="lazy"></a>
-<a href="/img/img/galeria/padel10.jpeg" class="glightbox"><img src="/img/img/galeria/padel10.jpeg" alt="Actividad de pÃ¡del del club â padel10" loading="lazy"></a>
-<a href="/img/img/galeria/padel11.jpeg" class="glightbox"><img src="/img/img/galeria/padel11.jpeg" alt="Actividad de pÃ¡del del club â padel11" loading="lazy"></a>
-<a href="/img/img/galeria/padel12.jpeg" class="glightbox"><img src="/img/img/galeria/padel12.jpeg" alt="Actividad de pÃ¡del del club â padel12" loading="lazy"></a>
-<a href="/img/img/galeria/padel13.jpeg" class="glightbox"><img src="/img/img/galeria/padel13.jpeg" alt="Actividad de pÃ¡del del club â padel13" loading="lazy"></a>
-<a href="/img/img/galeria/padel14.jpeg" class="glightbox"><img src="/img/img/galeria/padel14.jpeg" alt="Actividad de pÃ¡del del club â padel14" loading="lazy"></a>
-<a href="/img/img/galeria/padel15.jpeg" class="glightbox"><img src="/img/img/galeria/padel15.jpeg" alt="Actividad de pÃ¡del del club â padel15" loading="lazy"></a>
-<a href="/img/img/galeria/padel16.jpeg" class="glightbox"><img src="/img/img/galeria/padel16.jpeg" alt="Actividad de pÃ¡del del club â padel16" loading="lazy"></a>
+<a href="/img/img/galeria/padel1.jpeg" class="glightbox"><img src="/img/img/galeria/padel1.jpeg" alt="Actividad de pádel del club — padel1" loading="lazy"></a>
+<a href="/img/img/galeria/padel2.jpeg" class="glightbox"><img src="/img/img/galeria/padel2.jpeg" alt="Actividad de pádel del club — padel2" loading="lazy"></a>
+<a href="/img/img/galeria/padel3.jpeg" class="glightbox"><img src="/img/img/galeria/padel3.jpeg" alt="Actividad de pádel del club — padel3" loading="lazy"></a>
+<a href="/img/img/galeria/padel4.jpeg" class="glightbox"><img src="/img/img/galeria/padel4.jpeg" alt="Actividad de pádel del club — padel4" loading="lazy"></a>
+<a href="/img/img/galeria/padel5.jpeg" class="glightbox"><img src="/img/img/galeria/padel5.jpeg" alt="Actividad de pádel del club — padel5" loading="lazy"></a>
+<a href="/img/img/galeria/padel6.jpeg" class="glightbox"><img src="/img/img/galeria/padel6.jpeg" alt="Actividad de pádel del club — padel6" loading="lazy"></a>
+<a href="/img/img/galeria/padel7.jpeg" class="glightbox"><img src="/img/img/galeria/padel7.jpeg" alt="Actividad de pádel del club — padel7" loading="lazy"></a>
+<a href="/img/img/galeria/padel8.jpeg" class="glightbox"><img src="/img/img/galeria/padel8.jpeg" alt="Actividad de pádel del club — padel8" loading="lazy"></a>
+<a href="/img/img/galeria/padel9.jpeg" class="glightbox"><img src="/img/img/galeria/padel9.jpeg" alt="Actividad de pádel del club — padel9" loading="lazy"></a>
+<a href="/img/img/galeria/padel10.jpeg" class="glightbox"><img src="/img/img/galeria/padel10.jpeg" alt="Actividad de pádel del club — padel10" loading="lazy"></a>
+<a href="/img/img/galeria/padel11.jpeg" class="glightbox"><img src="/img/img/galeria/padel11.jpeg" alt="Actividad de pádel del club — padel11" loading="lazy"></a>
+<a href="/img/img/galeria/padel12.jpeg" class="glightbox"><img src="/img/img/galeria/padel12.jpeg" alt="Actividad de pádel del club — padel12" loading="lazy"></a>
+<a href="/img/img/galeria/padel13.jpeg" class="glightbox"><img src="/img/img/galeria/padel13.jpeg" alt="Actividad de pádel del club — padel13" loading="lazy"></a>
+<a href="/img/img/galeria/padel14.jpeg" class="glightbox"><img src="/img/img/galeria/padel14.jpeg" alt="Actividad de pádel del club — padel14" loading="lazy"></a>
+<a href="/img/img/galeria/padel15.jpeg" class="glightbox"><img src="/img/img/galeria/padel15.jpeg" alt="Actividad de pádel del club — padel15" loading="lazy"></a>
+<a href="/img/img/galeria/padel16.jpeg" class="glightbox"><img src="/img/img/galeria/padel16.jpeg" alt="Actividad de pádel del club — padel16" loading="lazy"></a>
 
 </div>
 </div>
 
 
 <!-- ====================================================== -->
-<!-- MARATÃN FÃTBOL SALA -->
+<!-- MARATÓN FÚTBOL SALA -->
 <!-- ====================================================== -->
 
 <div class="galeria-seccion">
 
-<h2 id="maraton-futbol-sala">MaratÃ³n de fÃºtbol sala 2026</h2>
+<h2 id="maraton-futbol-sala">Maratón de fútbol sala 2026</h2>
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/maraton1.jpeg" class="glightbox"><img src="/img/img/galeria/maraton1.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton1" loading="lazy"></a>
-<a href="/img/img/galeria/maraton2.jpeg" class="glightbox"><img src="/img/img/galeria/maraton2.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton2" loading="lazy"></a>
-<a href="/img/img/galeria/maraton3.jpeg" class="glightbox"><img src="/img/img/galeria/maraton3.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton3" loading="lazy"></a>
-<a href="/img/img/galeria/maraton4.jpeg" class="glightbox"><img src="/img/img/galeria/maraton4.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton4" loading="lazy"></a>
-<a href="/img/img/galeria/maraton6.jpeg" class="glightbox"><img src="/img/img/galeria/maraton6.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton6" loading="lazy"></a>
-<a href="/img/img/galeria/maraton7.jpeg" class="glightbox"><img src="/img/img/galeria/maraton7.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton7" loading="lazy"></a>
-<a href="/img/img/galeria/maraton8.jpeg" class="glightbox"><img src="/img/img/galeria/maraton8.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton8" loading="lazy"></a>
-<a href="/img/img/galeria/maraton9.jpeg" class="glightbox"><img src="/img/img/galeria/maraton9.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton9" loading="lazy"></a>
-<a href="/img/img/galeria/maraton12.jpeg" class="glightbox"><img src="/img/img/galeria/maraton12.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton12" loading="lazy"></a>
-<a href="/img/img/galeria/maraton13.jpeg" class="glightbox"><img src="/img/img/galeria/maraton13.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton13" loading="lazy"></a>
-<a href="/img/img/galeria/maraton14.jpeg" class="glightbox"><img src="/img/img/galeria/maraton14.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton14" loading="lazy"></a>
-<a href="/img/img/galeria/maraton15.jpeg" class="glightbox"><img src="/img/img/galeria/maraton15.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton15" loading="lazy"></a>
-<a href="/img/img/galeria/maraton16.jpeg" class="glightbox"><img src="/img/img/galeria/maraton16.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton16" loading="lazy"></a>
-<a href="/img/img/galeria/maraton17.jpeg" class="glightbox"><img src="/img/img/galeria/maraton17.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton17" loading="lazy"></a>
-<a href="/img/img/galeria/maraton18.jpeg" class="glightbox"><img src="/img/img/galeria/maraton18.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton18" loading="lazy"></a>
-<a href="/img/img/galeria/maraton19.jpeg" class="glightbox"><img src="/img/img/galeria/maraton19.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton19" loading="lazy"></a>
-<a href="/img/img/galeria/maraton20.jpeg" class="glightbox"><img src="/img/img/galeria/maraton20.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton20" loading="lazy"></a>
-<a href="/img/img/galeria/maraton21.jpeg" class="glightbox"><img src="/img/img/galeria/maraton21.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton21" loading="lazy"></a>
-<a href="/img/img/galeria/maraton22.jpeg" class="glightbox"><img src="/img/img/galeria/maraton22.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton22" loading="lazy"></a>
-<a href="/img/img/galeria/maraton23.jpeg" class="glightbox"><img src="/img/img/galeria/maraton23.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton23" loading="lazy"></a>
-<a href="/img/img/galeria/maraton24.jpeg" class="glightbox"><img src="/img/img/galeria/maraton24.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton24" loading="lazy"></a>
-<a href="/img/img/galeria/maraton25.jpeg" class="glightbox"><img src="/img/img/galeria/maraton25.jpeg" alt="MaratÃ³n de fÃºtbol sala â maraton25" loading="lazy"></a>
+<a href="/img/img/galeria/maraton1.jpeg" class="glightbox"><img src="/img/img/galeria/maraton1.jpeg" alt="Maratón de fútbol sala — maraton1" loading="lazy"></a>
+<a href="/img/img/galeria/maraton2.jpeg" class="glightbox"><img src="/img/img/galeria/maraton2.jpeg" alt="Maratón de fútbol sala — maraton2" loading="lazy"></a>
+<a href="/img/img/galeria/maraton3.jpeg" class="glightbox"><img src="/img/img/galeria/maraton3.jpeg" alt="Maratón de fútbol sala — maraton3" loading="lazy"></a>
+<a href="/img/img/galeria/maraton4.jpeg" class="glightbox"><img src="/img/img/galeria/maraton4.jpeg" alt="Maratón de fútbol sala — maraton4" loading="lazy"></a>
+<a href="/img/img/galeria/maraton6.jpeg" class="glightbox"><img src="/img/img/galeria/maraton6.jpeg" alt="Maratón de fútbol sala — maraton6" loading="lazy"></a>
+<a href="/img/img/galeria/maraton7.jpeg" class="glightbox"><img src="/img/img/galeria/maraton7.jpeg" alt="Maratón de fútbol sala — maraton7" loading="lazy"></a>
+<a href="/img/img/galeria/maraton8.jpeg" class="glightbox"><img src="/img/img/galeria/maraton8.jpeg" alt="Maratón de fútbol sala — maraton8" loading="lazy"></a>
+<a href="/img/img/galeria/maraton9.jpeg" class="glightbox"><img src="/img/img/galeria/maraton9.jpeg" alt="Maratón de fútbol sala — maraton9" loading="lazy"></a>
+<a href="/img/img/galeria/maraton12.jpeg" class="glightbox"><img src="/img/img/galeria/maraton12.jpeg" alt="Maratón de fútbol sala — maraton12" loading="lazy"></a>
+<a href="/img/img/galeria/maraton13.jpeg" class="glightbox"><img src="/img/img/galeria/maraton13.jpeg" alt="Maratón de fútbol sala — maraton13" loading="lazy"></a>
+<a href="/img/img/galeria/maraton14.jpeg" class="glightbox"><img src="/img/img/galeria/maraton14.jpeg" alt="Maratón de fútbol sala — maraton14" loading="lazy"></a>
+<a href="/img/img/galeria/maraton15.jpeg" class="glightbox"><img src="/img/img/galeria/maraton15.jpeg" alt="Maratón de fútbol sala — maraton15" loading="lazy"></a>
+<a href="/img/img/galeria/maraton16.jpeg" class="glightbox"><img src="/img/img/galeria/maraton16.jpeg" alt="Maratón de fútbol sala — maraton16" loading="lazy"></a>
+<a href="/img/img/galeria/maraton17.jpeg" class="glightbox"><img src="/img/img/galeria/maraton17.jpeg" alt="Maratón de fútbol sala — maraton17" loading="lazy"></a>
+<a href="/img/img/galeria/maraton18.jpeg" class="glightbox"><img src="/img/img/galeria/maraton18.jpeg" alt="Maratón de fútbol sala — maraton18" loading="lazy"></a>
+<a href="/img/img/galeria/maraton19.jpeg" class="glightbox"><img src="/img/img/galeria/maraton19.jpeg" alt="Maratón de fútbol sala — maraton19" loading="lazy"></a>
+<a href="/img/img/galeria/maraton20.jpeg" class="glightbox"><img src="/img/img/galeria/maraton20.jpeg" alt="Maratón de fútbol sala — maraton20" loading="lazy"></a>
+<a href="/img/img/galeria/maraton21.jpeg" class="glightbox"><img src="/img/img/galeria/maraton21.jpeg" alt="Maratón de fútbol sala — maraton21" loading="lazy"></a>
+<a href="/img/img/galeria/maraton22.jpeg" class="glightbox"><img src="/img/img/galeria/maraton22.jpeg" alt="Maratón de fútbol sala — maraton22" loading="lazy"></a>
+<a href="/img/img/galeria/maraton23.jpeg" class="glightbox"><img src="/img/img/galeria/maraton23.jpeg" alt="Maratón de fútbol sala — maraton23" loading="lazy"></a>
+<a href="/img/img/galeria/maraton24.jpeg" class="glightbox"><img src="/img/img/galeria/maraton24.jpeg" alt="Maratón de fútbol sala — maraton24" loading="lazy"></a>
+<a href="/img/img/galeria/maraton25.jpeg" class="glightbox"><img src="/img/img/galeria/maraton25.jpeg" alt="Maratón de fútbol sala — maraton25" loading="lazy"></a>
 
 </div>
 </div>
@@ -283,14 +296,14 @@ Hazte socio
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/copa1.jpeg" class="glightbox"><img src="/img/img/galeria/copa1.jpeg" alt="Torneo y competiciÃ³n del club â copa1" loading="lazy"></a>
-<a href="/img/img/galeria/copa2.jpeg" class="glightbox"><img src="/img/img/galeria/copa2.jpeg" alt="Torneo y competiciÃ³n del club â copa2" loading="lazy"></a>
-<a href="/img/img/galeria/copa3.jpeg" class="glightbox"><img src="/img/img/galeria/copa3.jpeg" alt="Torneo y competiciÃ³n del club â copa3" loading="lazy"></a>
-<a href="/img/img/galeria/copa4.jpeg" class="glightbox"><img src="/img/img/galeria/copa4.jpeg" alt="Torneo y competiciÃ³n del club â copa4" loading="lazy"></a>
-<a href="/img/img/galeria/copa5.jpeg" class="glightbox"><img src="/img/img/galeria/copa5.jpeg" alt="Torneo y competiciÃ³n del club â copa5" loading="lazy"></a>
-<a href="/img/img/galeria/copa6.jpeg" class="glightbox"><img src="/img/img/galeria/copa6.jpeg" alt="Torneo y competiciÃ³n del club â copa6" loading="lazy"></a>
-<a href="/img/img/galeria/copa7.jpeg" class="glightbox"><img src="/img/img/galeria/copa7.jpeg" alt="Torneo y competiciÃ³n del club â copa7" loading="lazy"></a>
-<a href="/img/img/galeria/copa8.jpeg" class="glightbox"><img src="/img/img/galeria/copa8.jpeg" alt="Torneo y competiciÃ³n del club â copa8" loading="lazy"></a>
+<a href="/img/img/galeria/copa1.jpeg" class="glightbox"><img src="/img/img/galeria/copa1.jpeg" alt="Torneo y competición del club — copa1" loading="lazy"></a>
+<a href="/img/img/galeria/copa2.jpeg" class="glightbox"><img src="/img/img/galeria/copa2.jpeg" alt="Torneo y competición del club — copa2" loading="lazy"></a>
+<a href="/img/img/galeria/copa3.jpeg" class="glightbox"><img src="/img/img/galeria/copa3.jpeg" alt="Torneo y competición del club — copa3" loading="lazy"></a>
+<a href="/img/img/galeria/copa4.jpeg" class="glightbox"><img src="/img/img/galeria/copa4.jpeg" alt="Torneo y competición del club — copa4" loading="lazy"></a>
+<a href="/img/img/galeria/copa5.jpeg" class="glightbox"><img src="/img/img/galeria/copa5.jpeg" alt="Torneo y competición del club — copa5" loading="lazy"></a>
+<a href="/img/img/galeria/copa6.jpeg" class="glightbox"><img src="/img/img/galeria/copa6.jpeg" alt="Torneo y competición del club — copa6" loading="lazy"></a>
+<a href="/img/img/galeria/copa7.jpeg" class="glightbox"><img src="/img/img/galeria/copa7.jpeg" alt="Torneo y competición del club — copa7" loading="lazy"></a>
+<a href="/img/img/galeria/copa8.jpeg" class="glightbox"><img src="/img/img/galeria/copa8.jpeg" alt="Torneo y competición del club — copa8" loading="lazy"></a>
 
 </div>
 </div>
@@ -306,12 +319,12 @@ Hazte socio
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/equipo1.jpeg" class="glightbox"><img src="/img/img/galeria/equipo1.jpeg" alt="Equipos del C.D. Bustarviejo â equipo1" loading="lazy"></a>
-<a href="/img/img/galeria/equipo2.jpeg" class="glightbox"><img src="/img/img/galeria/equipo2.jpeg" alt="Equipos del C.D. Bustarviejo â equipo2" loading="lazy"></a>
-<a href="/img/img/galeria/equipo3.jpeg" class="glightbox"><img src="/img/img/galeria/equipo3.jpeg" alt="Equipos del C.D. Bustarviejo â equipo3" loading="lazy"></a>
-<a href="/img/img/galeria/equipo4difuminada.jpeg" class="glightbox"><img src="/img/img/galeria/equipo4difuminada.jpeg" alt="Equipos del C.D. Bustarviejo â equipo4difuminada" loading="lazy"></a>
-<a href="/img/img/galeria/equipo5.jpeg" class="glightbox"><img src="/img/img/galeria/equipo5.jpeg" alt="Equipos del C.D. Bustarviejo â equipo5" loading="lazy"></a>
-<a href="/img/img/galeria/equipo6.jpeg" class="glightbox"><img src="/img/img/galeria/equipo6.jpeg" alt="Equipos del C.D. Bustarviejo â equipo6" loading="lazy"></a>
+<a href="/img/img/galeria/equipo1.jpeg" class="glightbox"><img src="/img/img/galeria/equipo1.jpeg" alt="Equipos del C.D. Bustarviejo — equipo1" loading="lazy"></a>
+<a href="/img/img/galeria/equipo2.jpeg" class="glightbox"><img src="/img/img/galeria/equipo2.jpeg" alt="Equipos del C.D. Bustarviejo — equipo2" loading="lazy"></a>
+<a href="/img/img/galeria/equipo3.jpeg" class="glightbox"><img src="/img/img/galeria/equipo3.jpeg" alt="Equipos del C.D. Bustarviejo — equipo3" loading="lazy"></a>
+<a href="/img/img/galeria/equipo4difuminada.jpeg" class="glightbox"><img src="/img/img/galeria/equipo4difuminada.jpeg" alt="Equipos del C.D. Bustarviejo — equipo4difuminada" loading="lazy"></a>
+<a href="/img/img/galeria/equipo5.jpeg" class="glightbox"><img src="/img/img/galeria/equipo5.jpeg" alt="Equipos del C.D. Bustarviejo — equipo5" loading="lazy"></a>
+<a href="/img/img/galeria/equipo6.jpeg" class="glightbox"><img src="/img/img/galeria/equipo6.jpeg" alt="Equipos del C.D. Bustarviejo — equipo6" loading="lazy"></a>
 
 </div>
 </div>
@@ -327,18 +340,18 @@ Hazte socio
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/foto1.jpg" class="glightbox"><img src="/img/img/galeria/foto1.jpg" alt="GalerÃ­a de fotografÃ­as del club â foto1" loading="lazy"></a>
-<a href="/img/img/galeria/foto2.jpg" class="glightbox"><img src="/img/img/galeria/foto2.jpg" alt="GalerÃ­a de fotografÃ­as del club â foto2" loading="lazy"></a>
-<a href="/img/img/galeria/foto3.jpeg" class="glightbox"><img src="/img/img/galeria/foto3.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto3" loading="lazy"></a>
-<a href="/img/img/galeria/foto4.jpeg" class="glightbox"><img src="/img/img/galeria/foto4.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto4" loading="lazy"></a>
-<a href="/img/img/galeria/foto5.jpeg" class="glightbox"><img src="/img/img/galeria/foto5.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto5" loading="lazy"></a>
-<a href="/img/img/galeria/foto6.jpeg" class="glightbox"><img src="/img/img/galeria/foto6.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto6" loading="lazy"></a>
-<a href="/img/img/galeria/foto7.jpeg" class="glightbox"><img src="/img/img/galeria/foto7.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto7" loading="lazy"></a>
-<a href="/img/img/galeria/foto8.jpeg" class="glightbox"><img src="/img/img/galeria/foto8.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto8" loading="lazy"></a>
-<a href="/img/img/galeria/foto9.jpeg" class="glightbox"><img src="/img/img/galeria/foto9.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto9" loading="lazy"></a>
-<a href="/img/img/galeria/foto10.jpeg" class="glightbox"><img src="/img/img/galeria/foto10.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto10" loading="lazy"></a>
-<a href="/img/img/galeria/foto11.jpeg" class="glightbox"><img src="/img/img/galeria/foto11.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto11" loading="lazy"></a>
-<a href="/img/img/galeria/foto12.jpeg" class="glightbox"><img src="/img/img/galeria/foto12.jpeg" alt="GalerÃ­a de fotografÃ­as del club â foto12" loading="lazy"></a>
+<a href="/img/img/galeria/foto1.jpg" class="glightbox"><img src="/img/img/galeria/foto1.jpg" alt="Galería de fotografías del club — foto1" loading="lazy"></a>
+<a href="/img/img/galeria/foto2.jpg" class="glightbox"><img src="/img/img/galeria/foto2.jpg" alt="Galería de fotografías del club — foto2" loading="lazy"></a>
+<a href="/img/img/galeria/foto3.jpeg" class="glightbox"><img src="/img/img/galeria/foto3.jpeg" alt="Galería de fotografías del club — foto3" loading="lazy"></a>
+<a href="/img/img/galeria/foto4.jpeg" class="glightbox"><img src="/img/img/galeria/foto4.jpeg" alt="Galería de fotografías del club — foto4" loading="lazy"></a>
+<a href="/img/img/galeria/foto5.jpeg" class="glightbox"><img src="/img/img/galeria/foto5.jpeg" alt="Galería de fotografías del club — foto5" loading="lazy"></a>
+<a href="/img/img/galeria/foto6.jpeg" class="glightbox"><img src="/img/img/galeria/foto6.jpeg" alt="Galería de fotografías del club — foto6" loading="lazy"></a>
+<a href="/img/img/galeria/foto7.jpeg" class="glightbox"><img src="/img/img/galeria/foto7.jpeg" alt="Galería de fotografías del club — foto7" loading="lazy"></a>
+<a href="/img/img/galeria/foto8.jpeg" class="glightbox"><img src="/img/img/galeria/foto8.jpeg" alt="Galería de fotografías del club — foto8" loading="lazy"></a>
+<a href="/img/img/galeria/foto9.jpeg" class="glightbox"><img src="/img/img/galeria/foto9.jpeg" alt="Galería de fotografías del club — foto9" loading="lazy"></a>
+<a href="/img/img/galeria/foto10.jpeg" class="glightbox"><img src="/img/img/galeria/foto10.jpeg" alt="Galería de fotografías del club — foto10" loading="lazy"></a>
+<a href="/img/img/galeria/foto11.jpeg" class="glightbox"><img src="/img/img/galeria/foto11.jpeg" alt="Galería de fotografías del club — foto11" loading="lazy"></a>
+<a href="/img/img/galeria/foto12.jpeg" class="glightbox"><img src="/img/img/galeria/foto12.jpeg" alt="Galería de fotografías del club — foto12" loading="lazy"></a>
 
 </div>
 </div>
@@ -354,47 +367,47 @@ Hazte socio
 
 <div class="galeria-grid">
 
-<a href="/img/img/galeria/13.jpeg" class="glightbox"><img src="/img/img/galeria/13.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 13" loading="lazy"></a>
-<a href="/img/img/galeria/14.jpeg" class="glightbox"><img src="/img/img/galeria/14.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 14" loading="lazy"></a>
-<a href="/img/img/galeria/15.jpeg" class="glightbox"><img src="/img/img/galeria/15.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 15" loading="lazy"></a>
-<a href="/img/img/galeria/16.jpeg" class="glightbox"><img src="/img/img/galeria/16.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 16" loading="lazy"></a>
-<a href="/img/img/galeria/17.jpeg" class="glightbox"><img src="/img/img/galeria/17.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 17" loading="lazy"></a>
-<a href="/img/img/galeria/18.jpeg" class="glightbox"><img src="/img/img/galeria/18.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 18" loading="lazy"></a>
-<a href="/img/img/galeria/19.jpeg" class="glightbox"><img src="/img/img/galeria/19.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 19" loading="lazy"></a>
-<a href="/img/img/galeria/20.jpeg" class="glightbox"><img src="/img/img/galeria/20.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 20" loading="lazy"></a>
-<a href="/img/img/galeria/21.jpeg" class="glightbox"><img src="/img/img/galeria/21.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 21" loading="lazy"></a>
+<a href="/img/img/galeria/13.jpeg" class="glightbox"><img src="/img/img/galeria/13.jpeg" alt="Galería de fotografías del club — 13" loading="lazy"></a>
+<a href="/img/img/galeria/14.jpeg" class="glightbox"><img src="/img/img/galeria/14.jpeg" alt="Galería de fotografías del club — 14" loading="lazy"></a>
+<a href="/img/img/galeria/15.jpeg" class="glightbox"><img src="/img/img/galeria/15.jpeg" alt="Galería de fotografías del club — 15" loading="lazy"></a>
+<a href="/img/img/galeria/16.jpeg" class="glightbox"><img src="/img/img/galeria/16.jpeg" alt="Galería de fotografías del club — 16" loading="lazy"></a>
+<a href="/img/img/galeria/17.jpeg" class="glightbox"><img src="/img/img/galeria/17.jpeg" alt="Galería de fotografías del club — 17" loading="lazy"></a>
+<a href="/img/img/galeria/18.jpeg" class="glightbox"><img src="/img/img/galeria/18.jpeg" alt="Galería de fotografías del club — 18" loading="lazy"></a>
+<a href="/img/img/galeria/19.jpeg" class="glightbox"><img src="/img/img/galeria/19.jpeg" alt="Galería de fotografías del club — 19" loading="lazy"></a>
+<a href="/img/img/galeria/20.jpeg" class="glightbox"><img src="/img/img/galeria/20.jpeg" alt="Galería de fotografías del club — 20" loading="lazy"></a>
+<a href="/img/img/galeria/21.jpeg" class="glightbox"><img src="/img/img/galeria/21.jpeg" alt="Galería de fotografías del club — 21" loading="lazy"></a>
 
-<a href="/img/img/galeria/22.jpeg" class="glightbox"><img src="/img/img/galeria/22.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 22" loading="lazy"></a>
-<a href="/img/img/galeria/23.jpeg" class="glightbox"><img src="/img/img/galeria/23.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 23" loading="lazy"></a>
-<a href="/img/img/galeria/24.jpeg" class="glightbox"><img src="/img/img/galeria/24.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 24" loading="lazy"></a>
-<a href="/img/img/galeria/25.jpeg" class="glightbox"><img src="/img/img/galeria/25.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 25" loading="lazy"></a>
-<a href="/img/img/galeria/26.jpeg" class="glightbox"><img src="/img/img/galeria/26.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 26" loading="lazy"></a>
-<a href="/img/img/galeria/27.jpeg" class="glightbox"><img src="/img/img/galeria/27.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 27" loading="lazy"></a>
+<a href="/img/img/galeria/22.jpeg" class="glightbox"><img src="/img/img/galeria/22.jpeg" alt="Galería de fotografías del club — 22" loading="lazy"></a>
+<a href="/img/img/galeria/23.jpeg" class="glightbox"><img src="/img/img/galeria/23.jpeg" alt="Galería de fotografías del club — 23" loading="lazy"></a>
+<a href="/img/img/galeria/24.jpeg" class="glightbox"><img src="/img/img/galeria/24.jpeg" alt="Galería de fotografías del club — 24" loading="lazy"></a>
+<a href="/img/img/galeria/25.jpeg" class="glightbox"><img src="/img/img/galeria/25.jpeg" alt="Galería de fotografías del club — 25" loading="lazy"></a>
+<a href="/img/img/galeria/26.jpeg" class="glightbox"><img src="/img/img/galeria/26.jpeg" alt="Galería de fotografías del club — 26" loading="lazy"></a>
+<a href="/img/img/galeria/27.jpeg" class="glightbox"><img src="/img/img/galeria/27.jpeg" alt="Galería de fotografías del club — 27" loading="lazy"></a>
 
-<a href="/img/img/galeria/28.jpeg" class="glightbox"><img src="/img/img/galeria/28.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 28" loading="lazy"></a>
-<a href="/img/img/galeria/29.jpeg" class="glightbox"><img src="/img/img/galeria/29.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 29" loading="lazy"></a>
-<a href="/img/img/galeria/30.jpeg" class="glightbox"><img src="/img/img/galeria/30.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 30" loading="lazy"></a>
-<a href="/img/img/galeria/31.jpeg" class="glightbox"><img src="/img/img/galeria/31.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 31" loading="lazy"></a>
-<a href="/img/img/galeria/33.jpeg" class="glightbox"><img src="/img/img/galeria/33.jpeg" alt="GalerÃ­a de fotografÃ­as del club â 33" loading="lazy"></a>
+<a href="/img/img/galeria/28.jpeg" class="glightbox"><img src="/img/img/galeria/28.jpeg" alt="Galería de fotografías del club — 28" loading="lazy"></a>
+<a href="/img/img/galeria/29.jpeg" class="glightbox"><img src="/img/img/galeria/29.jpeg" alt="Galería de fotografías del club — 29" loading="lazy"></a>
+<a href="/img/img/galeria/30.jpeg" class="glightbox"><img src="/img/img/galeria/30.jpeg" alt="Galería de fotografías del club — 30" loading="lazy"></a>
+<a href="/img/img/galeria/31.jpeg" class="glightbox"><img src="/img/img/galeria/31.jpeg" alt="Galería de fotografías del club — 31" loading="lazy"></a>
+<a href="/img/img/galeria/33.jpeg" class="glightbox"><img src="/img/img/galeria/33.jpeg" alt="Galería de fotografías del club — 33" loading="lazy"></a>
 
 <a href="/img/img/galeria/1.mp4" class="glightbox-video">
   <div class="video-thumb">
-    <img src="/img/img/galeria/video1.JPG" alt="Momentos y actividades del C.D. Bustarviejo â video1" loading="lazy">
-    <span class="play-video">â¶</span>
+    <img src="/img/img/galeria/video1.JPG" alt="Momentos y actividades del C.D. Bustarviejo — video1" loading="lazy">
+    <span class="play-video">▶</span>
   </div>
 </a>
 
 <a href="/img/img/galeria/2.mp4" class="glightbox-video">
   <div class="video-thumb">
-    <img src="/img/img/galeria/video2.JPG" alt="Momentos y actividades del C.D. Bustarviejo â video2" loading="lazy">
-    <span class="play-video">â¶</span>
+    <img src="/img/img/galeria/video2.JPG" alt="Momentos y actividades del C.D. Bustarviejo — video2" loading="lazy">
+    <span class="play-video">▶</span>
   </div>
 </a>
 
 <a href="/img/img/galeria/3.mp4" class="glightbox-video">
   <div class="video-thumb">
-    <img src="/img/img/galeria/video3.JPG" alt="Momentos y actividades del C.D. Bustarviejo â video3" loading="lazy">
-    <span class="play-video">â¶</span>
+    <img src="/img/img/galeria/video3.JPG" alt="Momentos y actividades del C.D. Bustarviejo — video3" loading="lazy">
+    <span class="play-video">▶</span>
   </div>
 </a>
 
@@ -404,7 +417,7 @@ Hazte socio
 
 <!-- INICIO ALBUMES PUBLICADOS DESDE LA APP -->
 <div class="galeria-seccion" data-album-id="6ad371978e5e264a169c9d36">
-<h2 id="app-futbol-alevin-femenino-chat-entrenador-futbol-alevin-femenino-6ad371978e5e264a169c9d36">Fútbol Alevín Femenino — 📸 Chat Entrenador - Fútbol Alevín Femenino</h2>
+<h2 id="app-futbol-alevin-femenino-chat-entrenador-futbol-alevin-femenino-6ad371978e5e264a169c9d36">📸 Chat Entrenador - Fútbol Alevín Femenino</h2>
 <p>Fotos compartidas desde el chat del entrenador</p>
 <div class="galeria-grid">
 <a href="https://base44.app/api/apps/6992c6be619d2da592897991/files/mp/public/6992c6be619d2da592897991/871e03cfc_IMG_5866.jpg" class="glightbox" data-photo-url="https://base44.app/api/apps/6992c6be619d2da592897991/files/mp/public/6992c6be619d2da592897991/871e03cfc_IMG_5866.jpg"><img src="https://base44.app/api/apps/6992c6be619d2da592897991/files/mp/public/6992c6be619d2da592897991/871e03cfc_IMG_5866.jpg" alt="📸 Chat Entrenador - Fútbol Alevín Femenino — foto 1" loading="lazy"></a>
@@ -430,32 +443,32 @@ Hazte socio
 <li><a href="index.html">Inicio</a></li>
 <li><a href="el-club.html">El Club</a></li>
 <li><a href="equipos.html">Equipos</a></li>
-<li><a href="galeria.html">GalerÃ­a</a></li>
+<li><a href="galeria.html">Galería</a></li>
 <li>
 <a href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData"
 target="_blank" rel="noopener">
-CompeticiÃ³n
+Competición
 </a>
 </li>
 <li><a href="patrocinadores.html">Patrocinadores</a></li>
 <li><a href="aviso-legal.html">Aviso Legal</a></li>
-<li><a href="privacidad.html">PolÃ­tica de Privacidad</a></li>
+<li><a href="privacidad.html">Política de Privacidad</a></li>
 </ul>
 </div>
 
 <div class="footer-col">
 <p class="footer-titulo">Contacto</p>
 <p class="footer-texto">
-ð <a href="tel:+34611591643">611 59 16 43</a><br>
-ð§ info@cdbustarviejo.com<br>
-ð Bustarviejo (Madrid)
+📞 <a href="tel:+34611591643">611 59 16 43</a><br>
+📧 info@cdbustarviejo.com<br>
+📍 Bustarviejo (Madrid)
 </p>
 </div>
 
 </div>
 
 <div class="footer-copy">
-Â© 1989â2026 Â· C.D. Bustarviejo Â· Todos los derechos reservados
+© 1989–2026 · C.D. Bustarviejo · Todos los derechos reservados
 </div>
 </footer>
 
@@ -478,11 +491,84 @@ if(toggle){
 toggle.addEventListener("click",()=>{
 const abierto = menu.classList.toggle("activo");
 toggle.setAttribute("aria-expanded", String(abierto));
-toggle.setAttribute("aria-label", abierto ? "Cerrar menÃº de navegaciÃ³n" : "Abrir menÃº de navegaciÃ³n");
+toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación");
 });
 }
 
 </script>
 
-</body>
+
+<script>
+(function(){
+  const root = document.querySelector('.pagina-galeria .galeria');
+  const categoryNav = root && root.querySelector('.galeria-nav');
+  const seasonNav = root && root.querySelector('.temporadas-nav');
+  if (!root || !categoryNav || !seasonNav) return;
+
+  const allSections = Array.from(root.querySelectorAll('.galeria-seccion'));
+  const panel25 = document.createElement('div');
+  panel25.className = 'temporada-panel';
+  panel25.id = 'panel-temporada-2025';
+  panel25.setAttribute('role','tabpanel');
+  panel25.hidden = true;
+
+  const panel26 = document.createElement('div');
+  panel26.className = 'temporada-panel';
+  panel26.id = 'panel-temporada-2026';
+  panel26.setAttribute('role','tabpanel');
+
+  // Existing team and season galleries belong to 2025/2026; all other and app-published albums belong to 2026/2027.
+  allSections.forEach(section => {
+    const heading = section.querySelector('h2');
+    const id = heading ? (heading.id || '') : '';
+    if (id === 'equipos' || id === 'temporada') panel25.appendChild(section);
+    else panel26.appendChild(section);
+  });
+
+  // Move the existing section shortcuts into the 2026/2027 panel.
+  panel26.insertBefore(categoryNav, panel26.firstChild);
+  seasonNav.after(panel25, panel26);
+
+  // Add one shortcut for each category represented by an album published from the app.
+  const appSections = Array.from(panel26.querySelectorAll('.galeria-seccion[data-album-id]'));
+  const existingLabels = new Set(Array.from(categoryNav.querySelectorAll('a')).map(a => a.textContent.trim().toLocaleLowerCase('es')));
+  const categoryTargets = new Map();
+  appSections.forEach(section => {
+    const heading = section.querySelector('h2');
+    if (!heading) return;
+    const category = (section.dataset.category || '').trim();
+    const title = heading.textContent.trim();
+    // Category is stored separately on newly generated sections; legacy sections use the prefix before the separator when present.
+    const label = category || (title.includes(' — ') ? title.split(' — ')[0].trim() : title.replace(/^📸\s*/, '').trim());
+    if (!label) return;
+    if (!categoryTargets.has(label.toLocaleLowerCase('es'))) categoryTargets.set(label.toLocaleLowerCase('es'), {label, id: heading.id});
+  });
+  categoryTargets.forEach(({label,id}, key) => {
+    if (!id || existingLabels.has(label.toLocaleLowerCase('es'))) return;
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = label;
+    a.dataset.appCategory = 'true';
+    categoryNav.appendChild(a);
+    existingLabels.add(key);
+  });
+
+  const buttons = [
+    {button:document.getElementById('tab-temporada-2025'), panel:panel25},
+    {button:document.getElementById('tab-temporada-2026'), panel:panel26}
+  ];
+  function selectSeason(index){
+    buttons.forEach((item,i)=>{
+      const active = i === index;
+      item.button.setAttribute('aria-selected', String(active));
+      item.panel.hidden = !active;
+    });
+    if(index === 0) categoryNav.hidden = true;
+    else categoryNav.hidden = false;
+  }
+  buttons.forEach((item,index)=>item.button.addEventListener('click',()=>selectSeason(index)));
+  selectSeason(1);
+})();
+</script>
+\n</body>
 </html>
