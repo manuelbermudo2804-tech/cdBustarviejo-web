@@ -416,7 +416,7 @@ Hazte socio
 
 
 <!-- INICIO ALBUMES PUBLICADOS DESDE LA APP -->
-<div class="galeria-seccion" data-album-id="6ad371978e5e264a169c9d36">
+<div class="galeria-seccion" data-album-id="6ad371978e5e264a169c9d36" data-category="Fútbol Alevín Femenino">
 <h2 id="app-futbol-alevin-femenino-chat-entrenador-futbol-alevin-femenino-6ad371978e5e264a169c9d36">📸 Chat Entrenador - Fútbol Alevín Femenino</h2>
 <p>Fotos compartidas desde el chat del entrenador</p>
 <div class="galeria-grid">
@@ -525,7 +525,10 @@ toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abr
     else panel26.appendChild(section);
   });
 
-  // Move the existing section shortcuts into the 2026/2027 panel.
+  // Move the existing section shortcuts into the 2026/2027 panel and remove links to 2025/2026 sections.
+  categoryNav.querySelectorAll('a').forEach(a => {
+    if (a.getAttribute('href') === '#equipos' || a.getAttribute('href') === '#temporada') a.remove();
+  });
   panel26.insertBefore(categoryNav, panel26.firstChild);
   seasonNav.after(panel25, panel26);
 
