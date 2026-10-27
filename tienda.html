@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="pagina-tienda">
 
 <header class="header">
   <div class="header-contenido">
@@ -30,9 +30,9 @@
       <span>C.D. Bustarviejo</span>
     </div>
 
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="menu-principal" aria-expanded="false">☰</button>
 
-   <nav class="menu">
+   <nav class="menu" id="menu-principal">
 <a href="index.html">Inicio</a>
 <a href="el-club.html">El Club</a>
 <a href="equipos.html">Equipos</a>
@@ -142,7 +142,7 @@ Revisa bien tallas y detalles antes de realizar tu compra.
   <div class="footer-contenido">
 
     <div class="footer-col">
-      <img src="img/escudo.png" class="footer-logo">
+      <img src="img/escudo.png" class="footer-logo" alt="Escudo C.D. Bustarviejo">
       <p class="footer-titulo">C.D. Bustarviejo</p>
       <p class="footer-texto">Deporte y valores desde 1989</p>
     </div>
@@ -183,7 +183,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (toggle && menu) {
     toggle.addEventListener('click', function () {
-      menu.classList.toggle('activo');
+      const abierto = menu.classList.toggle('activo');
+      toggle.setAttribute('aria-expanded', String(abierto));
+      toggle.setAttribute('aria-label', abierto ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
     });
   }
 });
