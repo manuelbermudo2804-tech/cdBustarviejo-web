@@ -3198,3 +3198,109 @@ button:focus-visible {
     transition: none;
   }
 }
+
+
+/* TIENDA · TARJETAS DE PRODUCTO */
+.pagina-tienda .contenido-mejorado {
+  max-width: 1120px;
+  margin: clamp(28px, 5vw, 60px) auto 76px;
+}
+.pagina-tienda .contenido-mejorado > .bloque-texto {
+  border-top: 4px solid #f57c00;
+  border-radius: 16px;
+  padding: clamp(24px, 4vw, 42px);
+}
+.pagina-tienda .tienda-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.pagina-tienda .tienda-card {
+  min-width: 0;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid #e8e8e8;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+.pagina-tienda .tienda-card h2 {
+  margin-top: 0;
+  line-height: 1.25;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+}
+.pagina-tienda .tienda-card p {
+  line-height: 1.75;
+}
+.pagina-tienda .tienda-card .nota-tienda {
+  color: #5b5b5b;
+  font-size: .9rem;
+}
+.pagina-tienda .tienda-card .btn-tienda {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin: 8px 0 12px;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.pagina-tienda .tienda-card:not(.desactivada) {
+  border-top: 4px solid #f57c00;
+}
+.pagina-tienda .tienda-card.desactivada {
+  background: #fafafa;
+}
+.pagina-tienda .tienda-card.desactivada .btn-tienda {
+  opacity: .82;
+}
+@media (max-width: 700px) {
+  .pagina-tienda .tienda-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* COMUNICADOS · DOCUMENTACIÓN CLARA Y FÁCIL DE LOCALIZAR */
+.pagina-comunicados .contenido-mejorado {
+  max-width: 1000px;
+  margin: clamp(28px, 5vw, 60px) auto 76px;
+}
+.pagina-comunicados .bloque-texto {
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 16px;
+}
+.pagina-comunicados .bloque-texto h2 {
+  margin-top: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+.pagina-comunicados .lista-documentos {
+  display: grid;
+  gap: 12px;
+  padding-left: 0;
+  list-style: none;
+}
+.pagina-comunicados .lista-documentos li { margin: 0; }
+.pagina-comunicados .lista-documentos a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 15px 18px;
+  border: 1px solid #e7e7e7;
+  border-left: 4px solid #f57c00;
+  border-radius: 10px;
+  background: #fff;
+  color: #242424;
+  font-weight: 650;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.pagina-comunicados .lista-documentos a:hover {
+  background: #fffaf4;
+  border-color: rgba(245,124,0,.45);
+  box-shadow: 0 8px 20px rgba(0,0,0,.055);
+}
+@media (max-width: 600px) {
+  .pagina-comunicados .contenido-mejorado { padding: 0 14px; }
+  .pagina-comunicados .lista-documentos a { padding: 13px 14px; font-size: .95rem; }
+}
