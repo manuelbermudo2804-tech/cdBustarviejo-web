@@ -3026,3 +3026,55 @@ button:focus-visible {
     box-sizing: border-box;
   }
 }
+
+
+/* =========================================================
+   MEJORA GENERAL · CABECERAS Y LEGIBILIDAD
+   Mantiene contenido, enlaces y comportamiento existentes.
+   ========================================================= */
+.cabecera-pagina {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff8ef 0%, #f7f7f7 58%, #fff 100%);
+  padding: clamp(42px, 6vw, 76px) 22px;
+}
+
+.cabecera-pagina h1 {
+  max-width: 1000px;
+  margin: 0 auto 14px;
+  color: #171717;
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.cabecera-pagina p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #454545;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.bloque-texto,
+.tienda-card,
+.lista-documentos a {
+  transition: box-shadow .22s ease, transform .22s ease, border-color .22s ease;
+}
+
+.bloque-texto:hover,
+.tienda-card:hover {
+  border-color: rgba(245, 124, 0, .38);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .085);
+}
+
+@media (max-width: 600px) {
+  .cabecera-pagina {
+    padding: 38px 18px;
+  }
+
+  .cabecera-pagina h1 {
+    letter-spacing: -.025em;
+  }
+}
