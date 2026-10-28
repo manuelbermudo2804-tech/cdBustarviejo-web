@@ -201,6 +201,7 @@
  body.menu-movil-abierto .menu,
  body.menu-movil-abierto #menu-principal{z-index:10050!important}
 }
+#cd-cookie-settings{position:fixed;right:14px;bottom:14px;z-index:9997;border:1px solid #f57c00;border-radius:999px;padding:8px 12px;background:#171717;color:#fff;font:700 12px Arial,sans-serif;box-shadow:0 5px 18px rgba(0,0,0,.22);cursor:pointer}#cd-cookie-settings:focus-visible{outline:3px solid #f57c00;outline-offset:3px}
 </style>
 
   <link rel="icon" href="img/favicon.ico">
@@ -869,6 +870,7 @@ toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abr
     if(e.target && e.target.id==='cd-cookie-accept')apply('accepted');
     if(e.target && e.target.id==='cd-cookie-reject')apply('rejected');
   });
+var settingsButton=document.createElement('button');settingsButton.id='cd-cookie-settings';settingsButton.type='button';settingsButton.textContent='Cookies';settingsButton.setAttribute('aria-label','Cambiar preferencias de cookies');settingsButton.addEventListener('click',function(){var box=document.getElementById('cd-cookie-consent');if(box)box.hidden=false;});document.body.appendChild(settingsButton);
 })();
 </script>
 
