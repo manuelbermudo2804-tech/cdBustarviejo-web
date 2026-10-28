@@ -1036,14 +1036,20 @@ const ahora = new Date();
 const inicioHalloween = new Date(2026, 9, 28, 0, 0, 0);
 const finHalloween = new Date(2026, 10, 2, 0, 0, 0);
 const halloweenActivo = ahora >= inicioHalloween && ahora < finHalloween;
-const fondoHalloween = "url('img/halloween-cdbustarviejo-hero.jpg')";
+const fondoHalloweenDesktop = "url('img/cdb-halloween-desktop.jpg')";
+const fondoHalloweenMobile = "url('img/cdb-halloween-mobile.jpg')";
+const esMovil = () => window.matchMedia("(max-width: 768px)").matches;
+function aplicarFondoHalloween(){
+  if(!hero || !halloweenActivo) return;
+  hero.style.backgroundImage = esMovil() ? fondoHalloweenMobile : fondoHalloweenDesktop;
+  hero.style.backgroundSize = "cover";
+  hero.style.backgroundRepeat = "no-repeat";
+  hero.style.backgroundPosition = esMovil() ? "center 28%" : "center center";
+}
 
 // La campaña tiene prioridad visual, sin interferir con los datos de los partidos.
-if(hero && halloweenActivo){
-  hero.style.backgroundImage = fondoHalloween;
-  hero.style.backgroundPosition = "center center";
-  hero.style.backgroundSize = "cover";
-}
+aplicarFondoHalloween();
+window.addEventListener("resize", aplicarFondoHalloween, {passive:true});
 
 try{
 const res = await fetch("https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData");
@@ -1079,10 +1085,13 @@ const btn = document.getElementById("btn-partido");
 const mensaje = document.getElementById("mensaje-partidos");
 
 function activarModo(textoTitulo, textoAviso){
-  hero.style.backgroundImage = halloweenActivo ? fondoHalloween : "url('img/partido.jpg')";
   if(halloweenActivo){
-    hero.style.backgroundPosition = "center center";
-    hero.style.backgroundSize = "cover";
+    aplicarFondoHalloween();
+  } else {
+    hero.style.backgroundImage = "url('img/partido.jpg')";
+    hero.style.backgroundPosition = "";
+    hero.style.backgroundSize = "";
+    hero.style.backgroundRepeat = "";
   }
   titulo.innerHTML = `${textoTitulo}<br><span style="font-size:0.6em">${categoria}</span><br><span style="font-size:0.8em">${rival}</span>`;
   subtitulo.innerHTML = `${fechaTexto} · ${hora}`;
