@@ -3418,7 +3418,7 @@ button:focus-visible {
    CABECERA RESPONSIVE · TABLET Y PORTÁTILES COMPACTOS
    Mantiene el menú accesible cuando no caben todos los enlaces.
    ========================================================= */
-@media (min-width: 769px) and (max-width: 1150px) {
+@media (min-width: 769px) and (max-width: 1280px) {
   .header-contenido {
     position: relative;
     flex-wrap: wrap;
