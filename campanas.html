@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f57c00">
+<meta name="description" content="Campañas solidarias y de sensibilización del Club Deportivo Bustarviejo.">
+<link rel="canonical" href="https://www.cdbustarviejo.com/campanas.html">
+<title>Campañas solidarias · C.D. Bustarviejo</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Montserrat,Arial,sans-serif;color:#182033;background:#f5f7fb;line-height:1.55}.header{background:linear-gradient(110deg,#f57c00,#d84315);color:#fff;padding:17px 22px}.header-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.2rem}.nav{display:flex;gap:18px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-size:.9rem;font-weight:600}.hero{padding:46px 20px 34px;text-align:center;background:#111c30;color:#fff}.hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 12px}.hero p{max-width:720px;margin:0 auto;color:#d7deea}.wrap{max-width:1100px;margin:30px auto;padding:0 18px}.section-title{margin:32px 0 15px;font-size:1.35rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}.campaign{display:flex;gap:15px;padding:20px;background:#fff;border:1px solid #e2e8f0;border-left:5px solid #f57c00;border-radius:16px;box-shadow:0 8px 22px #0f172a0a}.campaign.duelo{border-left-color:#111827;background:#f3f4f6}.icon{width:56px;height:56px;flex:0 0 56px;display:grid;place-items:center;border-radius:13px;background:#fff0df;font-size:30px}.icon img{width:54px;height:54px;object-fit:contain}.campaign h3{font-size:1.08rem;line-height:1.35;margin:0 0 7px}.dates{font-size:.78rem;font-weight:700;color:#b45309;margin-bottom:9px}.duelo .dates{color:#4b5563}.message{margin:0 0 8px;font-size:.94rem;white-space:pre-line}.detail{margin:0;color:#64748b;font-size:.86rem}.empty{padding:22px;background:#fff;border:1px dashed #cbd5e1;border-radius:14px;color:#64748b}.back{display:inline-block;margin:28px 0 50px;padding:12px 18px;border-radius:10px;background:#f57c00;color:#111;text-decoration:none;font-weight:800}.footer{background:#111827;color:#cbd5e1;padding:25px;text-align:center;font-size:.86rem}.loading{padding:20px;color:#64748b}@media(max-width:650px){.header-inner{align-items:flex-start;flex-direction:column}.nav{gap:12px}.hero{padding:34px 18px}.campaign{padding:15px;gap:11px}.icon{width:46px;height:46px;flex-basis:46px}.icon img{width:44px;height:44px}}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner"><a class="brand" href="index.html">🟠 C.D. Bustarviejo</a><nav class="nav"><a href="index.html">Inicio</a><a href="el-club.html">El Club</a><a href="equipos.html">Equipos</a><a href="comunicados.html">Comunicados</a></nav></div></header>
+<section class="hero"><h1>Campañas solidarias</h1><p>Deporte, respeto y compromiso con nuestra comunidad. Aquí compartimos las campañas de sensibilización y solidaridad del C.D. Bustarviejo.</p></section>
+<main class="wrap">
+<h2 class="section-title">Campaña activa</h2><div id="activas" class="grid"><p class="loading">Cargando campañas…</p></div>
+<h2 class="section-title">Próximas campañas</h2><div id="proximas" class="grid"><p class="loading">Cargando campañas…</p></div>
+<h2 class="section-title">Campañas anteriores</h2><div id="anteriores" class="grid"><p class="loading">Cargando campañas…</p></div>
+<a class="back" href="index.html">← Volver a la portada</a>
+</main>
+<footer class="footer">C.D. Bustarviejo · Deporte y valores desde 1989</footer>
+<script>
+(function(){
+const API='https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData?format=json';
+const RIBBON='https://media.base44.com/images/public/6992c6be619d2da592897991/6e4de80a5_lazo-negro.png';
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function isDuelo(c){return c.categoria==='duelo'||c.color==='negro'}
+function fecha(s){if(!s)return '';const p=s.split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:s}
+function card(c){const el=document.createElement('article');el.className='campaign'+(isDuelo(c)?' duelo':'');const icon=document.createElement('div');icon.className='icon';if(isDuelo(c)){const im=document.createElement('img');im.src=RIBBON;im.alt='Crespón negro de duelo';icon.appendChild(im)}else icon.textContent=c.simbolo||'🧡';const body=document.createElement('div');const h=document.createElement('h3');h.textContent=c.titulo||'Campaña solidaria';const dates=document.createElement('div');dates.className='dates';dates.textContent=fecha(c.fecha_inicio)+' — '+fecha(c.fecha_fin);const msg=document.createElement('p');msg.className='message';msg.textContent=c.mensaje||'';body.append(h,dates,msg);if(c.detalle){const d=document.createElement('p');d.className='detail';d.textContent=c.detalle;body.appendChild(d)}el.append(icon,body);return el}
+function fill(id,items,empty){const box=document.getElementById(id);box.replaceChildren();if(!items.length){const p=document.createElement('p');p.className='empty';p.textContent=empty;box.appendChild(p);return}items.forEach(c=>box.appendChild(card(c)))}
+async function load(){try{const r=await fetch(API,{cache:'no-store'});if(!r.ok)throw Error('No se pudo cargar el calendario');const data=await r.json();const all=data.campanas_solidarias||[];const d=today();const visible=all.filter(c=>c.mostrar_inicio!==false);const active=visible.filter(c=>c.fecha_inicio<=d&&c.fecha_fin>=d).sort((a,b)=>(isDuelo(b)?1:0)-(isDuelo(a)?1:0));const future=visible.filter(c=>c.fecha_inicio>d).sort((a,b)=>a.fecha_inicio.localeCompare(b.fecha_inicio));const past=visible.filter(c=>c.fecha_fin<d).sort((a,b)=>b.fecha_inicio.localeCompare(a.fecha_inicio));fill('activas',active,'Ahora mismo no hay campañas activas.');fill('proximas',future,'No hay campañas próximas publicadas todavía.');fill('anteriores',past,'Todavía no hay campañas anteriores en el calendario.')}catch(e){['activas','proximas','anteriores'].forEach(id=>{const el=document.getElementById(id);el.textContent='No se han podido cargar las campañas ahora mismo. Vuelve a intentarlo en unos minutos.'})}}
+load();setInterval(load,60000);
+})();
+</script>
+</body>
+</html>
