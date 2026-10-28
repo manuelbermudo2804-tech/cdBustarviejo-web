@@ -67,6 +67,7 @@ if ('serviceWorker' in navigator) {
 <a href="tienda.html">Tienda</a>
 <a href="comunicados.html">Comunicados</a>
 <a href="galeria.html">Galería</a>
+<a href="campanas.html">Campañas solidarias</a>
 
 <a class="btn-menu" target="_blank"
 href="https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData" rel="noopener">
@@ -162,7 +163,34 @@ HAZTE SOCIO
 </div>
 </div>
 </section>
-  <!-- COMPARTE TU MOMENTO -->
+  <!-- CAMPAÑA SOLIDARIA ACTIVA · datos compartidos con la app -->
+<section id="campana-solidaria-home" class="cd-campana-home" hidden aria-live="polite">
+  <div class="cd-campana-icono" id="cd-campana-icono" aria-hidden="true">🧡</div>
+  <div class="cd-campana-cuerpo">
+    <p class="cd-campana-etiqueta">C.D. BUSTARVIEJO · CAMPAÑA SOLIDARIA</p>
+    <h2 id="cd-campana-titulo"></h2>
+    <p id="cd-campana-mensaje"></p>
+    <p id="cd-campana-detalle" class="cd-campana-detalle" hidden></p>
+    <a href="campanas.html" class="cd-campana-enlace">Ver campañas solidarias →</a>
+  </div>
+</section>
+<style>
+.cd-campana-home{max-width:1100px;margin:26px auto;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;border:1px solid #f3c38b;border-left:6px solid #f57c00;border-radius:18px;background:linear-gradient(135deg,#fffaf4,#fff);box-shadow:0 8px 24px #1111110d;color:#172033}
+.cd-campana-home[hidden]{display:none!important}
+.cd-campana-icono{width:62px;height:62px;flex:0 0 62px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#fff0df;font-size:34px}
+.cd-campana-icono img{width:56px;height:56px;object-fit:contain}
+.cd-campana-etiqueta{margin:0 0 5px;font-size:.75rem;font-weight:800;letter-spacing:.08em;color:#b45309}
+.cd-campana-cuerpo h2{margin:0 0 8px;font-size:1.35rem;line-height:1.3;color:#172033}
+.cd-campana-cuerpo p{margin:0 0 8px;line-height:1.55}
+.cd-campana-detalle{font-size:.92rem;color:#536071}
+.cd-campana-enlace{display:inline-block;margin-top:5px;color:#b45309;font-weight:800;text-decoration:none}
+.cd-campana-home.cd-duelo{background:#f5f5f5;border-color:#4b5563;border-left-color:#111827}
+.cd-campana-home.cd-duelo .cd-campana-icono{background:#fff}
+.cd-campana-home.cd-duelo .cd-campana-etiqueta,.cd-campana-home.cd-duelo .cd-campana-enlace{color:#374151}
+@media(max-width:600px){.cd-campana-home{margin:18px 14px;padding:16px;gap:12px}.cd-campana-icono{width:48px;height:48px;flex-basis:48px;font-size:28px}.cd-campana-icono img{width:46px;height:46px}.cd-campana-cuerpo h2{font-size:1.1rem}}
+</style>
+
+<!-- COMPARTE TU MOMENTO -->
 <section class="comparte-momento">
 
   <div class="comparte-icono">
@@ -1413,6 +1441,30 @@ window.onload = function(){
     if(e.target && e.target.id==='cd-cookie-reject')apply('rejected');
   });
 var settingsButton=document.createElement('button');settingsButton.id='cd-cookie-settings';settingsButton.type='button';settingsButton.textContent='Cookies';settingsButton.setAttribute('aria-label','Cambiar preferencias de cookies');settingsButton.addEventListener('click',function(){var box=document.getElementById('cd-cookie-consent');if(box)box.hidden=false;});document.body.appendChild(settingsButton);
+})();
+</script>
+<script>
+(function(){
+  const API='https://base44.app/api/apps/6992c6be619d2da592897991/functions/publicData?format=json';
+  const RIBBON='https://media.base44.com/images/public/6992c6be619d2da592897991/6e4de80a5_lazo-negro.png';
+  function fechaLocal(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function esDuelo(c){return c.categoria==='duelo'||c.color==='negro';}
+  function cargarCampana(){
+    fetch(API,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('API no disponible');return r.json();}).then(data=>{
+      const hoy=fechaLocal();
+      const activa=(data.campanas_solidarias||[]).filter(c=>c.mostrar_inicio!==false&&c.fecha_inicio<=hoy&&c.fecha_fin>=hoy).sort((a,b)=>(esDuelo(b)?1:0)-(esDuelo(a)?1:0))[0];
+      const box=document.getElementById('campana-solidaria-home');if(!box||!activa){if(box)box.hidden=true;return;}
+      box.hidden=false;box.classList.toggle('cd-duelo',esDuelo(activa));
+      const icon=document.getElementById('cd-campana-icono');icon.replaceChildren();
+      if(esDuelo(activa)){const img=document.createElement('img');img.src=RIBBON;img.alt='Crespón negro de duelo';icon.appendChild(img);}
+      else {icon.textContent=activa.simbolo||'🧡';}
+      document.getElementById('cd-campana-titulo').textContent=activa.titulo||'Campaña solidaria';
+      document.getElementById('cd-campana-mensaje').textContent=activa.mensaje||'';
+      const detalle=document.getElementById('cd-campana-detalle');detalle.textContent=activa.detalle||'';detalle.hidden=!activa.detalle;
+    }).catch(()=>{const box=document.getElementById('campana-solidaria-home');if(box)box.hidden=true;});
+  }
+  document.addEventListener('DOMContentLoaded',cargarCampana);
+  setInterval(cargarCampana,60000);
 })();
 </script>
 </body>
