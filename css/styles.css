@@ -3506,3 +3506,93 @@ button:focus-visible {
   flex-shrink: 0;
 }
 .footer-redes span { font-size: .95rem; }
+
+
+/* FIX DEFINITIVO · CUADRÍCULA DE PATROCINADORES SIN SUPERPOSICIONES */
+.pagina-patrocinadores .patrocinadores-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 16px !important;
+  max-width: 1160px;
+  margin: 36px auto 64px !important;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador {
+  position: relative !important;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0;
+  height: 180px !important;
+  min-height: 180px;
+  margin: 0 !important;
+  padding: 18px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  transform: none !important;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(0,0,0,.055);
+}
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.pagina-patrocinadores .patrocinadores-grid .logo-patrocinador {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  box-sizing: border-box;
+  object-fit: contain;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: transparent;
+}
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.oro,
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.plata,
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.bronce {
+  transform: none !important;
+  z-index: auto !important;
+}
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.oro .logo-patrocinador,
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.plata .logo-patrocinador,
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.bronce .logo-patrocinador {
+  border: 0 !important;
+  padding: 0 !important;
+}
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.oro::after,
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.plata::after,
+.pagina-patrocinadores .patrocinadores-grid > .patrocinador.bronce::after {
+  position: absolute !important;
+  top: 7px !important;
+  right: 7px !important;
+  z-index: 2;
+  font-size: 19px !important;
+  line-height: 1;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .pagina-patrocinadores .patrocinadores-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 0 12px;
+  }
+  .pagina-patrocinadores .patrocinadores-grid > .patrocinador {
+    height: 150px !important;
+    min-height: 150px;
+    padding: 14px !important;
+  }
+}
