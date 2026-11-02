@@ -3596,3 +3596,42 @@ button:focus-visible {
     padding: 14px !important;
   }
 }
+
+
+/* REDES SOCIALES · SOLO ICONOS, MÁS GRANDES */
+.redes-club {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.redes-club .red-social {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  padding: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 !important;
+  box-sizing: border-box;
+  border-radius: 14px;
+}
+.redes-club .red-social svg {
+  width: 30px !important;
+  height: 30px !important;
+  display: block;
+}
+@media (max-width: 600px) {
+  .redes-club { gap: 13px; }
+  .redes-club .red-social {
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+  }
+  .redes-club .red-social svg {
+    width: 33px !important;
+    height: 33px !important;
+  }
+}
