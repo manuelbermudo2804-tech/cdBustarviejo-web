@@ -3635,3 +3635,77 @@ button:focus-visible {
     height: 33px !important;
   }
 }
+
+
+/* CORRECCIÓN ROBUSTA · TARJETAS PATROCINADORES EN FLUJO NORMAL */
+body.pagina-patrocinadores {
+  overflow-x: hidden;
+}
+body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores {
+  display: grid !important;
+  position: relative !important;
+  width: calc(100% - 40px) !important;
+  max-width: 1160px !important;
+  margin: 36px auto 64px !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  grid-auto-rows: 180px !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+}
+body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores > .patrocinador {
+  position: relative !important;
+  inset: auto !important;
+  float: none !important;
+  clear: none !important;
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 180px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+  transform: none !important;
+  align-self: stretch !important;
+  justify-self: stretch !important;
+  overflow: visible !important;
+}
+body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores > .patrocinador > a {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-patrocinador {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+}
+@media (max-width: 900px) {
+  body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 600px) {
+  body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores {
+    width: calc(100% - 24px) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: 150px !important;
+    gap: 12px !important;
+  }
+  body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores > .patrocinador {
+    height: 150px !important;
+    padding: 12px !important;
+  }
+}
