@@ -3818,3 +3818,110 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
     max-height: 120px;
   }
 }
+
+
+/* CARRUSEL PREMIUM · CATEGORÍAS DE PATROCINIO */
+.patrocinadores-home {
+  position: relative;
+  padding: 34px 0 42px;
+  background: linear-gradient(180deg, #fffaf2 0%, #ffffff 100%);
+  overflow: hidden;
+}
+.patrocinadores-home h2 {
+  position: relative;
+  display: table;
+  margin: 0 auto 24px;
+  padding: 0 18px 12px;
+  color: #202020;
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+.patrocinadores-home h2::after {
+  content: "";
+  position: absolute;
+  width: 72px;
+  height: 4px;
+  border-radius: 8px;
+  background: #f57c00;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.patrocinadores-home .carrusel-wrapper {
+  padding: 18px 0 24px;
+}
+.patrocinadores-home .carrusel-track .patrocinador {
+  position: relative;
+  overflow: visible;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid #ececec;
+  box-shadow: 0 8px 24px rgba(0,0,0,.10);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.patrocinadores-home .carrusel-track .patrocinador:hover {
+  transform: translateY(-7px) scale(1.035);
+  box-shadow: 0 16px 34px rgba(0,0,0,.17);
+  z-index: 5;
+}
+.patrocinadores-home .carrusel-track .patrocinador img {
+  border-radius: 10px;
+}
+.patrocinadores-home .carrusel-track .patrocinador.oro {
+  border: 3px solid #d6ad35;
+  background: linear-gradient(145deg,#fff9df,#fff 58%,#fff4c2);
+  box-shadow: 0 9px 28px rgba(194,148,22,.24);
+}
+.patrocinadores-home .carrusel-track .patrocinador.plata {
+  border: 3px solid #aeb7c1;
+  background: linear-gradient(145deg,#f1f4f7,#fff 58%,#e4e9ee);
+  box-shadow: 0 8px 24px rgba(100,116,139,.20);
+}
+.patrocinadores-home .carrusel-track .patrocinador.bronce {
+  border: 3px solid #bd7845;
+  background: linear-gradient(145deg,#fff0e4,#fff 58%,#f5dfce);
+  box-shadow: 0 8px 24px rgba(160,91,43,.20);
+}
+.patrocinadores-home .carrusel-track .patrocinador.oro::before,
+.patrocinadores-home .carrusel-track .patrocinador.plata::before,
+.patrocinadores-home .carrusel-track .patrocinador.bronce::before,
+.patrocinadores-home .carrusel-track .patrocinador.principal::before {
+  position: absolute;
+  top: -11px;
+  left: 12px;
+  z-index: 3;
+  padding: 5px 11px;
+  border-radius: 20px;
+  color: #fff;
+  font: 800 10px/1.2 Montserrat, sans-serif;
+  letter-spacing: .8px;
+  box-shadow: 0 3px 9px rgba(0,0,0,.18);
+}
+.patrocinadores-home .carrusel-track .patrocinador.oro::before {
+  content: "PATROCINADOR ORO";
+  background: linear-gradient(90deg,#a77a0b,#e4c45e);
+  color: #302300;
+}
+.patrocinadores-home .carrusel-track .patrocinador.plata::before {
+  content: "PATROCINADOR PLATA";
+  background: linear-gradient(90deg,#687482,#c4ccd4);
+  color: #18212a;
+}
+.patrocinadores-home .carrusel-track .patrocinador.bronce::before {
+  content: "PATROCINADOR BRONCE";
+  background: linear-gradient(90deg,#92502b,#d99a68);
+}
+.patrocinadores-home .carrusel-track .patrocinador.principal {
+  border: 3px solid #f57c00;
+  background: linear-gradient(145deg,#fff0dc,#fff 58%,#ffe1bd);
+  box-shadow: 0 10px 30px rgba(245,124,0,.25);
+}
+.patrocinadores-home .carrusel-track .patrocinador.principal::before {
+  content: "PATROCINADOR PRINCIPAL";
+  background: linear-gradient(90deg,#c85b00,#ff9b32);
+}
+@media (hover: hover) {
+  .patrocinadores-home .carrusel-track:hover {
+    animation-play-state: paused;
+  }
+}
