@@ -3760,3 +3760,20 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
     opacity: 1;
   }
 }
+
+
+/* FRUTAS FAUSTO: formato horizontal, necesita más anchura */
+@media (min-width: 769px) {
+  .patrocinadores-home .carrusel-track .patrocinador:has(img[alt="Frutas Fausto"]) {
+    flex-basis: 270px;
+    width: 270px;
+  }
+
+  .patrocinadores-home .carrusel-track img[alt="Frutas Fausto"] {
+    width: 250px;
+    max-width: 250px;
+    max-height: 82px;
+    height: auto;
+    object-fit: contain;
+  }
+}
