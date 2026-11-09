@@ -4084,3 +4084,18 @@ body.pagina-patrocinadores #lista-patrocinadores > .patrocinador:hover {
     margin-top:8px;
   }
 }
+
+
+/* AJUSTE: SIN DISTINTIVO PARA COLABORADORES */
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador:not(.oro):not(.plata):not(.bronce)::before {
+  content:none !important;
+  display:none !important;
+}
+.patrocinadores-home .carrusel-track .patrocinador:not(.principal):not(.oro):not(.plata):not(.bronce)::before {
+  content:none !important;
+  display:none !important;
+}
+.patrocinadores-home .carrusel-track .patrocinador.colaborador {
+  border:1px solid #ececec;
+  background:#fff;
+}
