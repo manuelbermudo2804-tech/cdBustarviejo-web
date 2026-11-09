@@ -4383,3 +4383,36 @@ body.pagina-patrocinadores #lista-patrocinadores > .patrocinador:not(.oro):not(.
   right:-9px;
   z-index:2;
 }
+
+
+/* AJUSTE FINAL MEDALLAS · MISMAS DIMENSIONES QUE LAS DEMÁS TARJETAS */
+.patrocinadores-home .carrusel-track .patrocinador.oro,
+.patrocinadores-home .carrusel-track .patrocinador.plata,
+.patrocinadores-home .carrusel-track .patrocinador.bronce {
+  flex:0 0 320px !important;
+  width:320px !important;
+  height:190px !important;
+  padding:8px !important;
+}
+.patrocinadores-home .carrusel-track .patrocinador.oro img,
+.patrocinadores-home .carrusel-track .patrocinador.plata img,
+.patrocinadores-home .carrusel-track .patrocinador.bronce img {
+  max-width:300px !important;
+  max-height:165px !important;
+}
+@media(max-width:768px) {
+  .patrocinadores-home .carrusel-track .patrocinador.oro,
+  .patrocinadores-home .carrusel-track .patrocinador.plata,
+  .patrocinadores-home .carrusel-track .patrocinador.bronce {
+    flex:0 0 250px !important;
+    width:250px !important;
+    height:155px !important;
+    padding:6px !important;
+  }
+  .patrocinadores-home .carrusel-track .patrocinador.oro img,
+  .patrocinadores-home .carrusel-track .patrocinador.plata img,
+  .patrocinadores-home .carrusel-track .patrocinador.bronce img {
+    max-width:236px !important;
+    max-height:140px !important;
+  }
+}
