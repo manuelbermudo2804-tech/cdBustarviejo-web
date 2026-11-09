@@ -3730,9 +3730,9 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
   }
 
   .patrocinadores-home .carrusel-track .patrocinador {
-    flex: 0 0 230px;
-    width: 230px;
-    height: 130px;
+    flex: 0 0 250px;
+    width: 250px;
+    height: 145px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3752,8 +3752,8 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
     display: block;
     width: auto;
     height: auto;
-    max-width: 210px;
-    max-height: 100px;
+    max-width: 230px;
+    max-height: 115px;
     object-fit: contain;
     image-rendering: auto;
     filter: none;
@@ -3765,14 +3765,14 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
 /* FRUTAS FAUSTO: formato horizontal, necesita más anchura */
 @media (min-width: 769px) {
   .patrocinadores-home .carrusel-track .patrocinador:has(img[alt="Frutas Fausto"]) {
-    flex-basis: 290px;
-    width: 290px;
+    flex-basis: 310px;
+    width: 310px;
   }
 
   .patrocinadores-home .carrusel-track img[alt="Frutas Fausto"] {
-    width: 250px;
-    max-width: 270px;
-    max-height: 100px;
+    width: 290px;
+    max-width: 290px;
+    max-height: 115px;
     height: auto;
     object-fit: contain;
   }
@@ -3786,9 +3786,9 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
   }
 
   .patrocinadores-home .carrusel-track .patrocinador {
-    flex: 0 0 190px;
-    width: 190px;
-    height: 112px;
+    flex: 0 0 205px;
+    width: 205px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3807,14 +3807,14 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
   .patrocinadores-home .carrusel-track .patrocinador img {
     width: auto;
     height: auto;
-    max-width: 178px;
-    max-height: 96px;
+    max-width: 192px;
+    max-height: 104px;
     object-fit: contain;
     image-rendering: auto;
   }
 
   .patrocinadores-home .carrusel-track img[alt="Frutas Fausto"] {
-    max-width: 184px;
-    max-height: 96px;
+    max-width: 200px;
+    max-height: 104px;
   }
 }
