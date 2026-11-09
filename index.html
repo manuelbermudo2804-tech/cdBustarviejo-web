@@ -1162,7 +1162,7 @@ const bloques = Array.from(lista.querySelectorAll(".patrocinador"));
 const logoGVC = document.querySelector(".patrocinador-logo a");
 if(logoGVC){
   const tarjetaGVC = document.createElement("div");
-  tarjetaGVC.className = "patrocinador";
+  tarjetaGVC.className = "patrocinador principal";
   tarjetaGVC.appendChild(logoGVC.cloneNode(true));
   bloques.unshift(tarjetaGVC);
 }
