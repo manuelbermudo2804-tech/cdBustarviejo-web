@@ -1157,10 +1157,16 @@ const doc = parser.parseFromString(html,"text/html");
 const lista = doc.querySelector("#lista-patrocinadores");
 const destino = document.getElementById("carrusel-patrocinadores");
 
-if(lista){
-const bloques = lista.querySelectorAll(".patrocinador");
-bloques.forEach(b=> destino.appendChild(b.cloneNode(true)));
-bloques.forEach(b=> destino.appendChild(b.cloneNode(true)));
+if(lista && destino){
+const bloques = Array.from(lista.querySelectorAll(".patrocinador"));
+const logoGVC = document.querySelector(".patrocinador-logo a");
+if(logoGVC){
+  const tarjetaGVC = document.createElement("div");
+  tarjetaGVC.className = "patrocinador";
+  tarjetaGVC.appendChild(logoGVC.cloneNode(true));
+  bloques.unshift(tarjetaGVC);
+}
+[...bloques, ...bloques].forEach(b => destino.appendChild(b.cloneNode(true)));
 }
 
 });
