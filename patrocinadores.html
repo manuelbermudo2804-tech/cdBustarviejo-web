@@ -24,6 +24,59 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="manifest" href="img/site.webmanifest">
+
+  <style id="patrocinadores-grid-force">
+    body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid {
+      display:grid !important;
+      width:calc(100% - 64px) !important;
+      max-width:1440px !important;
+      margin:42px auto 64px !important;
+      padding:0 !important;
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+      grid-auto-rows:320px !important;
+      gap:28px !important;
+    }
+    body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid > .patrocinador {
+      display:flex !important;
+      width:100% !important;
+      height:320px !important;
+      min-width:0 !important;
+      margin:0 !important;
+      padding:14px !important;
+      align-items:center !important;
+      justify-content:center !important;
+      box-sizing:border-box !important;
+    }
+    body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid .logo-patrocinador {
+      display:block !important;
+      width:100% !important;
+      height:100% !important;
+      max-width:100% !important;
+      max-height:100% !important;
+      object-fit:contain !important;
+    }
+    @media (max-width:1050px) and (min-width:601px) {
+      body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        grid-auto-rows:280px !important;
+      }
+      body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid > .patrocinador {height:280px !important;}
+    }
+    @media (max-width:600px) {
+      body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid {
+        width:calc(100% - 20px) !important;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        grid-auto-rows:168px !important;
+        gap:10px !important;
+        margin:24px auto 42px !important;
+      }
+      body.pagina-patrocinadores main#lista-patrocinadores.patrocinadores-grid > .patrocinador {
+        height:168px !important;
+        padding:8px !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body class="pagina-patrocinadores">
