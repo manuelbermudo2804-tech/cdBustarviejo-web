@@ -4299,3 +4299,25 @@ body.pagina-patrocinadores #lista-patrocinadores > .patrocinador:not(.oro):not(.
   .patrocinador-info p { font-size: .96rem; }
   .patrocinador-logo { padding: 16px; }
 }
+
+
+/* GVC GAESCO EN PATROCINADORES · PROTAGONISMO CON LA IDENTIDAD DEL CLUB */
+.patrocinador-premium.principal-club {
+ position:relative; isolation:isolate; overflow:hidden; max-width:1180px; margin:42px auto 38px;
+ padding:clamp(30px,4.5vw,58px); display:flex; align-items:center; justify-content:space-between;
+ gap:clamp(28px,5vw,64px); border:2px solid #f2bd86; border-left:9px solid #f57c00;
+ border-radius:24px; background:linear-gradient(115deg,#fff7ed 0%,#fff 57%,#fff0df 100%);
+ box-shadow:0 15px 38px rgba(120,69,20,.13);
+}
+.patrocinador-premium.principal-club::before { content:"GVC"; position:absolute; z-index:-1; right:31%; top:50%; transform:translateY(-50%); color:rgba(245,124,0,.045); font:900 clamp(110px,18vw,230px)/1 Montserrat,Arial,sans-serif; letter-spacing:-.09em; pointer-events:none; }
+.patrocinador-premium.principal-club::after { content:none !important; }
+.patrocinador-premium.principal-club .premium-texto { flex:1 1 58%; min-width:0; }
+.patrocinador-premium.principal-club .premium-badge { display:inline-flex; align-items:center; margin:0 0 22px; padding:10px 17px; border:1px solid #f3bd83; border-radius:999px; background:#fff0df; color:#a94e00; font:800 12px/1.3 Montserrat,Arial,sans-serif; letter-spacing:.045em; box-shadow:none; text-transform:uppercase; }
+.patrocinador-premium.principal-club .premium-texto h2 { margin:0 0 18px; color:#202b3a; font-size:clamp(2.3rem,4vw,3.4rem); line-height:1.1; letter-spacing:-.04em; }
+.patrocinador-premium.principal-club .premium-texto p { max-width:660px; margin:0 0 12px; color:#536071; font-size:clamp(1rem,1.3vw,1.12rem); line-height:1.75; }
+.patrocinador-premium.principal-club .premium-logo { flex:0 1 390px; min-width:0; display:flex; align-items:center; justify-content:center; padding:28px; border:1px solid #f0dfcc; border-radius:20px; background:#fff; box-shadow:0 12px 30px rgba(54,38,22,.10); }
+.patrocinador-premium.principal-club .premium-logo img { display:block; width:100%; max-width:340px; max-height:175px; object-fit:contain; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; }
+.patrocinador-premium.principal-club .btn-premium { display:inline-flex; align-items:center; justify-content:center; margin-top:12px; padding:13px 24px; border:0; border-radius:999px; background:#f57c00; color:#fff; font-weight:800; text-decoration:none; box-shadow:0 6px 16px rgba(245,124,0,.22); transition:transform .2s,background .2s; }
+.patrocinador-premium.principal-club .btn-premium:hover { background:#d96800; transform:translateY(-2px); }
+@media(max-width:900px) { .patrocinador-premium.principal-club { width:calc(100% - 28px); margin:30px auto; padding:30px 22px; flex-direction:column; text-align:center; gap:25px; } .patrocinador-premium.principal-club .premium-texto h2 { font-size:2.35rem; } .patrocinador-premium.principal-club .premium-logo { width:min(100%,420px); flex:0 1 auto; padding:22px; } .patrocinador-premium.principal-club .premium-logo img { max-width:320px; max-height:145px; } .patrocinador-premium.principal-club::before { right:50%; top:72%; transform:translate(50%,-50%); } }
+@media(max-width:480px) { .patrocinador-premium.principal-club { padding:25px 17px; border-left-width:6px; border-radius:18px; } .patrocinador-premium.principal-club .premium-badge { font-size:10px; padding:8px 12px; } .patrocinador-premium.principal-club .premium-texto h2 { font-size:2rem; } .patrocinador-premium.principal-club .premium-texto p { font-size:.96rem; } .patrocinador-premium.principal-club .premium-logo { padding:17px; } }
