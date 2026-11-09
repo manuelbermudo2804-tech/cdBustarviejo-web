@@ -3929,16 +3929,16 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
 
 /* GALERÍA DE PATROCINADORES · LOGOS MÁS VISIBLES */
 body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores {
-  width: min(1320px, calc(100% - 48px)) !important;
-  max-width: 1320px !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  grid-auto-rows: 220px !important;
-  gap: 22px !important;
+  width: min(1440px, calc(100% - 56px)) !important;
+  max-width: 1440px !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-rows: 290px !important;
+  gap: 28px !important;
   margin-top: 42px !important;
 }
 body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores > .patrocinador {
-  height: 220px !important;
-  padding: 12px !important;
+  height: 290px !important;
+  padding: 16px !important;
   border-radius: 16px !important;
   background: #fff !important;
   box-shadow: 0 5px 18px rgba(0,0,0,.09) !important;
