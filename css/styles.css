@@ -3984,3 +3984,103 @@ body.pagina-patrocinadores main.patrocinadores-grid#lista-patrocinadores .logo-p
     object-fit: contain !important;
   }
 }
+
+
+/* JERARQUÍA DE PATROCINIO · DISTINCIÓN CLARA EN WEB Y MÓVIL */
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador {
+  position:relative !important;
+  isolation:isolate;
+  padding-top:42px !important;
+  border:2px solid #d9dde2 !important;
+  box-shadow:0 7px 22px rgba(15,23,42,.09) !important;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador::before {
+  content:"COLABORADOR";
+  position:absolute;
+  top:10px; left:12px;
+  z-index:4;
+  display:inline-flex;
+  align-items:center;
+  padding:6px 12px;
+  border-radius:999px;
+  background:linear-gradient(100deg,#475569,#94a3b8);
+  color:#fff;
+  font:800 11px/1 Montserrat,Arial,sans-serif;
+  letter-spacing:.8px;
+  box-shadow:0 3px 9px rgba(0,0,0,.16);
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.oro {
+  border:3px solid #d4a72c !important;
+  background:linear-gradient(145deg,#fff5cf 0%,#fff 58%,#ffedaa 100%) !important;
+  box-shadow:0 9px 28px rgba(190,145,20,.23) !important;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.oro::before {
+  content:"★ PATROCINADOR ORO";
+  background:linear-gradient(100deg,#9b7100,#f2d36b);
+  color:#302300;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.plata {
+  border:3px solid #aeb8c4 !important;
+  background:linear-gradient(145deg,#edf1f5 0%,#fff 58%,#dfe5eb 100%) !important;
+  box-shadow:0 8px 25px rgba(100,116,139,.20) !important;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.plata::before {
+  content:"◆ PATROCINADOR PLATA";
+  background:linear-gradient(100deg,#64748b,#cbd5e1);
+  color:#18212a;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.bronce {
+  border:3px solid #bd8054 !important;
+  background:linear-gradient(145deg,#fff0e3 0%,#fff 58%,#f1d7c2 100%) !important;
+  box-shadow:0 8px 25px rgba(160,91,43,.19) !important;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.bronce::before {
+  content:"● PATROCINADOR BRONCE";
+  background:linear-gradient(100deg,#89502e,#d9a17b);
+  color:#fff;
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador.colaborador::before {
+  content:"COLABORADOR";
+}
+body.pagina-patrocinadores #lista-patrocinadores > .patrocinador:hover {
+  transform:translateY(-4px) !important;
+  box-shadow:0 14px 30px rgba(15,23,42,.15) !important;
+}
+@media(max-width:600px) {
+  body.pagina-patrocinadores #lista-patrocinadores > .patrocinador {
+    padding:40px 10px 10px !important;
+    border-radius:16px !important;
+  }
+  body.pagina-patrocinadores #lista-patrocinadores > .patrocinador::before {
+    top:8px; left:9px;
+    padding:5px 9px;
+    font-size:9px;
+    letter-spacing:.55px;
+  }
+}
+
+/* CARRUSEL · CATEGORÍAS Y DISTINCIÓN TAMBIÉN EN MÓVIL */
+.patrocinadores-home .carrusel-track .patrocinador {
+  padding-top:20px;
+}
+.patrocinadores-home .carrusel-track .patrocinador.colaborador {
+  border:2px solid #cbd5e1;
+  background:linear-gradient(145deg,#f8fafc,#fff 60%,#eef2f6);
+}
+.patrocinadores-home .carrusel-track .patrocinador.colaborador::before {
+  content:"COLABORADOR";
+  background:linear-gradient(90deg,#475569,#94a3b8);
+}
+@media(max-width:600px) {
+  .patrocinadores-home .carrusel-track .patrocinador::before {
+    top:-8px;
+    left:8px;
+    padding:4px 8px;
+    font-size:8px;
+    letter-spacing:.45px;
+  }
+  .patrocinadores-home .carrusel-track .patrocinador {
+    margin-top:8px;
+  }
+}
