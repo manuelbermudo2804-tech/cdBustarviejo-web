@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="https://www.cdbustarviejo.com/img/escudo.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261109-carrusel-xl">
+<link rel="stylesheet" href="css/styles.css?v=20261109-categorias-patrocinio">
 
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
@@ -1159,6 +1159,12 @@ const destino = document.getElementById("carrusel-patrocinadores");
 
 if(lista && destino){
 const bloques = Array.from(lista.querySelectorAll(".patrocinador"));
+const ordenNivel = { oro: 0, plata: 1, bronce: 2, colaborador: 3 };
+bloques.sort((a, b) => {
+  const nivelA = Object.keys(ordenNivel).find(k => a.classList.contains(k)) || "colaborador";
+  const nivelB = Object.keys(ordenNivel).find(k => b.classList.contains(k)) || "colaborador";
+  return ordenNivel[nivelA] - ordenNivel[nivelB];
+});
 const logoGVC = document.querySelector(".patrocinador-logo a");
 if(logoGVC){
   const tarjetaGVC = document.createElement("div");
