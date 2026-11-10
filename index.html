@@ -361,14 +361,14 @@ HAZTE SOCIO
 
 <div id="popup-loteria" class="popup-loteria">
 
-  <div class="popup-loteria-caja">
+  <button
+    type="button"
+    class="cerrar-loteria"
+    onclick="cerrarLoteria()"
+    aria-label="Cerrar"
+  >×</button>
 
-    <button
-      type="button"
-      class="cerrar-loteria"
-      onclick="cerrarLoteria()"
-      aria-label="Cerrar"
-    >×</button>
+  <div class="popup-loteria-caja">
 
     <!-- CARTEL DE LOTERÍA -->
     <img
@@ -1104,14 +1104,18 @@ HAZTE SOCIO
   }
 
   .cerrar-loteria {
-    position: sticky;
-    top: 7px;
-    float: right;
-    margin: 0 2px -40px 0;
-    width: 38px;
-    height: 38px;
-    font-size: 27px;
-    line-height: 30px;
+    position: fixed;
+    top: max(12px, env(safe-area-inset-top));
+    right: 14px;
+    z-index: 100002;
+    float: none;
+    margin: 0;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+    line-height: 34px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.55);
   }
 
   .popup-loteria-caja::before {
