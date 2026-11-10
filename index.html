@@ -381,6 +381,8 @@ HAZTE SOCIO
     <div class="mensaje-loteria">
       <strong>¡ÚLTIMOS DÉCIMOS EN LOS COMERCIOS!</strong>
       <span>Casi agotada en el pueblo · Todavía disponible online</span>
+      <span id="loteria-restantes" hidden></span>
+      <span id="loteria-cuenta-atras" aria-live="polite" style="margin-top:7px;font-weight:900;color:#8a1c12"></span>
     </div>
 
     <!-- COMPRA DIRECTA ONLINE -->
@@ -996,71 +998,120 @@ HAZTE SOCIO
 
 
 <script>
+/* POPUP LOTERÍA: datos sincronizados con la página pública de la app */
+(function () {
+  const API = "https://base44.app/api/apps/6992c6be619d2da592897991/functions/loteriaPublic";
+  const popup = document.getElementById("popup-loteria");
+  const restantesEl = document.getElementById("loteria-restantes");
+  const cuentaEl = document.getElementById("loteria-cuenta-atras");
+  const botonCompra = popup?.querySelector(".boton-loteria");
+  let fechaCierre = null;
+  let juntaActiva = false;
+  let primerDatoRecibido = false;
 
-/* ===================================================== */
-/* APERTURA POPUP LOTERÍA */
-/* ===================================================== */
+  const pad = n => String(n).padStart(2, "0");
 
-window.addEventListener("load", function () {
-  const popupJunta = document.getElementById("popup-junta-socios");
-  const popupLoteria = document.getElementById("popup-loteria");
-  const ahora = new Date();
-  const inicioJunta = new Date("2026-10-14T00:00:00");
-  const finJunta = new Date("2026-11-13T23:59:59");
-  const inicioLoteria = new Date("2026-09-04T00:00:00");
-  const finLoteria = new Date("2026-12-22T23:59:59");
-  const juntaActiva = ahora >= inicioJunta && ahora <= finJunta;
-  const loteriaActiva = ahora >= inicioLoteria && ahora <= finLoteria;
-
-  if (juntaActiva && popupJunta) {
-    setTimeout(function () {
-      popupJunta.style.display = "flex";
-      setTimeout(function () { popupJunta.classList.add("activo"); }, 50);
-    }, 900);
-  } else if (loteriaActiva && popupLoteria) {
-    setTimeout(mostrarLoteria, 1200);
+  function actualizarCuentaAtras() {
+    if (!cuentaEl) return;
+    if (!fechaCierre) {
+      cuentaEl.textContent = "";
+      return;
+    }
+    const resto = new Date(fechaCierre).getTime() - Date.now();
+    if (resto <= 0) {
+      cuentaEl.textContent = "🔒 Venta cerrada";
+      window.__loteriaActiva = false;
+      if (popup) {
+        popup.classList.remove("activo");
+        popup.style.display = "none";
+      }
+      return;
+    }
+    const s = Math.floor(resto / 1000);
+    const d = Math.floor(s / 86400);
+    const h = Math.floor((s % 86400) / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const seg = s % 60;
+    cuentaEl.textContent = "⏳ Cierra en " + (d > 0 ? d + "d " : "") + pad(h) + "h " + pad(m) + "m " + pad(seg) + "s";
   }
 
   function mostrarLoteria() {
-    if (!loteriaActiva || !popupLoteria) return;
-    popupLoteria.style.display = "flex";
-    setTimeout(function () { popupLoteria.classList.add("activo"); }, 80);
+    if (!window.__loteriaActiva || !popup) return;
+    popup.style.display = "flex";
+    setTimeout(() => popup.classList.add("activo"), 50);
   }
   window.mostrarPopupLoteria = mostrarLoteria;
-});
 
-function cerrarPopupJunta() {
-  const popup = document.getElementById("popup-junta-socios");
-  if (!popup) return;
-  popup.classList.remove("activo");
-  setTimeout(function () {
-    popup.style.display = "none";
-    if (window.mostrarPopupLoteria) setTimeout(window.mostrarPopupLoteria, 450);
-  }, 350);
-}
+  async function cargarDatosLoteria() {
+    try {
+      const res = await fetch(API, { method: "GET", cache: "no-store", headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error("No se pudieron leer los datos de lotería");
+      const data = await res.json();
+      const campana = data?.campana;
+      fechaCierre = campana?.fecha_cierre || null;
+      window.__loteriaActiva = !!campana && campana.activa !== false && !!fechaCierre && new Date(fechaCierre).getTime() > Date.now();
 
+      if (restantesEl) {
+        const n = data?.tulotero?.restantes;
+        if (typeof n === "number" && Number.isFinite(n)) {
+          restantesEl.textContent = "🎟️ " + n.toLocaleString("es-ES") + " décimos disponibles online";
+          restantesEl.hidden = false;
+        } else {
+          restantesEl.textContent = "";
+          restantesEl.hidden = true;
+        }
+      }
+      if (botonCompra && campana?.tulotero_url) botonCompra.href = campana.tulotero_url;
+      actualizarCuentaAtras();
 
-/* ===================================================== */
-/* CERRAR POPUP */
-/* ===================================================== */
+      if (!primerDatoRecibido) {
+        primerDatoRecibido = true;
+        if (window.__loteriaActiva && !juntaActiva) setTimeout(mostrarLoteria, 1200);
+      }
+      if (!window.__loteriaActiva && popup) {
+        popup.classList.remove("activo");
+        popup.style.display = "none";
+      }
+    } catch (error) {
+      console.warn("No se han podido actualizar los datos de lotería:", error);
+    }
+  }
 
-function cerrarLoteria() {
+  window.addEventListener("load", async function () {
+    const popupJunta = document.getElementById("popup-junta-socios");
+    const ahora = new Date();
+    const inicioJunta = new Date("2026-10-14T00:00:00");
+    const finJunta = new Date("2026-11-13T23:59:59");
+    juntaActiva = ahora >= inicioJunta && ahora <= finJunta;
 
-  const popup =
-    document.getElementById("popup-loteria");
+    if (juntaActiva && popupJunta) {
+      setTimeout(function () {
+        popupJunta.style.display = "flex";
+        setTimeout(function () { popupJunta.classList.add("activo"); }, 50);
+      }, 900);
+    }
 
-  if (!popup) return;
+    await cargarDatosLoteria();
+    setInterval(cargarDatosLoteria, 60000);
+    setInterval(actualizarCuentaAtras, 1000);
+  });
 
-  popup.classList.remove("activo");
+  window.cerrarPopupJunta = function () {
+    const popupJunta = document.getElementById("popup-junta-socios");
+    if (!popupJunta) return;
+    popupJunta.classList.remove("activo");
+    setTimeout(function () {
+      popupJunta.style.display = "none";
+      if (window.mostrarPopupLoteria) setTimeout(window.mostrarPopupLoteria, 450);
+    }, 350);
+  };
 
-  setTimeout(function () {
-
-    popup.style.display = "none";
-
-  }, 600);
-
-}
-
+  window.cerrarLoteria = function () {
+    if (!popup) return;
+    popup.classList.remove("activo");
+    setTimeout(function () { popup.style.display = "none"; }, 600);
+  };
+})();
 </script>
 <!-- SCRIPT PARTIDOS -->
 <script>
