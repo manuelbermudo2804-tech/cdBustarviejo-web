@@ -1050,18 +1050,17 @@ HAZTE SOCIO
   .popup-loteria-caja {
     width: 100%;
     max-width: 390px;
-    max-height: calc(100vh - 16px);
-    max-height: calc(100dvh - 16px);
+    max-height: 94vh;
+    max-height: 94dvh;
     padding: 7px 7px 12px;
     border-radius: 18px;
   }
 
   .cartel-loteria {
     display: block;
-    width: auto;
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    max-height: 34dvh;
+    max-height: 72vh;
     object-fit: contain;
     margin: 0 auto;
     border-radius: 12px;
@@ -1104,11 +1103,15 @@ HAZTE SOCIO
   }
 
   .cerrar-loteria {
-    width: 36px;
-    height: 36px;
+    position: absolute;
     top: 8px;
-    right: auto;
-    font-size: 22px;
+    right: 8px;
+    float: none;
+    margin: 0;
+    width: 38px;
+    height: 38px;
+    font-size: 27px;
+    line-height: 30px;
   }
 
   .popup-loteria-caja::before {
