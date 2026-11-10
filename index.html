@@ -433,9 +433,11 @@ HAZTE SOCIO
   align-items: center;
   justify-content: center;
 
-  padding: 18px;
+  padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   background:
     radial-gradient(
@@ -465,6 +467,12 @@ HAZTE SOCIO
 
   width: 100%;
   max-width: 500px;
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 
   padding: 9px 9px 18px;
 
@@ -711,10 +719,10 @@ HAZTE SOCIO
 
 .cerrar-loteria {
 
-  position: absolute;
-
-  top: -14px;
-  right: -14px;
+  position: sticky;
+  top: 8px;
+  float: right;
+  margin: 0 2px -42px 0;
 
   z-index: 300;
 
@@ -1035,11 +1043,54 @@ HAZTE SOCIO
 @media (max-width:600px) {
 
   .popup-loteria {
-    padding: 14px;
+    padding: max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom));
+    align-items: center;
   }
 
   .popup-loteria-caja {
+    width: 100%;
     max-width: 390px;
+    max-height: calc(100vh - 16px);
+    max-height: calc(100dvh - 16px);
+    padding: 7px 7px 12px;
+    border-radius: 18px;
+  }
+
+  .cartel-loteria {
+    max-height: 25dvh;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  .mensaje-loteria {
+    margin-top: 7px;
+    padding: 9px 8px;
+  }
+
+  .mensaje-loteria .subtitular-urgencia {
+    margin: 3px 0 7px;
+    font-size: 11px;
+  }
+
+  .stock-loteria {
+    padding: 6px;
+  }
+
+  .stock-loteria #loteria-restantes-num {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .cuenta-loteria {
+    margin-top: 6px;
+    padding: 6px;
+  }
+
+  .boton-loteria {
+    margin-top: 9px;
+  }
+
+  .nota-loteria {
+    margin-top: 4px;
   }
 
   .boton-loteria {
