@@ -361,14 +361,14 @@ HAZTE SOCIO
 
 <div id="popup-loteria" class="popup-loteria">
 
-  <button
-    type="button"
-    class="cerrar-loteria"
-    onclick="cerrarLoteria()"
-    aria-label="Cerrar"
-  >×</button>
-
   <div class="popup-loteria-caja">
+
+    <button
+      type="button"
+      class="cerrar-loteria"
+      onclick="cerrarLoteria()"
+      aria-label="Cerrar"
+    >×</button>
 
     <!-- CARTEL DE LOTERÍA -->
     <img
@@ -1067,7 +1067,7 @@ HAZTE SOCIO
     gap: 5px;
     background-color: #fff;
     background-image: url("img/loteria.png");
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
   }
@@ -1132,6 +1132,11 @@ HAZTE SOCIO
     height: 38px;
     font-size: 27px;
     line-height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    box-shadow: 0 3px 12px #0006;
   }
 
   .popup-loteria-caja::before {
