@@ -1043,16 +1043,24 @@ HAZTE SOCIO
 @media (max-width:600px) {
 
   .popup-loteria {
-    padding: max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom));
-    align-items: center;
+    padding: max(58px, calc(env(safe-area-inset-top) + 50px)) 8px 16px;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 
   .popup-loteria-caja {
     width: 100%;
     max-width: 390px;
-    max-height: 88vh;
-    max-height: 88dvh;
+    max-height: none;
+    height: auto;
+    flex: 0 0 auto;
+    overflow: visible;
     padding: 7px 7px 10px;
+    margin: 0 auto;
     border-radius: 18px;
   }
 
