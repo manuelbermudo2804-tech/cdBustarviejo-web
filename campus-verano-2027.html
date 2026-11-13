@@ -25,7 +25,24 @@ function preset(p){s.template=p==='week'?['S1']:p==='alt'?['S1','S3','S5']:p==='
 function initKids(){let n=Number($('#kidCount').value)||1;s.kids=Array.from({length:n},(_,i)=>({name:'',birth:'',weeks:i===0?[...s.template]:[...s.template]}));drawKids()}
 function norm(x){return String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
 function cost(sel,mem){let a=sel.map(x=>weeks.findIndex(w=>w[0]===x)).sort((x,y)=>x-y),r=mem?[55,95,170]:[60,110,200],dp=Array(a.length+1).fill(1e9);dp[0]=0;for(let i=1;i<=a.length;i++){dp[i]=dp[i-1]+r[0];if(i>=2&&a[i-1]===a[i-2]+1)dp[i]=Math.min(dp[i],dp[i-2]+r[1]);if(i>=4&&a.slice(i-4,i).every((v,j)=>v===a[i-4]+j))dp[i]=Math.min(dp[i],dp[i-4]+r[2])}return dp[a.length]}
-function calc(){let total=0,html='<b>Desglose por menor</b>';s.kids.forEach(k=>{let m=verified&&linked.some(x=>norm(x.name)===norm(k.name)),v=cost(k.weeks,m);total+=v;html+='<div class="line"><span>'+k.name+'<br><small>'+(k.weeks||[]).join(', ')+' · '+(m?'Socio':'General')+'</small></span><b>'+v+' €</b></div>'});$('#summary').innerHTML=html+'<div class="line total"><span>Total campus</span><span>'+total+' €</span></div><small>Semana: 60/55 € · Quincena: 110/95 € · Cuatro semanas: 200/170 €. Quinta semana: semana adicional.</small>'}
+function calc(){
+ const choice=$('input[name=member]:checked')?.value||'no';
+ let campus=0,html='<b>Desglose por menor</b>';
+ s.kids.forEach((k,i)=>{
+  const linkedChild=verified&&linked.some(x=>norm(x.name)===norm(k.name));
+  const socioRate=choice==='new'||(choice==='yes'&&linkedChild);
+  const value=cost(k.weeks||[],socioRate);campus+=value;
+  html+='<div class="line"><span>'+(k.name||'Menor '+(i+1))+'<br><small>'+(k.weeks||[]).join(', ')+' · '+(socioRate?'Tarifa socio':'Tarifa general')+'</small></span><b>'+value.toFixed(2)+' €</b></div>';
+ });
+ const membership=choice==='new'?25:0,total=campus+membership;
+ if(membership)html+='<div class="line"><span>Alta de socio adulto (cuota anual)</span><b>25,00 €</b></div>';
+ if(choice==='yes'&&!verified)html+='<p class="hint">Introduce DNI y email y comprueba la ficha para aplicar el descuento a los menores vinculados.</p>';
+ if(choice==='yes'&&verified)html+='<p class="hint">Descuento aplicado únicamente a los menores vinculados a la ficha de socio.</p>';
+ html+='<div class="line"><span>Subtotal campus</span><b>'+campus.toFixed(2)+' €</b></div>';
+ html+='<div class="line total"><span>Total a pagar</span><span>'+total.toFixed(2)+' €</span></div>';
+ html+='<small>Tarifas por menor: semana 60/55 € · quincena 110/95 € · cuatro semanas 200/170 €. Las semanas adicionales se calculan aparte. La cuota de socio adulto se suma una sola vez cuando se solicita el alta.</small>';
+ $('#summary').innerHTML=html;
+}
 function show(n){s.step=n;$$('.step').forEach((x,i)=>x.classList.toggle('on',i===n));$$('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));if(n===3)$('#review').innerHTML=$('#summary').innerHTML+'<p>Alta socio: '+($('input[name=member]:checked').value==='new'?'Sí, cuota 25 €':'No')+'</p>';$('.shell').scrollIntoView({behavior:'smooth'})}
 Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if($('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>k.weeks=[...s.kids[0].weeks]);}drawKids()});initKids();
 $$('input[name=member]').forEach(r=>r.onchange=()=>{$('#verifyBox').hidden=r.value!=='yes';verified=false;linked=[];memberId='';$('#memberStatus').textContent='';calc()});
