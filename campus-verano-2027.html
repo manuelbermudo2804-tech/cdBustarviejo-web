@@ -50,7 +50,7 @@ header{background:#111827;color:#fff;padding:15px 22px}.head{max-width:1120px;ma
 </div></div></section>
 <section class="content" id="organizacion" style="background:#fff"><div class="wrap"><div class="section-title"><div class="eyebrow">Organización diaria</div><h2>Así organizamos cada jornada</h2><p>De lunes a viernes, de 09:00 a 14:00, combinaremos sesiones deportivas, descanso, actividades al aire libre y piscina según la programación.</p></div>
 <div class="schedule">
-<div class="schedule-row"><b>09:00–09:15</b><span>Recepción y bienvenida</span></div><div class="schedule-row"><b>09:15–10:30</b><span>Primera sesión de actividad: fútbol o propuesta multideportiva adaptada a los grupos de edad.</span></div><div class="schedule-row"><b>10:30–11:00</b><span>Almuerzo y descanso para recuperar fuerzas.</span></div><div class="schedule-row"><b>11:00–12:00</b><span>Segunda sesión deportiva, juegos o actividad temática del día.</span></div><div class="schedule-row"><b>12:00–13:45</b><span>Piscina municipal o actividad alternativa programada. En los días de piscina se reserva tiempo para el desplazamiento a pie.</span></div><div class="schedule-row"><b>13:45–14:00</b><span>Salida y recogida de participantes por sus familias.</span></div></div>
+<div class="schedule-row"><b>09:00–09:15</b><span><strong>Recepción y bienvenida.</strong> Llegada de los participantes, acogida por el equipo del campus y organización de los grupos antes de comenzar las actividades.</span></div><div class="schedule-row"><b>09:15–10:30</b><span><strong>Primera sesión deportiva.</strong> Tres jornadas semanales tendrán el fútbol como actividad principal. Se organizarán ejercicios, juegos y propuestas adaptadas a las edades y niveles de los participantes.</span></div><div class="schedule-row"><b>10:30–11:00</b><span><strong>Almuerzo y descanso.</strong> Pausa para comer el almuerzo que traiga cada participante, hidratarse y recuperar fuerzas.</span></div><div class="schedule-row"><b>11:00–12:00</b><span><strong>Segunda sesión.</strong> En las jornadas multideportivas se podrán realizar propuestas de pádel o tenis, baloncesto, voleibol, deportes alternativos y juegos colectivos, según la planificación y disponibilidad de espacios.</span></div><div class="schedule-row"><b>12:00–13:45</b><span><strong>Piscina o actividad alternativa.</strong> Se programarán jornadas de piscina municipal y, cuando no corresponda o no esté disponible, actividades al aire libre, juegos, naturaleza o aventura. Los días de piscina incluyen el desplazamiento a pie.</span></div><div class="schedule-row"><b>13:45–14:00</b><span><strong>Salida y recogida.</strong> Cierre de la jornada y entrega de los participantes a sus familias.</span></div></div>
 <div class="notice">La piscina, las instalaciones y las actividades concretas estarán sujetas a disponibilidad y autorización municipal. En jornadas de piscina se contempla el desplazamiento a pie.</div></div></section>
 <section class="content" id="tarifas"><div class="wrap"><div class="section-title"><div class="eyebrow">Tarifas</div><h2>Elige cómo participar</h2><p>Precios orientativos del dossier. No son definitivos y están pendientes de aprobación por la Junta Directiva.</p></div>
 <div class="price-grid"><article class="price"><h3>1 semana</h3><div class="general">50 €</div><small>Precio general</small><div class="member">45 € socios</div><button type="button" class="btn secondary choose-period" data-period="week">Elegir semana</button></article><article class="price featured"><h3>1 quincena</h3><div class="general">95 €</div><small>Precio general</small><div class="member">85 € socios</div><button type="button" class="btn choose-period" data-period="fortnight">Elegir quincena</button></article><article class="price"><h3>Mes completo</h3><div class="general">180 €</div><small>Precio general</small><div class="member">160 € socios</div><button type="button" class="btn secondary choose-period" data-period="month">Elegir mes</button></article></div><p class="price-note">La condición de socio y los descuentos familiares se muestran aquí solo para probar el recorrido. Se configurarán cuando la Junta los apruebe.</p></div></section>
@@ -82,6 +82,17 @@ header{background:#111827;color:#fff;padding:15px 22px}.head{max-width:1120px;ma
 </main>
 <footer class="footer"><img src="img/escudo.png" alt=""> C.D. Bustarviejo · Deporte y valores desde 1989<p>Campus Deportivo de Verano 2027 · Página de pruebas no enlazada desde la web pública.</p></footer>
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      const abierto = menu.classList.toggle('activo');
+      toggle.setAttribute('aria-expanded', String(abierto));
+      toggle.setAttribute('aria-label', abierto ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    });
+  }
+});
 const state={step:0,children:[]};const prices={general:{week:50,fortnight:95,month:180},member:{week:45,fortnight:85,month:160}};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function addChild(){state.children.push({id:Date.now()+Math.random(),name:'',birth:'',period:'month'});renderChildren()}
