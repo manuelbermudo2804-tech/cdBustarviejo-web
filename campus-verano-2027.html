@@ -49,21 +49,22 @@ function norm(x){return String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/
 function cost(sel,mem){let a=sel.map(x=>weeks.findIndex(w=>w[0]===x)).sort((x,y)=>x-y),r=mem?[55,95,170]:[60,110,200],dp=Array(a.length+1).fill(1e9);dp[0]=0;for(let i=1;i<=a.length;i++){dp[i]=dp[i-1]+r[0];if(i>=2&&a[i-1]===a[i-2]+1)dp[i]=Math.min(dp[i],dp[i-2]+r[1]);if(i>=4&&a.slice(i-4,i).every((v,j)=>v===a[i-4]+j))dp[i]=Math.min(dp[i],dp[i-4]+r[2])}return dp[a.length]}
 function calc(){
  const choice=$('input[name=member]:checked')?.value||'no';
- let generalTotal=0,chosenCampus=0,html='<b>Desglose por menor</b>';
+ let generalTotal=0,memberTotal=0,chosenCampus=0,html='<b>Desglose por menor</b>';
  s.kids.forEach((k,i)=>{
   const linkedChild=verified&&linked.some(x=>norm(x.name)===norm(k.name));
   const general=cost(k.weeks||[],false),discounted=cost(k.weeks||[],true);
-  const useMember=choice==='new'||(choice==='yes'&&linkedChild),value=useMember?discounted:general;
-  generalTotal+=general;chosenCampus+=value;
+  const useMember=choice==='new'||(choice==='yes'&&linkedChild);
+  const value=useMember?discounted:general;
+  generalTotal+=general;memberTotal+=discounted;chosenCampus+=value;
   html+='<div class="line"><span>'+(k.name||'Menor '+(i+1))+'<br><small>'+(k.weeks||[]).join(', ')+' · '+(useMember?'Tarifa socio':'Tarifa general')+'</small></span><b>'+value.toFixed(2)+' €</b></div>';
  });
- const fee=choice==='new'?25:0,grand=chosenCampus+fee,netSaving=generalTotal-grand;
+ const fee=choice==='new'?25:0,grand=chosenCampus+fee;
+ const netSaving=generalTotal-(memberTotal+25);
  if(fee)html+='<div class="line"><span>Cuota anual de socio adulto</span><b>25,00 €</b></div>';
  html+='<div class="line"><span>Subtotal campus</span><b>'+chosenCampus.toFixed(2)+' €</b></div><div class="line total"><span>Total estimado</span><span>'+grand.toFixed(2)+' €</span></div>';
- if(choice==='new')html+='<div class="price-compare"><b>Comparación: hacerte socio</b><div>Tarifa general: '+generalTotal.toFixed(2)+' €</div><div>Campus con tarifa socio: '+chosenCampus.toFixed(2)+' €</div><div>Cuota de adulto: 25,00 €</div>'+(netSaving>0?'<p class="saving">Ahorro familiar real: '+netSaving.toFixed(2)+' €</p>':netSaving<0?'<p class="loss">Hacerte socio supone '+Math.abs(netSaving).toFixed(2)+' € más en total.</p>':'<p class="saving">El coste total es el mismo.</p>')+'<small>Estimación suponiendo que todos los menores inscritos quedan vinculados a la nueva ficha de socio.</small></div>';
+ html+='<div class="price-compare"><b>¿Cuándo compensa hacerse socio?</b><div>Con tarifa general, el campus cuesta <b>'+generalTotal.toFixed(2)+' €</b>.</div><div>Con tarifa de socio, el campus costaría <b>'+memberTotal.toFixed(2)+' €</b>, más 25 € de cuota adulta.</div>'+(netSaving>0?'<p class="saving">Te ahorrarías '+netSaving.toFixed(2)+' € en total haciéndote socio.</p>':netSaving<0?'<p class="loss">Hacerte socio te costaría '+Math.abs(netSaving).toFixed(2)+' € más en esta inscripción.</p>':'<p class="saving">El coste sería exactamente el mismo.</p>')+'<small>La comparación se calcula con las semanas seleccionadas para todos los menores y cuenta una sola cuota de socio adulto. Si ya eres socio, el descuento solo se aplica a los menores vinculados y verificados.</small></div>';
  if(choice==='yes'&&!verified)html+='<p class="hint">Introduce DNI y email y comprueba la ficha. Hasta verificarla se muestra la tarifa general.</p>';
- if(choice==='yes'&&verified){const saving=generalTotal-chosenCampus;html+='<div class="price-compare"><b>Ventaja de tu ficha de socio</b><p class="saving">Descuento aplicado: '+saving.toFixed(2)+' €</p><small>Solo se aplica a los menores que figuran vinculados a tu ficha.</small></div>';}
- if(choice==='no')html+='<div class="price-compare"><b>¿Te interesa hacerte socio?</b><small>Si eliges la opción de alta, verás cuánto ahorrarías con tus semanas y descontaremos la cuota anual de 25 €.</small></div>';
+ if(choice==='yes'&&verified){const saving=generalTotal-chosenCampus;html+='<p class="hint">Descuento aplicado a menores vinculados: '+saving.toFixed(2)+' €.</p>';}
  html+='<small>Tarifas por menor: semana 60/55 € · quincena 110/95 € · cuatro semanas 200/170 €. Las semanas adicionales se calculan aparte. Importes sujetos a confirmación final del club.</small>';
  $('#summary').innerHTML=html;
 }
