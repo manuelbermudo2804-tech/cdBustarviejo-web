@@ -141,7 +141,7 @@ function show(n){s.step=n;$$('.step').forEach((x,i)=>x.classList.toggle('on',i==
 Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if($('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>k.weeks=[...s.kids[0].weeks]);}drawKids()});initKids();
 loadCampusRates().catch(()=>{});
 loadCampusAvailability().catch(()=>{});
-$("input[name=member]").forEach(r=>r.onchange=()=>{$('#verifyBox').hidden=r.value!=='yes';calc()});
+$$("input[name=member]").forEach(r=>r.onchange=()=>{$('#verifyBox').hidden=r.value!=='yes';calc()});
 $('#verify').onclick=async()=>{
  let dni=$('#checkDni').value.trim(),email=$('#checkEmail').value.trim(),btn=$('#verify');
  if(!dni||!email){$('#memberStatus').textContent='Introduce DNI y correo.';return}
