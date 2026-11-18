@@ -67,8 +67,35 @@ function preset(p){s.template=p==='week'?['S1']:p==='alt'?['S1','S3','S5']:p==='
 function initKids(){let n=Number($('#kidCount').value)||1;s.kids=Array.from({length:n},(_,i)=>({name:'',birth:'',weeks:i===0?[...s.template]:[...s.template],alergias:'',intolerancias:'',medicacion:'',observaciones_medicas:'',contacto_emergencia_nombre:'',contacto_emergencia_telefono:''}));drawKids()}
 function norm(x){return String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
 let campusRates=null;
+let campusRatesPromise=null;
+let campusRatesError='';
 function cost(sel,mem){if(!campusRates)return 0;let a=sel.map(x=>weeks.findIndex(w=>w[0]===x)).sort((x,y)=>x-y),r=mem?[campusRates.precio_semana_socio,campusRates.precio_quincena_socio,campusRates.precio_cuatro_semanas_socio]:[campusRates.precio_semana_general,campusRates.precio_quincena_general,campusRates.precio_cuatro_semanas_general],dp=Array(a.length+1).fill(1e9);dp[0]=0;for(let i=1;i<=a.length;i++){dp[i]=dp[i-1]+r[0];if(i>=2&&a[i-1]===a[i-2]+1)dp[i]=Math.min(dp[i],dp[i-2]+r[1]);if(i>=4&&a.slice(i-4,i).every((v,j)=>v===a[i-4]+j))dp[i]=Math.min(dp[i],dp[i-4]+r[2])}return dp[a.length]}
-async function loadCampusRates(){try{const r=await fetch("https://base44.app/api/apps/6992c6be619d2da592897991/functions/campusMemberLookup",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"pricing"})});const j=await r.json();if(!r.ok||!j.rates)throw new Error(j.error||"No se han podido cargar las tarifas");campusRates=j.rates;calc()}catch(e){campusRates=null;const el=$("#summary");if(el)el.innerHTML='<p class="hint">No se han podido cargar los precios. Vuelve a intentarlo más tarde.</p>';}}
+async function loadCampusRates(){
+ if(campusRates)return campusRates;
+ if(campusRatesPromise)return campusRatesPromise;
+ campusRatesError='';
+ const el=$("#summary");
+ if(el)el.innerHTML='<p class="hint">Cargando tarifas oficiales…</p>';
+ campusRatesPromise=(async()=>{
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),15000);
+  try{
+   const r=await fetch("https://base44.app/api/apps/6992c6be619d2da592897991/functions/campusMemberLookup",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"pricing"}),signal:controller.signal,cache:"no-store"});
+   let j;
+   try{j=await r.json()}catch(_){throw new Error("El servidor de tarifas ha devuelto una respuesta no válida.")}
+   if(!r.ok||!j.rates)throw new Error(j.error||("No se pudieron cargar las tarifas (HTTP "+r.status+")."));
+   campusRates=j.rates;
+   calc();
+   return campusRates;
+  }catch(e){
+   campusRates=null;
+   campusRatesError=e.name==="AbortError"?"La consulta de tarifas ha tardado demasiado. Comprueba tu conexión y vuelve a intentarlo.":(e.message||"No se han podido cargar las tarifas.");
+   if(el)el.innerHTML='<p class="hint">'+campusRatesError+' Pulsa «Continuar» para volver a intentarlo.</p>';
+   throw new Error(campusRatesError);
+  }finally{clearTimeout(timeout);campusRatesPromise=null;}
+ })();
+ return campusRatesPromise;
+}
 function calc(){
  if(!campusRates){$('#summary').innerHTML='<p class="hint">Cargando tarifas oficiales…</p>';return;}
  const choice=$('input[name=member]:checked')?.value||'no';
@@ -93,12 +120,23 @@ function calc(){
 }
 function show(n){s.step=n;$$('.step').forEach((x,i)=>x.classList.toggle('on',i===n));$$('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));if(n===3)$('#review').innerHTML=$('#summary').innerHTML+'<p><b>Condición de socio:</b> '+($('input[name=member]:checked').value==='new'?'Nueva alta de socio adulto · cuota 25 €':$('input[name=member]:checked').value==='yes'?'Ficha de socio verificada':'No solicita alta de socio')+'</p>';$('.shell').scrollIntoView({behavior:'smooth'})}
 Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if($('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>k.weeks=[...s.kids[0].weeks]);}drawKids()});initKids();
-loadCampusRates();
+loadCampusRates().catch(()=>{});
 $$("input[name=member]").forEach(r=>r.onchange=()=>{$('#verifyBox').hidden=r.value!=='yes';verified=false;linked=[];memberId='';$('#memberStatus').textContent='';$('#memberStatus').className='hint';calc()});
 $('#verify').onclick=async()=>{let dni=$('#checkDni').value.trim(),email=$('#checkEmail').value.trim();if(!dni||!email){$('#memberStatus').textContent='Introduce DNI y correo.';return}$('#memberStatus').textContent='Comprobando…';try{let r=await fetch('https://base44.app/api/apps/6992c6be619d2da592897991/functions/campusMemberLookup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dni,email})}),j=await r.json();if(!r.ok)throw Error(j.error);verified=!!j.verified;linked=j.children||[];memberId=j.member_id||'';$('#memberStatus').innerHTML=verified?'<strong>Ficha verificada.</strong><br>Se ha aplicado el descuento de socio a los menores vinculados.':'<strong>No hemos podido verificar tu condición de socio.</strong><br>Comprueba que el DNI/NIE y el correo electrónico corresponden a los datos registrados en el club.<br>Si los datos son correctos y sigues sin poder verificarte, escríbenos a <a href="mailto:info@cdbustarviejo.com">info@cdbustarviejo.com</a> y te ayudaremos.';$('#memberStatus').className='member-status '+(verified?'success':'warning');calc()}catch(e){$('#memberStatus').textContent=e.message}};
-document.querySelectorAll('.next').forEach((button,index)=>button.addEventListener('click',()=>{
+document.querySelectorAll('.next').forEach((button,index)=>button.addEventListener('click',async()=>{
  if(index===0){const n=Number($('#kidCount').value);if(!Number.isInteger(n)||n<1||n>4){alert('Selecciona el número de menores.');return}initKids();show(1);return}
- if(index===1){if(!campusRates){alert('Estamos cargando las tarifas. Espera unos segundos y vuelve a continuar.');return}if(!s.kids.length||s.kids.some(k=>!k.name.trim()||!k.birth||!k.weeks.length)){alert('Completa nombre, fecha de nacimiento y semanas de cada menor.');return}for(const k of s.kids){const birth=new Date(k.birth+'T00:00:00');if(Number.isNaN(birth.getTime())||Number(k.birth.slice(0,4))>2021||Number(k.birth.slice(0,4))<2011){alert(''+k.name+' debe haber nacido entre 2011 y 2021 (edades de 6 a 16 años por año natural 2027).');return}}show(2);return}
+ if(index===1){
+  if(!campusRates){
+   const originalText=button.textContent;
+   button.disabled=true;button.textContent='Cargando tarifas…';
+   try{await loadCampusRates()}
+   catch(e){const el=$("#summary");if(el)el.innerHTML='<p class="hint">'+(e.message||'No se han podido cargar las tarifas.')+' Puedes pulsar «Continuar» para reintentar.</p>';button.disabled=false;button.textContent=originalText;return}
+   button.disabled=false;button.textContent=originalText;
+  }
+  if(!s.kids.length||s.kids.some(k=>!k.name.trim()||!k.birth||!k.weeks.length)){alert('Completa nombre, fecha de nacimiento y semanas de cada menor.');return}
+  for(const k of s.kids){const birth=new Date(k.birth+'T00:00:00');if(Number.isNaN(birth.getTime())||Number(k.birth.slice(0,4))>2021||Number(k.birth.slice(0,4))<2011){alert(''+k.name+' debe haber nacido entre 2011 y 2021 (edades de 6 a 16 años por año natural 2027).');return}}
+  show(2);return
+ }
  if(index===2){if($('input[name=member]:checked').value==='yes'&&!verified){alert('Comprueba primero tu ficha de socio.');return}show(3)}
 }));
 document.querySelectorAll('.prev').forEach(button=>button.addEventListener('click',()=>show(Math.max(0,s.step-1))));
