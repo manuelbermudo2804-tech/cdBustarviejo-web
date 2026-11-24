@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+<title id="title">Centro Veterinario El Olfato</title><desc id="desc">Silueta negra de un perro con un gato blanco y el nombre Centro Veterinario El Olfato en azul marino.</desc>
+<rect width="900" height="300" fill="#fff"/>
+<g transform="translate(18 22)" fill="#080808">
+<path d="M18 95 52 65 58 28 102 12 103 0 139 52 139 101 120 137 127 169 119 223 92 254 60 245 39 258 18 247 30 220 26 174 10 140Z"/>
+<path d="M119 100 Q164 115 214 108 Q248 102 269 127 Q286 149 280 187 Q276 215 300 227 L330 244 294 246 278 260 260 245 239 256 223 240 205 254 190 239 171 251 155 234 139 247 124 229 105 242 95 222 Q112 183 110 149Z"/>
+<path d="M273 130 Q307 109 318 129 Q299 134 300 152 Q303 172 319 190 Q333 208 321 226 Q309 242 286 235 Q306 229 305 210 Q303 196 287 178 Q266 153 273 130Z"/>
+<path d="M52 65 103 42 102 12 139 52 139 101 117 137 91 158 63 169 49 147 18 173 10 140Z"/>
+<path d="M112 102 Q130 111 145 113 L135 135 Q124 151 108 153 L96 141Z" fill="#fff"/>
+</g>
+<path d="M163 166 Q172 148 183 157 L190 177 Q205 185 199 202 Q194 219 177 218 Q163 214 161 199 Q153 184 163 166Z" fill="#fff"/>
+<path d="M176 218 Q194 219 204 207 Q209 226 195 241 Q183 252 171 240Z" fill="#fff"/>
+<g fill="#102a56" font-family="Georgia,serif">
+<text x="365" y="118" font-size="56">Centro Veterinario</text>
+<text x="365" y="210" font-size="94" font-weight="bold" letter-spacing="2">EL OLFATO</text>
+</g>
+<path d="M365 230 H870" stroke="#102a56" stroke-width="5"/>
+</svg>
