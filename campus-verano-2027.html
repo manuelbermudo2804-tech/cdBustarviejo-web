@@ -56,7 +56,7 @@ function drawWeeks(container,k,onSelectionChange=()=>{}){
  const changed=weekId=>{update(weekId);onSelectionChange();drawKids();calc()};
  container.querySelectorAll('[data-calendar-week]').forEach(button=>button.onclick=()=>changed(button.dataset.calendarWeek));
  container.querySelectorAll('[data-w]').forEach(input=>input.onchange=()=>changed(input.dataset.w));
- container.querySelectorAll('[data-waitlist-week]').forEach(input=>input.onchange=()=>{const id=input.dataset.waitlistWeek;k.waitlistWeeks=k.waitlistWeeks||[];k.waitlistWeeks=input.checked?[...new Set([...k.waitlistWeeks,id])]:k.waitlistWeeks.filter(x=>x!==id);calc()});
+ container.querySelectorAll('[data-waitlist-week]').forEach(input=>input.onchange=()=>{const id=input.dataset.waitlistWeek;k.waitlistWeeks=k.waitlistWeeks||[];k.waitlistWeeks=input.checked?[...new Set([...k.waitlistWeeks,id])]:k.waitlistWeeks.filter(x=>x!==id);if(i===0&&$('#sameDates').checked)s.kids.slice(1).forEach(other=>other.waitlistWeeks=[...k.waitlistWeeks]);calc()});
 }
 function drawKids(){
  const box=$('#children');box.innerHTML='';
@@ -166,7 +166,7 @@ function calc(){
  $('#summary').innerHTML=html;
 }
 function show(n){s.step=n;$$('.step').forEach((x,i)=>x.classList.toggle('on',i===n));$$('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));if(n===3)$('#review').innerHTML=$('#summary').innerHTML+'<p><b>Condición de socio:</b> '+($('input[name=member]:checked').value==='new'?'Nueva alta de socio adulto · cuota 25 €':$('input[name=member]:checked').value==='yes'?'Ficha de socio verificada':'No solicita alta de socio')+'</p>';$('.shell').scrollIntoView({behavior:'smooth'})}
-Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if($('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>k.weeks=[...s.kids[0].weeks]);}drawKids()});initKids();
+Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if($('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>{k.weeks=[...s.kids[0].weeks];k.waitlistWeeks=[...(s.kids[0].waitlistWeeks||[])];});}drawKids()});initKids();
 loadCampusRates().catch(()=>{});
 loadCampusAvailability().catch(()=>{});
 $$("input[name=member]").forEach(r=>r.onchange=()=>{$('#verifyBox').hidden=r.value!=='yes';calc()});
