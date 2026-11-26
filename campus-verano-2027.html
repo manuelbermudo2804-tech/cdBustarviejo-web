@@ -75,6 +75,7 @@ function drawKids(){
   card.querySelectorAll('[data-k]').forEach(x=>{x.value=k[x.dataset.f]||'';x.oninput=()=>{
    k[x.dataset.f]=x.value;
    if(x.dataset.f==='birth'&&(i===0||!$('#sameDates').checked)){
+    k.weeks=k.weeks.filter(id=>!weekIsFull(k,id));
     const dateArea=card.querySelector('.date-area');
     dateArea.innerHTML='<p class="hint"><b>Semanas elegidas para este menor</b></p><div class="childweeks"></div>';
     drawWeeks(dateArea.querySelector('.childweeks'),k,()=>{if(i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}});
@@ -108,7 +109,7 @@ async function loadCampusAvailability(){
    const [r,statusResponse]=await Promise.all([fetch('https://base44.app/api/apps/6992c6be619d2da592897991/functions/campusMemberLookup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'availability'}),cache:'no-store'}),fetch('https://base44.app/api/apps/6992c6be619d2da592897991/functions/campusMemberLookup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'waitlist_status'}),cache:'no-store'})]);
    const j=await r.json();if(!r.ok||!j.groups)throw new Error(j.error||'No se pudo consultar la disponibilidad.');
    const status=await statusResponse.json().catch(()=>({enabled:false}));campusWaitlistEnabled=statusResponse.ok&&status.enabled===true;
-   campusAvailability=j;renderAvailability();return j;
+   campusAvailability=j;renderAvailability();if(s.kids.length)drawKids();return j;
   }catch(e){const target=$('#availabilityTable');if(target)target.innerHTML='<p class="hint">'+String(e.message||'Disponibilidad no disponible')+'</p>';throw e}
   finally{availabilityPromise=null}
  })();return availabilityPromise;
