@@ -29,8 +29,10 @@ function campusAgeGroup(birth){
  return age>=6&&age<=8?'6-8':age>=9&&age<=11?'9-11':age>=12&&age<=16?'12-16':null;
 }
 function weekIsFull(k,weekId){
- const group=campusAvailability?.groups?.find(g=>g.group===campusAgeGroup(k.birth));
- const slot=group?.weeks?.find(w=>w.week===weekId);
+ if(!campusAvailability)return false;
+ const ageGroup=campusAgeGroup(k.birth);
+ const group=campusAvailability.groups?.find(g=>String(g.label||'').replace(/[–—]/g,'-').includes(ageGroup||'__none__'));
+ const slot=group?.weeks?.find((w,i)=>w.week===weekId||(!w.week&&campusAvailability.weeks?.[i]===weekId));
  return !slot || slot.full===true || (slot.remaining!==null&&slot.remaining!==undefined&&Number(slot.remaining)<=0);
 }
 function availableWeeks(k,ids){return ids.filter(id=>!weekIsFull(k,id));}
