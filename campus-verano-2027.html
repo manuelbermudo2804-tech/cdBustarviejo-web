@@ -56,7 +56,7 @@ function drawWeeks(container,k,onSelectionChange=()=>{}){
  const changed=weekId=>{update(weekId);onSelectionChange();drawKids();calc()};
  container.querySelectorAll('[data-calendar-week]').forEach(button=>button.onclick=()=>changed(button.dataset.calendarWeek));
  container.querySelectorAll('[data-w]').forEach(input=>input.onchange=()=>changed(input.dataset.w));
- container.querySelectorAll('[data-waitlist-week]').forEach(input=>input.onchange=()=>{const id=input.dataset.waitlistWeek;k.waitlistWeeks=k.waitlistWeeks||[];k.waitlistWeeks=input.checked?[...new Set([...k.waitlistWeeks,id])]:k.waitlistWeeks.filter(x=>x!==id);if($('#sameDates').checked&&i===0)s.kids.slice(1).forEach(other=>other.waitlistWeeks=[...k.waitlistWeeks]);calc()});
+ container.querySelectorAll('[data-waitlist-week]').forEach(input=>input.onchange=()=>{const id=input.dataset.waitlistWeek;k.waitlistWeeks=k.waitlistWeeks||[];k.waitlistWeeks=input.checked?[...new Set([...k.waitlistWeeks,id])]:k.waitlistWeeks.filter(x=>x!==id);if($('#sameDates').checked&&k===s.kids[0])s.kids.slice(1).forEach(other=>other.waitlistWeeks=[...k.waitlistWeeks]);calc()});
 }
 function drawKids(){
  const box=$('#children');box.innerHTML='';
