@@ -47,7 +47,10 @@ function campusAgeGroup(birth){
 }
 function weekIsFull(k,weekId){
  const group=campusAvailability?.groups?.find(g=>g.group===campusAgeGroup(k.birth));
- return !group || group.weeks?.find(w=>w.week===weekId)?.full===true;
+ const slot=group?.weeks?.find(w=>w.week===weekId);
+ // Bloquear si el servidor marca la semana completa o informa de cero plazas.
+ // Si no hay datos fiables de disponibilidad, se aplica cierre preventivo.
+ return !slot || slot.full===true || (slot.remaining!==null && slot.remaining!==undefined && Number(slot.remaining)<=0);
 }
 function availableWeeks(k,ids){return ids.filter(id=>!weekIsFull(k,id));}
 function drawWeeks(container,k,onSelectionChange=()=>{}){
@@ -57,13 +60,13 @@ function drawWeeks(container,k,onSelectionChange=()=>{}){
 
  const calendar=month=>{const year=2027,first=new Date(Date.UTC(year,month,1)),days=new Date(Date.UTC(year,month+1,0)).getUTCDate(),offset=(first.getUTCDay()+6)%7;let cells='';
   for(let i=0;i<offset;i++)cells+='<span class="calendar-empty" aria-hidden="true"></span>';
-  for(let day=1;day<=days;day++){const date=Date.UTC(year,month,day),weekday=new Date(date).getUTCDay(),weekIndex=Math.floor((date-Date.UTC(2027,5,28))/(7*86400000)),active=weekday>=1&&weekday<=5&&weekIndex>=0&&weekIndex<5,weekId=active?weeks[weekIndex][0]:'',selected=active&&k.weeks.includes(weekId),blocked=active&&(!groupData||groupData.weeks?.find(w=>w.week===weekId)?.full===true);
+  for(let day=1;day<=days;day++){const date=Date.UTC(year,month,day),weekday=new Date(date).getUTCDay(),weekIndex=Math.floor((date-Date.UTC(2027,5,28))/(7*86400000)),active=weekday>=1&&weekday<=5&&weekIndex>=0&&weekIndex<5,weekId=active?weeks[weekIndex][0]:'',selected=active&&k.weeks.includes(weekId),blocked=active&&weekIsFull(k,weekId);
    cells+=active?'<button type="button" class="calendar-day '+(blocked?'unavailable':'available')+' '+(selected?'selected':'')+'" data-calendar-week="'+weekId+'" '+(blocked?'disabled':'')+' aria-pressed="'+(selected?'true':'false')+'" aria-label="'+day+' de '+monthNames[month===5?0:1]+', semana '+weekId+(blocked?', completa o disponibilidad no confirmada':'')+'">'+day+'</button>':'<span class="calendar-empty" aria-hidden="true">'+day+'</span>';
   }
   return '<section class="calendar-month"><h5>'+monthNames[month===5?0:1]+' 2027</h5><div class="calendar-grid">'+dow.map(d=>'<span class="calendar-dow">'+d+'</span>').join('')+cells+'</div></section>';
  };
  const months='<div class="calendar-months">'+calendar(5)+calendar(6)+'</div>';
- const checks=weeks.map(([id,d])=>{const blocked=!groupData||groupData.weeks?.find(w=>w.week===id)?.full===true;return '<label class="'+(blocked?'week-unavailable':'')+'"><input type="checkbox" data-w="'+id+'" '+(k.weeks.includes(id)?'checked':'')+' '+(blocked?'disabled':'')+'> '+id+' · '+d+(blocked?' · COMPLETA':'')+'</label>'}).join('');
+ const checks=weeks.map(([id,d])=>{const blocked=weekIsFull(k,id);return '<label class="'+(blocked?'week-unavailable':'')+'"><input type="checkbox" data-w="'+id+'" '+(k.weeks.includes(id)?'checked':'')+' '+(blocked?'disabled':'')+'> '+id+' · '+d+(blocked?' · COMPLETA':'')+'</label>'}).join('');
  container.innerHTML='<div class="campus-calendar"><p class="campus-calendar-title">Calendario de semanas · 2027</p>'+months+'<div class="calendar-legend"><span><i class="calendar-dot"></i> Semana disponible</span><span><i class="calendar-dot selected"></i> Semana seleccionada</span><span><i class="calendar-dot unavailable"></i> Semana completa</span></div><p class="calendar-help">'+(group?'Disponibilidad del grupo '+group+'. Las semanas completas aparecen bloqueadas.':'Introduce primero la fecha de nacimiento para consultar las semanas disponibles.')+'</p></div>'+checks;
  const update=weekId=>{if(weekIsFull(k,weekId))return;k.weeks=k.weeks.includes(weekId)?k.weeks.filter(x=>x!==weekId):weeks.filter(w=>k.weeks.includes(w[0])||w[0]===weekId).map(w=>w[0]);};
  const changed=weekId=>{update(weekId);onSelectionChange();drawKids();calc()};
@@ -204,6 +207,10 @@ $('#verify').onclick=async()=>{
 document.querySelectorAll('.next').forEach((button,index)=>button.addEventListener('click',async()=>{
  if(index===0){const n=Number($('#kidCount').value);if(!Number.isInteger(n)||n<1||n>4){alert('Selecciona el número de menores.');return}initKids();show(1);return}
  if(index===1){
+  // Refrescar el aforo justo antes de avanzar: no confiar en una tabla que haya quedado abierta.
+  try{await loadCampusAvailability()}catch(e){alert('No se ha podido comprobar el aforo. No podemos continuar sin verificar las plazas.');return}
+  const blockedSelection=s.kids.flatMap(k=>k.weeks.filter(week=>weekIsFull(k,week)).map(week=>k.name+' · '+week));
+  if(blockedSelection.length){drawKids();alert('Estas semanas ya están completas para el grupo de edad correspondiente: '+blockedSelection.join(', ')+'. Elige otras semanas disponibles.');return}
   if(!campusRates){
    const originalText=button.textContent;
    button.disabled=true;button.textContent='Cargando tarifas…';
