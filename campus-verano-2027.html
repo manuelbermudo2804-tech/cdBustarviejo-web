@@ -31,7 +31,9 @@ function campusAgeGroup(birth){
 function weekIsFull(k,weekId){
  if(!campusAvailability)return false;
  const ageGroup=campusAgeGroup(k.birth);
- const group=campusAvailability.groups?.find(g=>String(g.label||'').replace(/[–—]/g,'-').includes(ageGroup||'__none__'));
+ // La fecha puede no estar introducida todavía: no bloquear semanas hasta conocer el grupo.
+ if(!ageGroup)return false;
+ const group=campusAvailability.groups?.find(g=>String(g.label||'').replace(/[–—]/g,'-').includes(ageGroup));
  const slot=group?.weeks?.find((w,i)=>w.week===weekId||(!w.week&&campusAvailability.weeks?.[i]===weekId));
  return !slot || slot.full===true || (slot.remaining!==null&&slot.remaining!==undefined&&Number(slot.remaining)<=0);
 }
@@ -67,7 +69,15 @@ function drawKids(){
   const drawPickup=()=>{pickupList.innerHTML='';k.autorizados_recogida.forEach((a,j)=>{const row=document.createElement('div');row.className='health-fields';row.style.marginTop='10px';row.innerHTML='<div class="health-field"><label>Nombre y apellidos *</label><input data-pickup="nombre" placeholder="Nombre completo"></div><div class="health-field"><label>DNI/NIE *</label><input data-pickup="dni" placeholder="Documento de identidad"></div><div class="health-field"><label>Teléfono *</label><input data-pickup="telefono" type="tel" placeholder="600 123 456"></div><div class="health-field"><label>Relación con el menor</label><input data-pickup="parentesco" placeholder="Abuelo/a, tío/a, cuidador/a…"></div><div style="grid-column:1/-1;text-align:right"><button type="button" class="btn pickup-remove" style="color:#b91c1c">Eliminar persona</button></div>';pickupList.append(row);row.querySelectorAll('[data-pickup]').forEach(input=>{input.value=a[input.dataset.pickup]||'';input.oninput=()=>{a[input.dataset.pickup]=input.value;calc()}});row.querySelector('.pickup-remove').onclick=()=>{k.autorizados_recogida.splice(j,1);drawPickup();calc()}})};
   pickup.querySelector('.pickup-add').onclick=()=>{k.autorizados_recogida.push({nombre:'',dni:'',telefono:'',parentesco:''});drawPickup()};
   drawPickup();
-  card.querySelectorAll('[data-k]').forEach(x=>{x.value=k[x.dataset.f]||'';x.oninput=()=>{k[x.dataset.f]=x.value;calc()}});
+  card.querySelectorAll('[data-k]').forEach(x=>{x.value=k[x.dataset.f]||'';x.oninput=()=>{
+   k[x.dataset.f]=x.value;
+   if(x.dataset.f==='birth'&&(i===0||!$('#sameDates').checked)){
+    const dateArea=card.querySelector('.date-area');
+    dateArea.innerHTML='<p class="hint"><b>Semanas elegidas para este menor</b></p><div class="childweeks"></div>';
+    drawWeeks(dateArea.querySelector('.childweeks'),k,()=>{if(i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}});
+   }
+   calc();
+  }});
   const area=card.querySelector('.date-area');
   if(i===0||!$('#sameDates').checked){area.innerHTML='<p class="hint"><b>Semanas elegidas para este menor</b></p><div class="childweeks"></div>';drawWeeks(area.querySelector('.childweeks'),k,()=>{if(i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}})}
   else {area.innerHTML='<div class="hint" style="padding:10px;background:#fff7ef;border-radius:8px">Usa las mismas semanas que el primer menor.</div>'}
