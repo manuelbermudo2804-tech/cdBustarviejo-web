@@ -56,11 +56,14 @@ function drawWeeks(container,k,onSelectionChange=()=>{}){
  const changed=weekId=>{update(weekId);onSelectionChange();drawKids();calc()};
  container.querySelectorAll('[data-calendar-week]').forEach(button=>button.onclick=()=>changed(button.dataset.calendarWeek));
  container.querySelectorAll('[data-w]').forEach(input=>input.onchange=()=>changed(input.dataset.w));
- container.querySelectorAll('[data-waitlist-week]').forEach(input=>input.onchange=()=>{const id=input.dataset.waitlistWeek;k.waitlistWeeks=k.waitlistWeeks||[];k.waitlistWeeks=input.checked?[...new Set([...k.waitlistWeeks,id])]:k.waitlistWeeks.filter(x=>x!==id);if($('#sameDates').checked&&k===s.kids[0])s.kids.slice(1).forEach(other=>other.waitlistWeeks=[...k.waitlistWeeks]);calc()});
+ container.querySelectorAll('[data-waitlist-week]').forEach(input=>input.onchange=()=>{const id=input.dataset.waitlistWeek;k.waitlistWeeks=k.waitlistWeeks||[];k.waitlistWeeks=input.checked?[...new Set([...k.waitlistWeeks,id])]:k.waitlistWeeks.filter(x=>x!==id);if(canShareSameDates()&&$('#sameDates').checked&&k===s.kids[0])s.kids.slice(1).forEach(other=>other.waitlistWeeks=[...k.waitlistWeeks]);calc()});
 }
+let sameDatesEligible=false;
+function canShareSameDates(){return s.kids.length>1&&!!campusAvailability&&s.kids.every(k=>!!campusAgeGroup(k.birth)&&weeks.every(([id])=>!weekIsFull(k,id)));}
+function refreshSameDatesControl(){const eligible=canShareSameDates(),control=$('#sameDates'),card=$('#sameDatesCard');if(eligible&&!sameDatesEligible){control.checked=true;s.kids.slice(1).forEach(k=>{k.weeks=[...s.kids[0].weeks];k.waitlistWeeks=[...(s.kids[0].waitlistWeeks||[])]});}if(!eligible)control.checked=false;card.hidden=!eligible;sameDatesEligible=eligible;return eligible;}
 function drawKids(){
  const box=$('#children');box.innerHTML='';
- $('#sameDatesCard').hidden=s.kids.length<=1;
+ refreshSameDatesControl();
  s.kids.forEach((k,i)=>{
   const card=document.createElement('div');card.className='card';
   card.innerHTML='<h4 style="margin-top:0">Menor '+(i+1)+'</h4><div class="grid"><div class="field"><label>Nombre y apellidos *</label><input data-k="'+i+'" data-f="name" required></div><div class="field"><label>Fecha de nacimiento *</label><input type="date" min="2011-01-01" max="2021-12-31" data-k="'+i+'" data-f="birth" required></div></div><div class="date-area"></div><details class="health-panel" aria-label="Información de salud y emergencia"><summary class="health-heading health-summary"><div><div><span class="health-kicker">SEGURIDAD DEL MENOR</span><h4>❤️ Salud y emergencias</h4><p>Información confidencial para que el equipo pueda atenderle correctamente durante las actividades.</p></div><span class="health-summary-right"><span class="health-private">🔒 PRIVADO</span><span class="health-toggle">＋ ABRIR</span></span></div></summary><div class="health-content"><div class="health-fields"><div class="health-field"><label>Alergias</label><textarea data-k="'+i+'" data-f="alergias" rows="2" placeholder="Indica cuáles o escribe «Ninguna» si no tiene"></textarea></div><div class="health-field"><label>Intolerancias alimentarias</label><textarea data-k="'+i+'" data-f="intolerancias" rows="2" placeholder="Indica cuáles o escribe «Ninguna» si no tiene"></textarea></div><div class="health-field"><label>Medicación habitual</label><textarea data-k="'+i+'" data-f="medicacion" rows="2" placeholder="Medicamento y pautas importantes, si las hay"></textarea></div><div class="health-field"><label>Otras observaciones de salud</label><textarea data-k="'+i+'" data-f="observaciones_medicas" rows="2" placeholder="Cualquier información que debamos conocer"></textarea></div></div><div class="health-emergency"><div class="health-emergency-title">📞 Contacto para una emergencia</div><p>Persona a la que debemos llamar si no conseguimos localizar al responsable.</p><div class="health-fields"><div class="health-field"><label>Nombre y apellidos</label><input data-k="'+i+'" data-f="contacto_emergencia_nombre" autocomplete="name" placeholder="Nombre del contacto"></div><div class="health-field"><label>Teléfono</label><input data-k="'+i+'" data-f="contacto_emergencia_telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="600 123 456"></div></div><div class="health-emergency health-emergency-secondary"><div class="health-emergency-title">📞 Segundo contacto (opcional)</div><p>Otra persona a la que podamos llamar si el primer contacto no está disponible.</p><div class="health-fields"><div class="health-field"><label>Nombre y apellidos</label><input data-k="'+i+'" data-f="contacto_emergencia_2_nombre" autocomplete="name" placeholder="Nombre del segundo contacto"></div><div class="health-field"><label>Teléfono</label><input data-k="'+i+'" data-f="contacto_emergencia_2_telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="600 123 456"></div></div></div></div><p class="health-footnote">Completa únicamente los datos relevantes. Si algún apartado no aplica, puedes dejarlo indicado como «Ninguna».</p></div></details>';
@@ -74,23 +77,27 @@ function drawKids(){
   drawPickup();
   card.querySelectorAll('[data-k]').forEach(x=>{x.value=k[x.dataset.f]||'';x.oninput=()=>{
    k[x.dataset.f]=x.value;
-   if(x.dataset.f==='birth'&&(i===0||!$('#sameDates').checked)){
+   if(x.dataset.f==='birth'){
+    const becameEligible=refreshSameDatesControl();
+    if(becameEligible){drawKids();calc();return;}
+   }
+   if(x.dataset.f==='birth'&&(i===0||!canShareSameDates()||!$('#sameDates').checked)){
     k.weeks=k.weeks.filter(id=>!weekIsFull(k,id));
     k.waitlistWeeks=(k.waitlistWeeks||[]).filter(id=>weekIsFull(k,id));
     const dateArea=card.querySelector('.date-area');
     dateArea.innerHTML='<p class="hint"><b>Semanas elegidas para este menor</b></p><div class="childweeks"></div>';
-    drawWeeks(dateArea.querySelector('.childweeks'),k,()=>{if(i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}});
+    drawWeeks(dateArea.querySelector('.childweeks'),k,()=>{if(canShareSameDates()&&i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}});
    }
    calc();
   }});
   const area=card.querySelector('.date-area');
-  if(i===0||!$('#sameDates').checked){area.innerHTML='<p class="hint"><b>Semanas elegidas para este menor</b></p><div class="childweeks"></div>';drawWeeks(area.querySelector('.childweeks'),k,()=>{if(i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}})}
+  if(i===0||!canShareSameDates()||!$('#sameDates').checked){area.innerHTML='<p class="hint"><b>Semanas elegidas para este menor</b></p><div class="childweeks"></div>';drawWeeks(area.querySelector('.childweeks'),k,()=>{if(i===0&&$('#sameDates').checked){s.kids.slice(1).forEach(other=>other.weeks=[...k.weeks])}})}
   else {area.innerHTML='<div class="hint" style="padding:10px;background:#fff7ef;border-radius:8px">Usa las mismas semanas que el primer menor.</div>'}
  });
  calc();
 }
-function preset(p){s.template=p==='week'?['S1']:p==='alt'?['S1','S3','S5']:p==='fort'?['S1','S2']:p==='month'?['S1','S2','S3','S4']:[];Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.classList.toggle('on',b.dataset.p===p));if(s.kids[0]){s.kids.forEach(k=>{k.weeks=availableWeeks(k,s.template);k.waitlistWeeks=(k.waitlistWeeks||[]).filter(id=>weekIsFull(k,id));});if($('#sameDates').checked)s.kids.slice(1).forEach(k=>{k.weeks=[...s.kids[0].weeks];k.waitlistWeeks=[...s.kids[0].waitlistWeeks]});drawKids()}}
-function initKids(){let n=Number($('#kidCount').value)||1;s.kids=Array.from({length:n},(_,i)=>({name:'',birth:'',weeks:i===0?[...s.template]:[...s.template],alergias:'',intolerancias:'',medicacion:'',observaciones_medicas:'',autorizados_recogida:[],autorizacion_recogida:false,contacto_emergencia_nombre:'',contacto_emergencia_telefono:'',contacto_emergencia_2_nombre:'',contacto_emergencia_2_telefono:'',waitlistWeeks:[]}));drawKids()}
+function preset(p){s.template=p==='week'?['S1']:p==='alt'?['S1','S3','S5']:p==='fort'?['S1','S2']:p==='month'?['S1','S2','S3','S4']:[];Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.classList.toggle('on',b.dataset.p===p));if(s.kids[0]){s.kids.forEach(k=>{k.weeks=availableWeeks(k,s.template);k.waitlistWeeks=(k.waitlistWeeks||[]).filter(id=>weekIsFull(k,id));});if(canShareSameDates()&&$('#sameDates').checked)s.kids.slice(1).forEach(k=>{k.weeks=[...s.kids[0].weeks];k.waitlistWeeks=[...s.kids[0].waitlistWeeks]});drawKids()}}
+function initKids(){sameDatesEligible=false;let n=Number($('#kidCount').value)||1;s.kids=Array.from({length:n},(_,i)=>({name:'',birth:'',weeks:i===0?[...s.template]:[...s.template],alergias:'',intolerancias:'',medicacion:'',observaciones_medicas:'',autorizados_recogida:[],autorizacion_recogida:false,contacto_emergencia_nombre:'',contacto_emergencia_telefono:'',contacto_emergencia_2_nombre:'',contacto_emergencia_2_telefono:'',waitlistWeeks:[]}));drawKids()}
 function norm(x){return String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
 let campusAvailability=null;
 let availabilityPromise=null;
@@ -167,7 +174,7 @@ function calc(){
  $('#summary').innerHTML=html;
 }
 function show(n){s.step=n;$$('.step').forEach((x,i)=>x.classList.toggle('on',i===n));$$('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));if(n===3)$('#review').innerHTML=$('#summary').innerHTML+'<p><b>Condición de socio:</b> '+($('input[name=member]:checked').value==='new'?'Nueva alta de socio adulto · cuota 25 €':$('input[name=member]:checked').value==='yes'?'Ficha de socio verificada':'No solicita alta de socio')+'</p>';$('.shell').scrollIntoView({behavior:'smooth'})}
-Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if($('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>{k.weeks=[...s.kids[0].weeks];k.waitlistWeeks=[...(s.kids[0].waitlistWeeks||[])];});}drawKids()});initKids();
+Array.from(document.querySelectorAll('#presets button')).forEach(b=>b.onclick=()=>preset(b.dataset.p));$('#kidCount').addEventListener('change',initKids);$('#sameDates').addEventListener('change',()=>{if(canShareSameDates()&&$('#sameDates').checked&&s.kids.length){s.kids.slice(1).forEach(k=>{k.weeks=[...s.kids[0].weeks];k.waitlistWeeks=[...(s.kids[0].waitlistWeeks||[])];});}drawKids()});initKids();
 loadCampusRates().catch(()=>{});
 loadCampusAvailability().catch(()=>{});
 $$("input[name=member]").forEach(r=>r.onchange=()=>{$('#verifyBox').hidden=r.value!=='yes';calc()});
