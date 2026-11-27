@@ -78,8 +78,9 @@ function drawKids(){
   card.querySelectorAll('[data-k]').forEach(x=>{x.value=k[x.dataset.f]||'';x.oninput=()=>{
    k[x.dataset.f]=x.value;
    if(x.dataset.f==='birth'){
+    const wasEligible=sameDatesEligible;
     const becameEligible=refreshSameDatesControl();
-    if(becameEligible){drawKids();calc();return;}
+    if(becameEligible||(wasEligible&&!sameDatesEligible)){drawKids();calc();return;}
    }
    if(x.dataset.f==='birth'&&(i===0||!canShareSameDates()||!$('#sameDates').checked)){
     k.weeks=k.weeks.filter(id=>!weekIsFull(k,id));
